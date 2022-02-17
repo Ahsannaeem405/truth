@@ -31,6 +31,9 @@ Route::prefix('admin')->middleware(['auth','admin'])->group(function () {
     Route::get('charity/delete/{id}',[\App\Http\Controllers\AdminController::class,'deleteChairty']);
     Route::get('charity/edit/{id}',[\App\Http\Controllers\AdminController::class,'editChairty']);
     Route::post('charity/update/{id}',[\App\Http\Controllers\AdminController::class,'updateChairty']);
+    Route::get('charity/send/{id}',[\App\Http\Controllers\AdminController::class,'sendCharity']);
+
+    Route::post('stripe/{id}', [\App\Http\Controllers\AdminController::class,'stripePost'])->name('stripe.post');
 
 
 });
@@ -42,10 +45,7 @@ Route::prefix('user')->middleware(['auth','user'])->group(function () {
 });
 
 
-Route::prefix('charity')->middleware(['auth','charity'])->group(function () {
 
-    Route::view('/index','charity.index');
-});
 
 
 Auth::routes();

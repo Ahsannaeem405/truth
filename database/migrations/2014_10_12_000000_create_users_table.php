@@ -18,7 +18,6 @@ class CreateUsersTable extends Migration
             $table->string('f_name')->nullable();
             $table->string('l_name')->nullable();
             $table->string('username')->nullable();
-            $table->string('paypalEmail')->nullable();
             $table->string('stripePublic')->nullable();
             $table->string('stripeSecret')->nullable();
             $table->string('role')->nullable();

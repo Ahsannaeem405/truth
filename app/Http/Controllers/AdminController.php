@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Stripe;
 
 class AdminController extends Controller
 {
@@ -41,14 +42,14 @@ class AdminController extends Controller
 
 
         $charity=new User();
-        $charity->f_name=$request->f_name;
-        $charity->l_name=$request->l_name;
         $charity->email=$request->email;
         $charity->phone=$request->phone;
         $charity->username=$request->username;
         $charity->address=$request->address;
+        $charity->stripePublic=$request->stripePublic;
+        $charity->stripeSecret=$request->stripeSecret;
         $charity->role='charity';
-        $charity->password=Hash::make($request->password);
+        $charity->password=Hash::make('password12345678');
         $charity->about=$request->about;
         $charity->save();
 
@@ -76,21 +77,48 @@ class AdminController extends Controller
         ]);
 
 
-        $charity->f_name=$request->f_name;
-        $charity->l_name=$request->l_name;
         $charity->email=$request->email;
         $charity->phone=$request->phone;
         $charity->username=$request->username;
         $charity->address=$request->address;
+        $charity->stripePublic=$request->stripePublic;
+        $charity->stripeSecret=$request->stripeSecret;
         $charity->role='charity';
-        if($request->password!=null)
-        {
-            $charity->password=Hash::make($request->password);
-        }
+        $charity->password=Hash::make('password12345678');
         $charity->about=$request->about;
         $charity->save();
 
         return back()->with('success','Charity updated successfully');
+    }
+
+
+    public function sendCharity($id)
+    {
+
+        $charity=User::find($id);
+  return view('admin.charity.send',compact('charity'));
+    }
+
+    public function stripePost(Request $request,$id)
+    {
+        try {
+            $charity=User::find($id);
+            Stripe\Stripe::setApiKey($charity->stripeSecret);
+            Stripe\Charge::create ([
+                "amount" => $charity->coin * 100,
+                "currency" => "usd",
+                "source" => $request->stripeToken,
+                "description" => "Truth Payment"
+            ]);
+
+            $charity->coin=0;
+            $charity->save();
+            return back()->with('success','Payment Send successfully');
+        }
+        catch (\Exception $exception){
+            return back()->with('error',$exception->getMessage());
+        }
+
     }
 
 }

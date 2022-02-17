@@ -39,10 +39,6 @@ class RegisterController extends Controller
         elseif (auth()->user()->role== 'admin') {
             return '/admin/index';
         }
-        elseif (auth()->user()->role== 'charity') {
-            return '/charity/index';
-        }
-
 
         return redirect()->back()->withError('whoops! You are not authorized to visit this link.');
 

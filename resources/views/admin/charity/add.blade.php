@@ -44,7 +44,7 @@
                     </div>
                     <div class="card-content">
                         <div class="card-body">
-                            <form action="{{url('admin/charity/store')}}" method="post" >
+                            <form action="{{url('admin/charity/store')}}" method="post">
 
                                 @csrf
 
@@ -52,32 +52,17 @@
                                 <div class="row">
 
 
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="lastName3">
-                                                First  Name
-                                            </label>
-                                            <input type="text" value="{{old('f_name')}}" class="form-control " required id="lastName3" name="f_name">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="lastName3">
-                                                Last  Name
-                                            </label>
-                                            <input type="text" value="{{old('l_name')}}" class="form-control " required id="lastName3" name="l_name">
-                                        </div>
-                                    </div>
+
 
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="lastName3">
-                                               username
+                                                Charity Name
                                             </label>
-                                            <input type="text" value="{{old('username')}}" class="form-control " required id="lastName3" name="username">
+                                            <input type="text" value="{{old('username')}}" class="form-control "
+                                                   required id="lastName3" name="username">
                                         </div>
                                     </div>
-
 
 
                                     <div class="col-md-6">
@@ -85,7 +70,8 @@
                                             <label for="emailAddress5">
                                                 Email
                                             </label>
-                                            <input type="email" class="form-control " value="{{old('email')}}"  required id="emailAddress5" name="email">
+                                            <input type="email" class="form-control " value="{{old('email')}}" required
+                                                   id="emailAddress5" name="email">
                                             @if($errors->has('email'))
                                                 <span style="color: red">
                                         <strong>{{$errors->first('email')}}</strong>
@@ -95,42 +81,58 @@
                                     </div>
 
 
-
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="emailAddress67">
                                                 phone
                                             </label>
-                                            <input type="number" class="form-control " value="{{old('phone')}}" required id="emailAddress67" name="phone">
+                                            <input type="number" class="form-control " value="{{old('phone')}}" required
+                                                   id="emailAddress67" name="phone">
                                         </div>
                                     </div>
+
 
 
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="emailAddress67">
-                                                address
+                                                Address
                                             </label>
-                                            <input type="text" class="form-control " value="{{old('address')}}" required id="emailAddress67" name="address">
+                                            <input type="text" class="form-control " value="{{old('address')}}" required
+                                                   id="emailAddress67" name="address">
                                         </div>
                                     </div>
-
 
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="age">
-                                                password
+                                            <label for="emailAddress67">
+                                                Stripe Public Key
                                             </label>
-                                            <input type="password" class="form-control " required id="age" name="password">
+                                            <input type="text" class="form-control " value="{{old('stripePublic')}}" required
+                                                   id="emailAddress67" name="stripePublic">
                                         </div>
                                     </div>
+
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="emailAddress67">
+                                                Stripe Secret Key
+                                            </label>
+                                            <input type="text" class="form-control " value="{{old('stripeSecret')}}" required
+                                                   id="emailAddress67" name="stripeSecret">
+                                        </div>
+                                    </div>
+
+
+
 
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label for="emailAddress67">
                                                 About
                                             </label>
-                                            <textarea  class="form-control " required id="emailAddress67" name="about"></textarea>
+                                            <textarea class="form-control " required id="emailAddress67"
+                                                      name="about"></textarea>
                                         </div>
                                     </div>
 
@@ -142,8 +144,6 @@
                                     </div>
 
                                 </div>
-
-
 
 
                             </form>
