@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('dashboard')
-active
+    active
 @endsection
 
 @section('css')
@@ -49,3 +49,4 @@ active
 
 
 @endsection
+
