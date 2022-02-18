@@ -82,7 +82,11 @@
                                                                 style="color: red" class="fa fa-trash"></i></a>
 
 
-                                                        <a class="p-1" href="{{url('admin/charity/edit/'.$charity->id.'')}}"> <i style="color: blue" class="fa fa-edit"></i></a>
+                                                        <a  href="{{url('admin/charity/edit/'.$charity->id.'')}}"> <i style="color: blue" class="fa fa-edit"></i></a>
+                                                        <a  href="{{url('admin/charity/send/'.$charity->id.'')}}"> <i style="color: green" class="fa fa-money"></i></a>
+
+
+
                                                     </td>
                                                 </tr>
 

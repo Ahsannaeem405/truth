@@ -16,7 +16,7 @@
                         <a class="dropdown-toggle nav-link dropdown-user-link" href="#" data-toggle="dropdown">
                             <div class="user-nav d-sm-flex d-none"><span
                                     class="user-name text-bold-600">Profile</span><span
-                                    class="user-status text-success">{{'sufi'}}</span></div>
+                                    class="user-status text-success">{{\Illuminate\Support\Facades\Auth::user()->f_name}}</span></div>
                             <span><img class="round" src="{{asset('image/img_avatar.png')}}" alt="avatar" height="40" width="40"></span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right">

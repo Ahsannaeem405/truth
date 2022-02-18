@@ -30,7 +30,7 @@
 @endsection
 
 @section('title')
-    Arabian Fashion
+    Dashboard
 @endsection
 
 @section('content')

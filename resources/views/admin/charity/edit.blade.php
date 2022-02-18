@@ -52,27 +52,12 @@
                                 <div class="row">
 
 
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="lastName3">
-                                                First  Name
-                                            </label>
-                                            <input value="{{$charity->f_name}}" type="text" class="form-control " required id="lastName3" name="f_name">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="lastName3">
-                                                Last  Name
-                                            </label>
-                                            <input  value="{{$charity->l_name}}" type="text" class="form-control " required id="lastName3" name="l_name">
-                                        </div>
-                                    </div>
+
 
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="lastName3">
-                                               username
+                                               Charity Name
                                             </label>
                                             <input value="{{$charity->username}}" type="text" class="form-control " required id="lastName3" name="username">
                                         </div>
@@ -119,10 +104,21 @@
 
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="age">
-                                                password
+                                            <label for="emailAddress67">
+                                                Stripe Public Key
                                             </label>
-                                            <input type="password" class="form-control "  id="age" name="password">
+                                            <input type="text" class="form-control " value="{{$charity->stripePublic}}" required
+                                                   id="emailAddress67" name="stripePublic">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="emailAddress67">
+                                                Stripe Secret Key
+                                            </label>
+                                            <input type="text" class="form-control " value="{{$charity->stripeSecret}}" required
+                                                   id="emailAddress67" name="stripeSecret">
                                         </div>
                                     </div>
 

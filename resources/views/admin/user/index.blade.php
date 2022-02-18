@@ -54,6 +54,7 @@
                                                 <th>Name</th>
                                                 <th>Email</th>
                                                 <th>Username</th>
+                                                <th>Balance</th>
                                                 <th>Created Date</th>
                                                 <th>Action</th>
                                             </tr>
@@ -67,6 +68,7 @@
                                                     <td>{{$user->f_name.' '. $user->l_name}}</td>
                                                     <td>{{$user->email}}</td>
                                                     <td>{{$user->username}}</td>
+                                                    <td>{{$user->coin}}</td>
                                                     <td>{{$user->created_at}}</td>
                                                     <td>
 
