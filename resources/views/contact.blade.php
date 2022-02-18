@@ -63,141 +63,93 @@
     </ul>
   </div>
 </nav>
-<section class="hero-section">
-  <div class="container">
-    <div class="row"> 
-      <div class="col-12">
-        <div class="hero-details text-center">
-          <h2>We help people in need</h2>
-          <h3>around the world</h3>
-          <button class="hero-btn">Get Start</button>
-        </div>
-      </div>
-    </div>
-    <div>
-</section>
-<section class="howitwork my-5">
-  <div class="container">
-    <div class="row">
-        <div class="col-12">
-          <h3> How It Works</h3>
-        </div>
-    </div>
-    <div class="row my-5">
-        <div class="col-6 col-md-3">
-          <div class="howitworks-icons mt-4 text-center ">
-            <img src="{{ asset('/image/icon1.png')}}"/>
-            <i class="icofont-ui-user"></i>
-          </div>
-          <p class="text-center mt-3">Create an account</p>
-        </div>
-        <div class="col-6 col-md-3">
-          <div class="howitworks-icons mt-4 text-center">
-            <img src="{{ asset('/image/icon_2.png')}}"/>
-            <i class="icofont-pay"></i>
-          </div>
-          <p class="text-center mt-3">Add Credit</p>
-        </div>
-        <div class="col-6 col-md-3">
-            <div class="howitworks-icons mt-4 text-center">
-              <img src="{{ asset('/image/icon_3.png')}}"/>
-              <i class="icofont-navigation"></i>
+
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="#">Home</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Contact us</li>
+  </ol>
+</nav>
+
+<div class="contact-us">
+    <div class="container py-5">
+        <div class="row">
+            <div class="col-12">
+                <h1 class="px-5">Contact us</h1>
+                <p class="px-5">
+                Proin Gravida Nibh Vel Velit Auctor Aliquet. Aenean Sollicitudin, 
+                Lorem Quis Bibendum Auctor, Nisi Elit Consequat Ipsum, Nec Sagittis 
+                Sem Nibh Id Elit.
+                </p>
             </div>
-            <p class="text-center mt-3">Select Risk</p>
+        </div>
+        <div class="row py-4">
+            <div class="col-7">
+                <h3>Drop Us a Message</h3>
+                <form class="py-4">
+                    <div class="row py-2">
+                        <div class="col">
+                        <input type="text" class="form-control" placeholder="Your Name" required>
+                        </div>
+                        <div class="col">
+                        <input type="email" class="form-control" placeholder="Your email" required>
+                        </div>
+                    </div>
+                    <div class="row py-2">
+                        <div class="col">
+                        <input type="text" class="form-control" placeholder="Subject" required>
+                        </div>
+                    </div>
+                    <div class="row py-2">
+                        <div class="col">
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="5" placeholder="Your Message"></textarea>
+                        </div>
+                    </div>
+                    <div class="row py-2">
+                        <div class="col">
+                            <button class="submit-formbtn">Submit</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
             
-        </div>
-        <div class="col-6 col-md-3">
-          <div class="howitworks-icons mt-4 text-center">
-            <img src="{{ asset('/image/icon_4.png')}}"/>
-            <i class="icofont-dart"></i>
-          </div>
-          <p class="text-center mt-3">Spin</p>
+            <div class="col-5">
+                <div class="conatc-info">
+                    <h3>CONTACT INFO</h3>
+                    <p>Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non 
+                        mauris vitae erat consequat auctor eu in elit. Class aptent taciti 
+                        sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+                    </p>
+                    <ul>
+                        <li class="d-flex align-items-center my-3">
+                        <i class="icofont-location-pin p-2"></i>
+                            <p>13/2 Elizabeth St, Melbourne VIC 3000, pakistan</p>
+                        </li>
+                        <li class="d-flex align-items-center my-3">
+                        <i class="icofont-phone p-2"></i>
+                            <p> +92 123 456 789</p>
+                        </li>
+                        <li class="d-flex align-items-center my-3">
+                        <i class="icofont-ui-message p-2"></i>
+                            <p>abcuser@xyz.com</p>
+                        </li>
+                        <li class="d-flex align-items-center my-3">
+                        <i class="icofont-web p-2"></i>
+                            <p>www.xyz.com</p>
+                        </li>
+                    </ul>
+                </div>
+                
+            </div>
         </div>
     </div>
-  </div>
-</section>
-<section class="our-team py-5">
-    <div class="container">
-      <div class="row d-flex justify-content-center py-3">
-        <div class="col-lg-10 col-12 text-center">
-          <h3>
-          We are Awesome Volounteer Team
-          </h3>
-          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-             Corporis fugit commodi eaque quo quos nobis natus at pariatur 
-             accusamus placeat, inventore sequi, vero ratione veniam velit
-              nisi distinctio ex ipsam?</p>
-              <button class="join-usbtn mt-4">Join Us Now!</button>
-        </div>
-      </div>
+</div>
+<div class="contact-map">
+    <div class="container-fluid p-0">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d54415.301320469494!2d74.35517046540528!3d31.52535927214375!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391905a115593fa5%3A0x18ecc12af8614cc6!2sDeSOM%20(Services%20Club)!5e0!3m2!1sen!2s!4v1645186174704!5m2!1sen!2s" width="100%" height="550" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
     </div>
-</section>
-
-<section class="whatwedo">
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-lg-8 col-md-12 col-12 d-flex justify-content-center align-items-center">
-        <div class="px-1 px-ld-5 mx-1 mx-md-5 py-5">
-          <div>
-          <h6>What we Did</h6>
-          <h3>Our Projects</h3>
-          <p>Sharksucker sea toad candiru rocket danio tilefish stingray 
-            deepwater stingray Sacramento splittail, Canthigaster rostrata.
-            Midshipman dartfish Modoc sucker, yellowtai</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-6 col-12  p-0">
-        <div class="our-project">
-            <img src="{{ asset('/image/projects1.jpg')}}"/>
-            <div class="project-details">
-              <span style="background-color: green">Education</span>
-              <h3>Help for Children of the East</h3>
-              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
-                Nam mollitia dicta maxime officia doloribus quod illum iusto </p>
-            </div>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-6 col-12  p-0">
-        <div class="our-project">
-            <img src="{{ asset('/image/projects2.jpg')}}"/>
-            <div class="project-details">
-              <span  style="background-color: #49C2DF">Water Delivery</span>
-              <h3>Help for Children of the East</h3>
-              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
-                Nam mollitia dicta maxime officia doloribus quod illum iusto </p>
-            </div>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-6 col-12  p-0">
-        <div class="our-project">
-            <img src="{{ asset('/image/projects3.jpg')}}"/>
-            <div class="project-details">
-              <span  style="background-color:#F8AC3A;">Food</span>
-              <h3>Help for Children of the East</h3>
-              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
-                Nam mollitia dicta maxime officia doloribus quod illum iusto </p>
-            </div>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-6 col-12 p-0">
-        <div class="our-project">
-            <img src="{{ asset('/image/projects4.jpg')}}"/>
-            <div class="project-details">
-              <span style="background-color: #F36F8F">Education</span>
-              <h3>Help for Children of the East</h3>
-              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
-                Nam mollitia dicta maxime officia doloribus quod illum iusto </p>
-            </div>
-        </div>
-      </div>
-      
-
-
-    </div>
-  </div>
-</section>
-    <footer class="main-footer py-2 py-md-5">
+</div>
+<footer class="main-footer py-2 py-md-5">
       <div class="container">
         <div class="row">
           <div class="col-lg-4 col-12 text-center">
@@ -255,8 +207,8 @@
               </div>
           </div>
         </div>
-      </div>
-    </footer>
+    </div>
+</footer>
 
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

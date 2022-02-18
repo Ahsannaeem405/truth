@@ -16,6 +16,15 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('auth.login');
 });
+Route::get('/home2', function () {
+    return view('home');
+});
+Route::get('/contactus', function () {
+    return view('contact');
+});
+Route::get('/aboutus', function () {
+    return view('about');
+});
 
 Route::prefix('admin')->middleware(['auth','admin'])->group(function () {
 
