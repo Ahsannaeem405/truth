@@ -1,3 +1,5 @@
+@include('layouts.header')
+@extends('layouts.footer')
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,52 +23,9 @@
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg ">
-
-    <a class="navbar-brand" href="#">
-      <img src="{{ asset('/image/logo.png')}}" alt="logo" class="img-fluid"/>
-    </a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav first-nav-bar mx-auto">
-      <li class="nav-item">
-        <a class="nav-link" href="#">Home</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">About Us</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Contact us</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Acount</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Spiner</a>
-      </li>
-    </ul>
-    <ul class="navbar-nav ml-auto second-nav-bar">
-      <li class="nav-item">
-        <a class="nav-link login-link" href="#">Login</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link register-link" href="#"><i class="fa-solid fa-arrow-right-from-bracket mx-2"></i>Sign Up</a> 
-      </li>
-      <li class="nav-item">
-        <a class="nav-link profile-link" href="#">
-        <i class="fa fa-user" aria-hidden="true"></i>
-        </a> 
-      </li>
-    </ul>
-  </div>
-</nav>
-
 <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="#">Home</a></li>
+    <li class="breadcrumb-item"><a href="{{url('home2')}}">Home</a></li>
     <li class="breadcrumb-item active" aria-current="page">Contact us</li>
   </ol>
 </nav>
@@ -149,7 +108,7 @@
     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d54415.301320469494!2d74.35517046540528!3d31.52535927214375!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391905a115593fa5%3A0x18ecc12af8614cc6!2sDeSOM%20(Services%20Club)!5e0!3m2!1sen!2s!4v1645186174704!5m2!1sen!2s" width="100%" height="550" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
     </div>
 </div>
-<footer class="main-footer py-2 py-md-5">
+<!-- <footer class="main-footer py-2 py-md-5">
       <div class="container">
         <div class="row">
           <div class="col-lg-4 col-12 text-center">
@@ -208,7 +167,7 @@
           </div>
         </div>
     </div>
-</footer>
+</footer> -->
 
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

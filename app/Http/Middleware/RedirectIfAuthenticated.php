@@ -24,7 +24,7 @@ class RedirectIfAuthenticated
         foreach ($guards as $guard) {
             if (Auth::guard($guard)->check()) {
                     if (auth()->user()->role== 'user') {
-                        return redirect('/user/index');
+                        return redirect('/login-home');
                     }
                     elseif (auth()->user()->role== 'admin') {
                         return redirect('/admin/index');
