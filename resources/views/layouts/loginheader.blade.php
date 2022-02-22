@@ -30,7 +30,7 @@
     <a class="nav-link" href="#">Acount</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="#">Spiner</a>
+    <a class="nav-link" href="{{url('/charityscreen')}}">Spiner</a>
   </li>
   <li class="nav-item">
     <a class="nav-link" href="{{url('stripescreen')}}">Buy</a>

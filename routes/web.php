@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -64,12 +65,14 @@ Route::prefix('user')->middleware(['auth','user'])->group(function () {
 
 
 Auth::routes();
+Route::get('/spinnerscreen',      [HomeController::class, 'spinnerScreen'])->name('spinnerScreen');
+Route::get('/stripescreen',       [HomeController::class, 'stripeScreen'])->name('stripeScreen');
+Route::post('/paymentstore',      [HomeController::class, 'stripePayment'])->name('stripePayment');
+Route::get('/charityscreen',      [HomeController::class,'chairtyScreen'])->name('chairtyscreen');
+Route::get('/add/charity',        [HomeController::class,'addChairtyScreen'])->name('addchairtyscreen');
+Route::post('/store/charity',     [HomeController::class,'storeChairty'])->name('storeChairty');
 
-Route::get('/stripescreen',[App\Http\Controllers\HomeController::class, 'stripeScreen'])->name('stripeScreen');
-Route::post('/paymentstore',[App\Http\Controllers\HomeController::class, 'stripePayment'])->name('stripePayment');
-
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home',               [HomeController::class, 'index'])->name('home');
 
 Route::get('/logout', function () {
 \Illuminate\Support\Facades\Auth::logout();
