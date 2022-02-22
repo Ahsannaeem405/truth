@@ -20,6 +20,15 @@ Route::get('/', function () {
 Route::get('/home2', function () {
     return view('home');
 });
+Route::get('/history', function () {
+    return view('history');
+});
+Route::get('/spinner', function () {
+    return view('spins');
+});
+Route::get('/account', function () {
+    return view('account');
+});
 Route::get('/login-home', function () {
     return view('loginhome');
 });
