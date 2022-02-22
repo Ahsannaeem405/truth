@@ -30,7 +30,7 @@
   </ol>
 </nav>
 
-                <div id="mobile-sidebar">
+                <div id="mobile-sidebar" class="d-block d-lg-none">
                     <div class="user-sidebar">      
                         <ul class="">     
                             <li>
@@ -84,7 +84,7 @@
             </div>
             <div class="col-lg-9 col-12">
                 <div class="our-balance mt-5 w-100 d-flex justify-content-between align-items-center">
-                    <span class="" onclick={showmenu()}><i class="icofont-navigation-menu d-block d-lg-none"></i></span>
+                    <span class="" onclick="showmenu()"><i class="icofont-navigation-menu d-block d-lg-none"></i></span>
                     <p class="text-lg-right">Balance: <span class="mx-2">0.10$</span></p>
                 </div>
                 <div class="our-spins mt-3">
@@ -161,11 +161,17 @@
 <script>
         function showmenu(){
             var menu = document.getElementById("mobile-sidebar").style;
-            console.log("menu", menu)
-            if(menu.left>100px){
+            if(menu.left === ""){
                 menu.left = 0 + "px";
             }
+            else if(menu.left === "-250px"){
+                menu.left = 0 + "px";
+            }
+            else{
+                menu.left = -250 + "px";
+            }
         }
+        
     </script>
 </body>
 </html>

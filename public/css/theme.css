@@ -415,13 +415,15 @@ color: #4a4c70;
     color: #4a4c70;
 }
 .user-sidebar{
-    margin-top: 100px;
+    margin-top: 110px;
+    box-shadow: 0px 0px 15px rgba(0,0,0,0.5);
+    border-radius: 8px;
+    height: 500px;
 }
 .user-sidebar ul{
     list-style: none;
     margin: 0;
     padding: 0;
-    box-shadow: 0px 0px 15px rgba(0,0,0,0.5);
     border-radius: 8px;
 }
 .user-sidebar ul li{
@@ -540,6 +542,13 @@ padding: 0px 20px;
 
 /* mobile side bar */
 #mobile-sidebar{
+    background-color: white;
     position: absolute;
     left: -250px;
+    transition: 0.5s;
+    z-index: 10;
+    top: 370px;
+}
+#mobile-sidebar .user-sidebar{
+    margin-top: 0;
 }

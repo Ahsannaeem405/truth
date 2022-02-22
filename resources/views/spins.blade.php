@@ -77,7 +77,7 @@
   </ol>
 </nav>
 
-<div id="mobile-sidebar">
+<div id="mobile-sidebar" class="d-block d-lg-none">
                     <div class="user-sidebar">      
                         <ul class="">     
                             <li>
@@ -300,6 +300,21 @@
             }
             return array;
         }
+    </script>
+    <script>
+        function showmenu(){
+            var menu = document.getElementById("mobile-sidebar").style;
+            if(menu.left === ""){
+                menu.left = 0 + "px";
+            }
+            else if(menu.left === "-250px"){
+                menu.left = 0 + "px";
+            }
+            else{
+                menu.left = -250 + "px";
+            }
+        }
+        
     </script>
 </body>
 </html>
