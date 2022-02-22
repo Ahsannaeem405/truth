@@ -408,3 +408,138 @@ color: #4a4c70;
     background-repeat: no-repeat;
     background-size: 100% 100%;
 }
+
+/* Account page */
+.my-account h2{
+    font-size: 42px;
+    color: #4a4c70;
+}
+.user-sidebar{
+    margin-top: 100px;
+}
+.user-sidebar ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    box-shadow: 0px 0px 15px rgba(0,0,0,0.5);
+    border-radius: 8px;
+}
+.user-sidebar ul li{
+    font-size: 18px;
+    padding: 15px 25px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    color: #4a4c70;
+}
+.user-sidebar ul li:first-child{
+    border-radius: 8px 8px 0px 0px;
+}
+.user-sidebar ul li:last-child{
+    border-radius: 0px 0px 8px 8px;
+}
+.user-sidebar ul li:hover{
+    background-color: #0996A3;
+    color: white;
+}
+.user-sidebar ul li:hover a{
+    color: white;
+}
+.user-sidebar ul li a{
+    text-decoration: none;
+    color: #0996A3;
+}
+.user-sidebar ul li.active{
+    background-color: #0996A3;
+}
+.user-sidebar ul li.active a{
+    color: white;
+}
+.our-balance p{
+    font-size: 20px;
+    font-weight: 500;
+}
+.our-spins{
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+    padding: 30px;
+    border-radius: 5px;
+}
+.our-spins h3{
+    font-size: 32px;
+    color: #0996A3;
+}
+.our-spain-card .card-img-top{
+    width: 160px;
+    height: auto;
+}
+.card.our-spain-card{
+    border: none;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+}
+.our-spain-card .card-body{
+    padding: 0px 10px 5px 10px;
+}
+.our-spain-card ul li{
+    color: #0996A3;
+}
+
+/* account setting */
+.pic-edit{
+    width: 75px;
+    height: 75px;
+    border: 3px solid #0996A3;
+    border-radius: 28px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+.pic-edit img{
+    width: 100%;
+    height: 100%;
+    border-radius: 25px;
+    object-fit: cover;
+}
+.profile-edit{
+    padding: 10px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+.addmore-img {
+    position: absolute;
+    right: -5px;
+    top: 55px;
+    background-color: #0996A3;
+    color: white;
+    padding: 5px;
+    border-radius: 25px;
+    font-size: 12px;
+    cursor: pointer;
+}
+.about-profile-setting{
+padding: 0px 20px;
+}
+.upload-profile{
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    padding: 5px 15px;
+    color: #0996A3;
+    background-color: transparent;
+    border-radius: 8px;
+}
+.our-spins label{
+    font-size: 18px;
+    color: rgba(0, 0, 0, 0.5);
+}
+.our-spins input{
+    border-radius: 8px;
+    padding: 8px;
+}
+.our-spins input:focus{
+    box-shadow: none;
+    border: 1px solid #0996A3;
+}
+.our-spins .submit-account{
+    background-color: #0996A3;
+    color: white;
+}
+
+/* mobile side bar */
+#mobile-sidebar{
+    position: absolute;
+    left: -250px;
+}

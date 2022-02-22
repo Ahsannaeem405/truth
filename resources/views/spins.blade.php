@@ -1,12 +1,25 @@
-@extends('layouts.main')
+@include('layouts.header')
+@extends('layouts.footer')
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-
-@section('dashboard')
-active
-@endsection
-
-@section('css')
-
+    <!-- font-awesome -->
+    <script src="https://kit.fontawesome.com/9838783293.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{{asset('icofont/icofont.min.css')}}">
+    
+    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>  
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('/css/theme.css') }}">
+    <title>Account page</title>
     <style>
 
         ul {
@@ -20,22 +33,25 @@ active
         }
         text{
         font-family:Helvetica, Arial, sans-serif;
-        font-size:16px;
+        font-size:22px;
         pointer-events:none;
+        color: white;
         }
         #chart{
             position:absolute;
             width:500px;
             height:500px;
-            top:0;
-            left:0;
+            top:25px;
+            left:50%;
+            transform: translate(-50%,0);
         }
         #question{
             position: absolute;
             width:400px;
             height:500px;
-            top:0;
-            left:520px;
+            top:310px;
+            left:50%;
+            transform:translate(-10%, 0);
         }
         #question h1{
             font-size: 50px;
@@ -51,41 +67,96 @@ active
 
 
     </style>
+</head>
+<body>
 
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="{{url('home2')}}">Home</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Account</li>
+  </ol>
+</nav>
 
+<div id="mobile-sidebar">
+                    <div class="user-sidebar">      
+                        <ul class="">     
+                            <li>
+                               <a href="#"><i class="icofont-spinner-alt-3 px-2"></i>Spin Now</a>
+                            </li>
+                            <li class="active">
+                               <a href="#"><i class="icofont-ui-user px-2"></i>My account</a>
+                            </li>
+                            <li>
+                               <a href="#"><i class="icofont-credit-card px-2"></i>Add Credit</a>
+                            </li>
+                            <li >
+                               <a href="#"><i class="icofont-history px-2"></i>Markup History</a>
+                            </li>
+                            <li>
+                               <a href="#"><i class="icofont-sign-out px-2"></i>Log Out</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
 
-@endsection
-
-
-@section('heading')
-    Dashboard
-@endsection
-
-@section('title')
-    Arabian Fashion
-@endsection
-
-@section('content')
-
-
-
-    <main>
-        <div class="content-body">
-            <div class="container">
-                <div class="row d-flex justify-content-center">
-                    <div class="col-6 d-flex justify-content-center">
-                    <div id="chart"></div>
-                    <div id="question"><h1></h1></div>
-    
-                    <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
-
+<div class="my-account py-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="text-center">My Account</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-3 d-none d-lg-block">
+                    <div class="user-sidebar">
+                        <ul class="">
+                           
+                            <li class="active">
+                               <a href="#"><i class="icofont-spinner-alt-3 px-2"></i>Spin Now</a>
+                            </li>
+                            <li>
+                               <a href="#"><i class="icofont-ui-user px-2"></i>My account</a>
+                            </li>
+                            <li>
+                               <a href="#"><i class="icofont-credit-card px-2"></i>Add Credit</a>
+                            </li>
+                            <li >
+                               <a href="#"><i class="icofont-history px-2"></i>Markup History</a>
+                            </li>
+                            <li>
+                               <a href="#"><i class="icofont-sign-out px-2"></i>Log Out</a>
+                            </li>
+                        </ul>
+                    </div>
+            </div>
+            <div class="col-9">
+                <div class="our-balance mt-5 w-100 d-flex justify-content-between align-items-center">
+                    <span class="" onclick={showmenu()}><i class="icofont-navigation-menu d-block d-lg-none"></i></span>
+                    <p class="text-lg-right">Balance: <span class="mx-2">0.10$</span></p>
+                </div>
+                <div class="our-spins mt-3" style="height:650px">
+                    <div class="row justify-content-center">
+                       <div class="col-10">
+                           <div>
+                               <h3 class="text-center">Spinner</h3>
+                           </div>
+                            <div id="chart"></div>
+                            <div id="question"><h1></h1></div>
+                            <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+                       </div>
                     </div>
                 </div>
             </div>
         </div>
-    </main>
+    </div>
+</div>
 
-    <script>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+<script>
         var padding = {top:20, right:40, bottom:0, left:0},
             w = 500 - padding.left - padding.right,
             h = 500 - padding.top  - padding.bottom,
@@ -209,15 +280,12 @@ active
             .text("SPIN")
             .style({"font-weight":"bold", "font-size":"30px"});
         
-        
         function rotTween(to) {
           var i = d3.interpolate(oldrotation % 360, rotation);
           return function(t) {
             return "rotate(" + i(t) + ")";
           };
         }
-        
-        
         function getRandomNumbers(){
             var array = new Uint16Array(1000);
             var scale = d3.scale.linear().range([360, 1440]).domain([0, 100000]);
@@ -233,4 +301,5 @@ active
             return array;
         }
     </script>
-@endsection
+</body>
+</html>

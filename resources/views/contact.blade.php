@@ -19,7 +19,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('/css/theme.css') }}">
-    <title>Home page</title>
+    <title>Contact us</title>
 </head>
 <body>
 
