@@ -15,30 +15,33 @@ use App\Http\Controllers\HomeController;
 */
 
 Route::get('/', function () {
-    return view('auth.login');
-});
-Route::get('/home2', function () {
     return view('home');
 });
-Route::get('/history', function () {
+
+Route::get('/user-history', function () {
     return view('history');
 });
-Route::get('/spinner', function () {
+Route::get('/spin', function () {
     return view('spins');
 });
 Route::get('/account', function () {
     return view('account');
 });
-Route::get('/login-home', function () {
-    return view('loginhome');
-});
-Route::get('/contactus', function () {
+
+Route::get('/contact', function () {
     return view('contact');
 });
-Route::get('/aboutus', function () {
+Route::get('/user-account', function () {
+    return view('account');
+});
+Route::get('/dashboard', function () {
+    return view('account');
+});
+
+Route::get('/about', function () {
     return view('about');
 });
-Route::get('login1', function () {
+Route::get('login', function () {
     return view('auth.login');
 });
 Route::get('signup', function () {
@@ -85,5 +88,5 @@ Route::get('/home',               [HomeController::class, 'index'])->name('home'
 
 Route::get('/logout', function () {
 \Illuminate\Support\Facades\Auth::logout();
-return redirect('/home2');
+return redirect('/');
 });

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,36 +17,56 @@
 </button>
 
 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-<ul class="navbar-nav first-nav-bar mx-auto">
-  <li class="nav-item">
-    <a class="nav-link" href="{{url('home2')}}">Home</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="{{url('aboutus')}}">About Us</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="{{url('contactus')}}">Contact us</a>
-  </li>
-  <!-- <li class="nav-item">
-    <a class="nav-link" href="#">Acount</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#">Spiner</a>
-  </li> -->
-</ul>
-<ul class="navbar-nav ml-auto second-nav-bar">
-  <li class="nav-item">
-    <a class="nav-link login-link" href="{{url('login1')}}">Login</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link register-link" href="{{url('signup')}}"><i class="fa-solid fa-arrow-right-from-bracket mx-2"></i>Sign Up</a> 
-  </li>
-  <!-- <li class="nav-item">
-    <a class="nav-link profile-link" href="#">
-    <i class="fa fa-user" aria-hidden="true"></i>
-    </a> 
-  </li> -->
-</ul>
+@auth
+  <ul class="navbar-nav first-nav-bar mx-auto">
+    <li class="nav-item">
+      <a href="{{url('dashboard')}}"><button type="button" class="btn btn-success">Dashboard</button></a>
+    </li>  
+    <li class="nav-item">
+      <a class="nav-link" href="{{url('/')}}">Home</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{url('about')}}">About Us</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{url('contact')}}">Contact us</a>
+    </li>
+    
+  </ul>
+  <ul class="navbar-nav ml-auto second-nav-bar">
+    <li class="nav-item">
+      <a class="nav-link" href="{{url('logout')}}">
+      Logout
+      </a> 
+    </li>
+  </ul>
+@endauth
+@guest
+  <ul class="navbar-nav first-nav-bar mx-auto">
+    <li class="nav-item">
+      <a class="nav-link" href="{{url('/')}}">Home</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{url('about')}}">About Us</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{url('contact')}}">Contact us</a>
+    </li>
+  </ul>
+  <ul class="navbar-nav ml-auto second-nav-bar">
+    <li class="nav-item">
+      <a class="nav-link login-link" href="{{url('login')}}">Login</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link register-link" href="{{url('signup')}}"><i class="fa-solid fa-arrow-right-from-bracket mx-2"></i>Sign Up</a> 
+    </li>
+    <!-- <li class="nav-item">
+      <a class="nav-link profile-link" href="#">
+      <i class="fa fa-user" aria-hidden="true"></i>
+      </a> 
+    </li> -->
+  </ul>
+  @endguest
 </div>
 </nav>
 

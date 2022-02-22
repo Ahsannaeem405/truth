@@ -24,7 +24,7 @@ class RedirectIfAuthenticated
         foreach ($guards as $guard) {
             if (Auth::guard($guard)->check()) {
                     if (auth()->user()->role== 'user') {
-                        return redirect('/login-home');
+                        return redirect('/');
                     }
                     elseif (auth()->user()->role== 'admin') {
                         return redirect('/admin/index');
@@ -33,9 +33,7 @@ class RedirectIfAuthenticated
                         return redirect('/charity/index');
                     }
 
-
                     return redirect()->back()->withError('whoops! You are not authorized to visit this link.');
-
 
             }
         }
