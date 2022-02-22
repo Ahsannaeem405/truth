@@ -19,13 +19,21 @@ Route::get('/', function () {
 Route::get('/home2', function () {
     return view('home');
 });
+Route::get('/login-home', function () {
+    return view('loginhome');
+});
 Route::get('/contactus', function () {
     return view('contact');
 });
 Route::get('/aboutus', function () {
     return view('about');
 });
-
+Route::get('login1', function () {
+    return view('auth.login');
+});
+Route::get('signup', function () {
+    return view('auth.register');
+});
 Route::prefix('admin')->middleware(['auth','admin'])->group(function () {
 
     //user
@@ -55,14 +63,15 @@ Route::prefix('user')->middleware(['auth','user'])->group(function () {
 
 
 
-
-
 Auth::routes();
+
+Route::get('/stripescreen',[App\Http\Controllers\HomeController::class, 'stripeScreen'])->name('stripeScreen');
+Route::post('/paymentstore',[App\Http\Controllers\HomeController::class, 'stripePayment'])->name('stripePayment');
+
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-
 Route::get('/logout', function () {
 \Illuminate\Support\Facades\Auth::logout();
-return redirect('/');
+return redirect('/home2');
 });

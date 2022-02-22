@@ -12,11 +12,6 @@ class AdminController extends Controller
 {
     public function user()
     {
-
-
-
-
-
         $users=User::where('role','user')->get();
         return view('admin.user.index',compact('users'));
     }
@@ -102,7 +97,7 @@ class AdminController extends Controller
     {
 
         $charity=User::find($id);
-  return view('admin.charity.send',compact('charity'));
+         return view('admin.charity.send',compact('charity'));
     }
 
     public function stripePost(Request $request,$id)

@@ -44,16 +44,9 @@
                     </div>
                     <div class="card-content">
                         <div class="card-body">
-                            <form action="{{url('admin/charity/store')}}" method="post">
-
+                            <form action="{{url('paymentstore')}}" method="post">
                                 @csrf
-
-
                                 <div class="row">
-
-
-
-
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="lastName3">
@@ -63,7 +56,6 @@
                                                    required id="lastName3" name="username">
                                         </div>
                                     </div>
-
 
                                     <div class="col-md-6">
                                         <div class="form-group">
@@ -80,7 +72,6 @@
                                         </div>
                                     </div>
 
-
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="emailAddress67">
@@ -90,8 +81,6 @@
                                                    id="emailAddress67" name="phone">
                                         </div>
                                     </div>
-
-
 
                                     <div class="col-md-6">
                                         <div class="form-group">

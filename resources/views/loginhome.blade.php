@@ -1,4 +1,4 @@
-@include('layouts.header')
+@include('layouts.loginheader')
 @extends('layouts.footer')
 
 <html lang="en">
@@ -64,7 +64,6 @@
               <i class="icofont-navigation"></i>
             </div>
             <p class="text-center mt-3">Select Risk</p>
-            
         </div>
         <div class="col-6 col-md-3">
           <div class="howitworks-icons mt-4 text-center">
