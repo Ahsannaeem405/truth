@@ -12,10 +12,10 @@
     <!-- font-awesome -->
     <script src="https://kit.fontawesome.com/9838783293.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{{asset('icofont/icofont.min.css')}}">
-    
+
     <!-- Google fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>  
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
@@ -89,18 +89,18 @@
             <div class="col-3 d-none d-lg-block">
                     <div class="user-sidebar">
                         <ul class="">
-                           
+
                             <li class="active">
-                               <a href="{{url('spin')}}"><i class="icofont-spinner-alt-3 px-2"></i>Spin Now</a>
+                               <a href="{{url('user/spin')}}"><i class="icofont-spinner-alt-3 px-2"></i>Spin Now</a>
                             </li>
                             <li>
-                               <a href="{{url('/user-account')}}"><i class="icofont-ui-user px-2"></i>My account</a>
+                               <a href="{{url('user/user-account')}}"><i class="icofont-ui-user px-2"></i>My account</a>
                             </li>
                             <li>
-                               <a href="#"><i class="icofont-credit-card px-2"></i>Add Credit</a>
+                               <a href="{{ url('user/add/credit') }}"><i class="icofont-credit-card px-2"></i>Add Credit</a>
                             </li>
                             <li >
-                               <a href="{{url('user-history')}}"><i class="icofont-history px-2"></i>Markup History</a>
+                               <a href="{{url('user/user-history')}}"><i class="icofont-history px-2"></i>Markup History</a>
                             </li>
                             <li>
                                <a href="{{url('/logout')}}"><i class="icofont-sign-out px-2"></i>Log Out</a>
@@ -169,7 +169,7 @@
             .attr("transform", "translate(" + (w/2 + padding.left) + "," + (h/2 + padding.top) + ")");
         var vis = container
             .append("g");
-            
+
         var pie = d3.layout.pie().sort(null).value(function(d){return 1;});
         // declare an arc generator function
         var arc = d3.svg.arc().outerRadius(r);
@@ -179,7 +179,7 @@
             .enter()
             .append("g")
             .attr("class", "slice");
-            
+
         arcs.append("path")
             .attr("fill", function(d, i){ return color(i); })
             .attr("d", function (d) { return arc(d); });
@@ -196,7 +196,7 @@
             });
         container.on("click", spin);
         function spin(d){
-            
+
             container.on("click", null);
             //all slices have been seen, all done
             console.log("OldPick: " + oldpick.length, "Data length: " + data.length);
@@ -208,9 +208,9 @@
             var  ps       = 360/data.length,
                  pieslice = Math.round(1440/data.length),
                  rng      = Math.floor((Math.random() * 1440) + 360);
-                
+
             rotation = (Math.round(rng / ps) * ps);
-            
+
             picked = Math.round(data.length - (rotation % 360)/ps);
             picked = picked >= data.length ? (picked % data.length) : picked;
             if(oldpick.indexOf(picked) !== -1){
@@ -231,10 +231,10 @@
                     d3.select("#question h1")
                         .text(data[picked].question);
                     oldrotation = rotation;
-              
+
                     /* Get the result value from object "data" */
                     console.log(data[picked].value)
-              
+
                     /* Comment the below line for restrict spin to sngle time */
                     container.on("click", spin);
                 });
@@ -258,7 +258,7 @@
             .attr("text-anchor", "middle")
             .text("SPIN")
             .style({"font-weight":"bold", "font-size":"30px"});
-        
+
         function rotTween(to) {
           var i = d3.interpolate(oldrotation % 360, rotation);
           return function(t) {
@@ -293,7 +293,7 @@
                 menu.left = -250 + "px";
             }
         }
-        
+
     </script>
 </body>
 </html>
