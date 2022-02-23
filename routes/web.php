@@ -88,6 +88,7 @@ Route::prefix('user')->middleware(['auth','user'])->group(function () {
 
 
 
+    Route::get('add/credit',[CharityController::class,'index']);
 
 
 });
@@ -96,9 +97,7 @@ Route::prefix('user')->middleware(['auth','user'])->group(function () {
 
 Auth::routes();
 
-Route::get('add/credit',[CharityController::class,'index']);
 
-// Route::get('/stripe-payment', [CharityController::class, 'StripeGet']);
 Route::post('/stripe-payment', [CharityController::class, 'StripePost'])->name('stripe.payment');
 
 Route::get('/spinnerscreen',      [HomeController::class, 'spinnerScreen'])->name('spinnerScreen');

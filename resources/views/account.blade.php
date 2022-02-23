@@ -43,16 +43,16 @@
                         <ul class="">
 
                             <li>
-                               <a href="{{url('spin')}}"><i class="icofont-spinner-alt-3 px-2"></i>Spin Now</a>
+                               <a href="{{url('user/spin')}}"><i class="icofont-spinner-alt-3 px-2"></i>Spin Now</a>
                             </li>
                             <li class="active">
-                               <a href="{{url('/user-account')}}"><i class="icofont-ui-user px-2"></i>My account</a>
+                               <a href="{{url('user/user-account')}}"><i class="icofont-ui-user px-2"></i>My account</a>
                             </li>
                             <li>
-                               <a href="{{url('add/credit')}}"><i class="icofont-credit-card px-2"></i>Add Credit</a>
+                               <a href="{{url('user/add/credit')}}"><i class="icofont-credit-card px-2"></i>Add Credit</a>
                             </li>
                             <li >
-                               <a href="{{url('/user-history')}}"><i class="icofont-history px-2"></i>Markup History</a>
+                               <a href="{{url('user/user-history')}}"><i class="icofont-history px-2"></i>Markup History</a>
                             </li>
                             <li>
                                <a href="{{url('/logout')}}"><i class="icofont-sign-out px-2"></i>Log Out</a>
@@ -89,10 +89,10 @@
                             </div>
                         </div>
 
-                        <div class="img1">
-                            {{-- <input type="file" class="imgg" name="imgg" id=""> --}}
+                        {{-- <div class="img1">
+                            <input type="file" class="imgg" name="imgg" id="">
 
-                        </div>
+                        </div> --}}
                         <div class="col-md-6 col-12 mt-2">
                             <div class="form-group">
                                 <label >First Name</label>
