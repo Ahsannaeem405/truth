@@ -1,6 +1,6 @@
 <div id="mobile-sidebar" class="d-block d-lg-none">
-        <div class="user-sidebar">      
-            <ul class="">     
+        <div class="user-sidebar">
+            <ul class="">
                 <li>
                     <a href="{{url('spin')}}"><i class="icofont-spinner-alt-3 px-2"></i>Spin Now</a>
                 </li>
@@ -19,10 +19,10 @@
             </ul>
         </div>
 </div>
-<div class="col-3 d-none d-lg-block">
+{{-- <div class="col-3 d-none d-lg-block">
                     <div class="user-sidebar">
                         <ul class="">
-                           
+
                             <li>
                                <a href="{{url('spin')}}"><i class="icofont-spinner-alt-3 px-2"></i>Spin Now</a>
                             </li>
@@ -40,4 +40,4 @@
                             </li>
                         </ul>
                     </div>
-            </div>
+            </div> --}}

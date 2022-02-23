@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
@@ -32,13 +33,23 @@ class RegisterController extends Controller
     protected function redirectTo(){
 
 
-        if (auth()->user()->role== 'user') {
 
-            return '/user/index';
-        }
-        elseif (auth()->user()->role== 'admin') {
+        if(Auth::user()->role=='admin')
+        {
             return '/admin/index';
+
         }
+        else{
+            return 'user/dashboard';
+        }
+
+        // if (auth()->user()->role== 'user') {
+
+        //     return '/user/index';
+        // }
+        // elseif (auth()->user()->role== 'admin') {
+        //     return '/admin/index';
+        // }
 
         return redirect()->back()->withError('whoops! You are not authorized to visit this link.');
 

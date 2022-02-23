@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CharityController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 
@@ -14,39 +15,30 @@ use App\Http\Controllers\HomeController;
 |
 */
 
+
+
+
+
 Route::get('/', function () {
     return view('home');
 });
-
-Route::get('/user-history', function () {
-    return view('history');
-});
-Route::get('/spin', function () {
-    return view('spins');
-});
-Route::get('/account', function () {
-    return view('account');
-});
-
 Route::get('/contact', function () {
     return view('contact');
 });
-Route::get('/user-account', function () {
-    return view('account');
-});
-Route::get('/dashboard', function () {
-    return view('account');
-});
-
 Route::get('/about', function () {
     return view('about');
 });
+
 Route::get('login', function () {
     return view('auth.login');
 });
 Route::get('signup', function () {
     return view('auth.register');
 });
+
+
+
+
 Route::prefix('admin')->middleware(['auth','admin'])->group(function () {
 
     //user
@@ -72,11 +64,43 @@ Route::prefix('admin')->middleware(['auth','admin'])->group(function () {
 Route::prefix('user')->middleware(['auth','user'])->group(function () {
 
     Route::view('/index','user.index');
+
+
+
+    Route::get('/user-history', function () {
+        return view('history');
+    });
+    Route::get('/spin', function () {
+        return view('spins');
+    });
+    Route::get('/account', function () {
+        return view('account');
+    });
+
+
+
+    Route::get('/user-account', function () {
+        return view('account');
+    });
+    Route::get('/dashboard', function () {
+        return view('account');
+    });
+
+
+
+
+
 });
 
 
 
 Auth::routes();
+
+Route::get('add/credit',[CharityController::class,'index']);
+
+// Route::get('/stripe-payment', [CharityController::class, 'StripeGet']);
+Route::post('/stripe-payment', [CharityController::class, 'StripePost'])->name('stripe.payment');
+
 Route::get('/spinnerscreen',      [HomeController::class, 'spinnerScreen'])->name('spinnerScreen');
 Route::get('/stripescreen',       [HomeController::class, 'stripeScreen'])->name('stripeScreen');
 Route::post('/paymentstore',      [HomeController::class, 'stripePayment'])->name('stripePayment');

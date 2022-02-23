@@ -23,7 +23,7 @@ class admin
 
         }
         else{
-            return redirect('/');
+            return redirect('user/dashboard');
         }
     }
 }

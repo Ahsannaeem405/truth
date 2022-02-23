@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
@@ -28,13 +29,16 @@ class LoginController extends Controller
      */
     protected function redirectTo(){
 
+        if(Auth::user()->role=='admin')
+        {
+            return '/admin/index';
 
-        if (auth()->user()->role== 'user') {
-            return '/';
         }
-        elseif (auth()->user()->role== 'admin') {
-            return '/';
+        else{
+            return 'user/dashboard';
         }
+
+
 
 
         return redirect()->back()->withError('whoops! You are not authorized to visit this link.');

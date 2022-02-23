@@ -1,24 +1,21 @@
 @include('layouts.header')
 @extends('layouts.mobilesidebar')
 @extends('layouts.footer')
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <!-- font-awesome -->
     <script src="https://kit.fontawesome.com/9838783293.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{{asset('icofont/icofont.min.css')}}">
-    
+
     <!-- Google fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>  
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://jeremyfagis.github.io/dropify/dist/css/dropify.min.css">
+
     <link rel="stylesheet" href="{{ asset('/css/theme.css') }}">
     <title>Account page</title>
 </head>
@@ -44,7 +41,7 @@
             <div class="col-3 d-none d-lg-block">
                     <div class="user-sidebar">
                         <ul class="">
-                           
+
                             <li>
                                <a href="{{url('spin')}}"><i class="icofont-spinner-alt-3 px-2"></i>Spin Now</a>
                             </li>
@@ -52,7 +49,7 @@
                                <a href="{{url('/user-account')}}"><i class="icofont-ui-user px-2"></i>My account</a>
                             </li>
                             <li>
-                               <a href="#"><i class="icofont-credit-card px-2"></i>Add Credit</a>
+                               <a href="{{url('add/credit')}}"><i class="icofont-credit-card px-2"></i>Add Credit</a>
                             </li>
                             <li >
                                <a href="{{url('/user-history')}}"><i class="icofont-history px-2"></i>Markup History</a>
@@ -66,7 +63,7 @@
             <div class="col-lg-9 col-12">
                 <div class="our-balance mt-5 w-100 d-flex justify-content-between align-items-center">
                     <span class="" onclick="showmenu()"><i class="icofont-navigation-menu d-block d-lg-none"></i></span>
-                    <p class="text-lg-right">Balance: <span class="mx-2">0.10$</span></p>
+                    <p class="text-lg-right">Balance: <span class="mx-2"> @if(isset(Auth::user()->coin)) {{Auth::user()->coin}}$ @else 0$ @endif</span></p>
                 </div>
                 <div class="our-spins mt-3">
                     <div class="row">
@@ -77,13 +74,24 @@
                                     <i class="icofont-ui-add addmore-img " onclick={document.getElementById("user-pic").click()}>
                                         <input type="file" hidden id="user-pic"/>
                                     </i>
+
+
+
+
                                 </div>
+
+
                                 <div class="about-profile-setting">
                                     <h4 class="m-0">Profile Setting</h4>
                                     <p class="m-0">Accepting file type .png. less than 1MB</p>
-                                    <button class="upload-profile my-2">Upload</button>
+                                    <button class="upload-profile my-2 upload">Upload</button>
                                 </div>
                             </div>
+                        </div>
+
+                        <div class="img1">
+                            {{-- <input type="file" class="imgg" name="imgg" id=""> --}}
+
                         </div>
                         <div class="col-md-6 col-12 mt-2">
                             <div class="form-group">
@@ -126,13 +134,17 @@
                         <div class="col-md-6 col-12 mt-2">
                             <input type="submit" class="w-100 form-control submit-account" value="update">
                         </div>
-                        
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+
+
+
 
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -152,7 +164,15 @@
                 menu.left = -250 + "px";
             }
         }
-        
+
     </script>
-</body>
-</html>
+
+    <script>
+        $( ".upload" ).click(function() {
+            $(".imgg").click();
+});
+
+    </script>
+
+
+
