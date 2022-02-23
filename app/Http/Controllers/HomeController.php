@@ -41,7 +41,7 @@ class HomeController extends Controller
     public function stripePayment(Request $request)
     {
         try {
-            
+
             Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
             Stripe\Charge::create ([
                 "amount" => 100 * 100,
@@ -54,7 +54,7 @@ class HomeController extends Controller
         catch (\Exception $exception){
             return back()->with('error',$exception->getMessage());
         }
-        
+
     }
 
     public function spinnerScreen()
@@ -78,14 +78,14 @@ class HomeController extends Controller
         $authid = Auth::user()->id;
         // dd($userid);
         $user = User::where('id',$authid)->first();
-        $usercoin =  $user->coin;  
+        $usercoin =  $user->coin;
         $username =  $request->charity;
         $donateamount = $request->amount;
-        
+
         if($usercoin > $donateamount)
         {
             return redirect('/spinnerscreen');
-        
+
         }else
         {
             return back()->with('error','your amount is not enoughf');
@@ -93,6 +93,6 @@ class HomeController extends Controller
     }
     public function storeChairtyPercent()
     {
-        
+
     }
 }

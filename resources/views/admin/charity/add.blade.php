@@ -44,7 +44,7 @@
                     </div>
                     <div class="card-content">
                         <div class="card-body">
-                            <form action="{{url('paymentstore')}}" method="post">
+                            <form action="{{url('admin/charity/store')}}" method="post">
                                 @csrf
                                 <div class="row">
                                     <div class="col-md-6">

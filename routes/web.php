@@ -67,9 +67,9 @@ Route::prefix('user')->middleware(['auth','user'])->group(function () {
 
 
 
-    Route::get('/user-history', function () {
-        return view('history');
-    });
+    Route::get('user-history',[CharityController::class,'history']);
+
+
     Route::get('/spin', function () {
         return view('spins');
     });
@@ -89,6 +89,12 @@ Route::prefix('user')->middleware(['auth','user'])->group(function () {
 
 
     Route::get('add/credit',[CharityController::class,'index']);
+
+
+    Route::post('edit/profile',[CharityController::class,'edit_profile']);
+    Route::post('add/donation',[CharityController::class,'add_donation']);
+    Route::post('add/percent',[CharityController::class,'add_percent']);
+
 
 
 });

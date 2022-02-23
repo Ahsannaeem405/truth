@@ -68,7 +68,7 @@
 
                                                 <tr>
                                                     <td>{{$count++}}</td>
-                                                    <td>{{$charity->f_name.' '. $charity->l_name}}</td>
+                                                    <td>{{$charity->username}}</td>
                                                     <td>{{$charity->email}}</td>
                                                     <td>{{$charity->username}}</td>
                                                     <td>{{$charity->phone}}</td>
