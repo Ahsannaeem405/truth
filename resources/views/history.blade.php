@@ -13,10 +13,10 @@
     <!-- font-awesome -->
     <script src="https://kit.fontawesome.com/9838783293.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{{asset('icofont/icofont.min.css')}}">
-    
+
     <!-- Google fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>  
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
@@ -44,18 +44,18 @@
             <div  class="col-3 d-none d-lg-block">
                     <div class="user-sidebar">
                         <ul class="">
-                           
+
                             <li>
-                               <a href="{{url('spin')}}"><i class="icofont-spinner-alt-3 px-2"></i>Spin Now</a>
+                               <a href="{{url('user/spin')}}"><i class="icofont-spinner-alt-3 px-2"></i>Spin Now</a>
                             </li>
                             <li>
-                               <a href="{{url('/user-account')}}"><i class="icofont-ui-user px-2"></i>My account</a>
+                               <a href="{{url('user/user-account')}}"><i class="icofont-ui-user px-2"></i>My account</a>
                             </li>
                             <li>
-                               <a href="#"><i class="icofont-credit-card px-2"></i>Add Credit</a>
+                               <a href="{{ url('user/add/credit') }}"><i class="icofont-credit-card px-2"></i>Add Credit</a>
                             </li>
                             <li class="active">
-                               <a href="{{url('/user-history')}}"><i class="icofont-history px-2"></i>Markup History</a>
+                               <a href="{{ url('/user/user-history') }}"><i class="icofont-history px-2"></i>Markup History</a>
                             </li>
                             <li>
                                <a href="{{url('/logout')}}"><i class="icofont-sign-out px-2"></i>Log Out</a>
@@ -156,8 +156,8 @@
                             </div>
                         </div>
                     </div>
-                    
-                    
+
+
                 </div>
             </div>
         </div>
@@ -181,7 +181,7 @@
                 menu.left = -250 + "px";
             }
         }
-        
+
     </script>
 </body>
 </html>
