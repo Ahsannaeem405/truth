@@ -78,12 +78,12 @@
                     </div>
                 </div>
                 <div class="col-lg-9 col-12">
-                    <div class="our-balance mt-5 w-100 d-flex justify-content-between align-items-center">
-                        <span class="" onclick="showmenu()"><i
-                                class="icofont-navigation-menu d-block d-lg-none"></i></span>
+                    <div class="our-balance mt-5 w-100 d-flex justify-content-end align-items-center">
+                        <!-- <span class="" onclick="showmenu()"><i
+                                class="icofont-navigation-menu d-block d-lg-none"></i></span> -->
                         <p class="text-lg-right">Balance: <span class="mx-2">
                                 @if (isset(Auth::user()->coin))
-                                {{ Auth::user()->coin }}$ @else 0$
+                                ${{ Auth::user()->coin }} @else $0
                                 @endif
                             </span></p>
                     </div>
@@ -131,8 +131,8 @@
 
 
                                     <div class="about-profile-setting">
-                                        <h4 class="m-0">Profile Setting</h4>
-                                        <button type="button" class="upload-profile my-2 upload">Upload</button>
+                                        <h4 class="m-0 mt-3">Profile Setting</h4>
+                                        <!-- <button type="button" class="upload-profile my-2 upload">Upload</button> -->
                                     </div>
                                 </div>
                             </div>

@@ -80,11 +80,11 @@
 
                     </div>
                 </div>
-                <div class="col-9">
+                <div class="col-12 col-lg-9">
                     <div class="our-balance mt-5 w-100 d-flex justify-content-between align-items-center">
 
-                        <span class="" onclick={showmenu()}><i
-                                class="icofont-navigation-menu d-block d-lg-none"></i></span>
+                        <!-- <span class="" onclick={showmenu()}><i
+                                class="icofont-navigation-menu d-block d-lg-none"></i></span> -->
                         <button type="button" class="btn btn-primary" data-toggle="modal"
                             data-target="#exampleModalLong">
                             Add Donation
@@ -100,7 +100,7 @@
                     </div>
                     <div class="our-spins mt-3">
                         <div class="row">
-                            <div class="col-4 mb-3">
+                            <div class="col-lg-4 col-md-6 col-sm-12 mb-3">
                                 <div class="card our-spain-card text-center">
                                     <img class="card-img-top mx-auto" src="{{ asset('/image/spinner-card.png') }}"
                                         alt="Card image cap">
@@ -120,7 +120,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-4 mb-3">
+                            <div class="col-lg-4 col-md-6 col-sm-12 mb-3">
                                 <div class="card our-spain-card text-center">
                                     <img class="card-img-top mx-auto" src="{{ asset('/image/spinner-card.png') }}"
                                         alt="Card image cap">
@@ -140,7 +140,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-4 mb-3">
+                            <div class="col-lg-4 col-md-6 col-sm-12 mb-3">
                                 <div class="card our-spain-card text-center">
                                     <img class="card-img-top mx-auto" src="{{ asset('/image/spinner-card.png') }}"
                                         alt="Card image cap">
@@ -160,7 +160,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-4 mb-3">
+                            <div class="col-lg-4 col-md-6 col-sm-12 mb-3">
                                 <div class="card our-spain-card text-center">
                                     <img class="card-img-top mx-auto" src="{{ asset('/image/spinner-card.png') }}"
                                         alt="Card image cap">
@@ -180,7 +180,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-4 mb-3">
+                            <div class="col-lg-4 col-md-6 col-sm-12 mb-3">
                                 <div class="card our-spain-card text-center">
                                     <img class="card-img-top mx-auto" src="{{ asset('/image/spinner-card.png') }}"
                                         alt="Card image cap">

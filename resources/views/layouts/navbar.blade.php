@@ -21,8 +21,6 @@
                         </a>
                         <div class="dropdown-menu dropdown-menu-right">
                             <a class="dropdown-item" href="{{ url('/logout') }}"><i class="feather icon-user"></i>Logout</a>
-
-
                         </div>
                     </li>
                 </ul>

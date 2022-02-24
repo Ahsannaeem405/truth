@@ -3,9 +3,21 @@
     box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.5);
     padding: 5px 10px 5px 100px;
 }
+@media screen and (max-width:768px){
+    .navbar{
+        box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.5);
+        padding: 5px 10px 5px 10px;
+    }
+}
 .navbar-brand{
     width: 180px;
     height: 70px;
+}
+button:focus{
+    outline: none !important;
+}
+.navbar-toggler:focus{
+    box-shadow: none;
 }
 
 .first-nav-bar .nav-link{
@@ -30,6 +42,14 @@
     border-radius: 3px;
     padding-right: 20px !important;
     padding-left: 20px !important;
+}
+@media screen and (max-width:768px){
+    .login-link.nav-link{
+        width: 80px;
+    }
+    .about-profile-setting{
+        padding: 0px 0px !important;
+        }
 }
 .register-link{
     color: #0996A3;
@@ -95,7 +115,10 @@
     background-color: #EFC940;
     color: white;
 }
-
+.btn-play{
+    background-color: #0996A3;
+    color: white;
+}
 /* how its work */
 .howitwork h3{
     font-size: 42px;
@@ -515,6 +538,9 @@ color: #4a4c70;
 }
 .about-profile-setting{
 padding: 0px 20px;
+}
+@media screen and(max-width:768px){
+    
 }
 .upload-profile{
     border: 1px solid rgba(0, 0, 0, 0.3);

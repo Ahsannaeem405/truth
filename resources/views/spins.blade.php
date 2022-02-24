@@ -81,7 +81,7 @@
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="{{ url('home2') }}">Home</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Account</li>
+            <li class="breadcrumb-item active" aria-current="page">Span</li>
         </ol>
     </nav>
 
@@ -89,11 +89,11 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <h2 class="text-center">My Account</h2>
+                    <h2 class="text-center">Spinner</h2>
                 </div>
             </div>
             <div class="row">
-                <div class="col-3 d-none d-lg-block">
+                <div class="col-lg-3 col-0 d-none d-lg-block">
                     <div class="user-sidebar">
                         <ul class="">
                             <a href="{{ url('user/spin') }}" class="text-white"
@@ -125,10 +125,10 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-9">
-                    <div class="our-balance mt-5 w-100 d-flex justify-content-between align-items-center">
-                        <span class="" onclick={showmenu()}><i
-                                class="icofont-navigation-menu d-block d-lg-none"></i></span>
+                <div class="col-12 col-lg-9">
+                    <div class="our-balance mt-5 w-100 d-flex justify-content-end align-items-center">
+                        <!-- <span class="" onclick={showmenu()}><i
+                                class="icofont-navigation-menu d-block d-lg-none"></i></span> -->
                                 @if(isset($char_name))
                     <form action="{{url('user/add/percent')}}" method="POST">
                         @csrf
@@ -147,7 +147,7 @@
 
                         <p class="text-lg-right">Balance: <span class="mx-2">
                                 @if (isset(Auth::user()->coin))
-                                {{ Auth::user()->coin }}$ @else 0$
+                                ${{ Auth::user()->coin }}$ @else 0
                                 @endif
                             </span></p>
                     </div>
