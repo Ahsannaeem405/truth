@@ -34,8 +34,8 @@
     <div class="container py-5">
         <div class="row">
             <div class="col-12">
-                <h1 class="px-5">Contact us</h1>
-                <p class="px-5">
+                <h1 class="px-2 px-md-5">Contact us</h1>
+                <p class="px-2 px-md-5">
                 Proin Gravida Nibh Vel Velit Auctor Aliquet. Aenean Sollicitudin, 
                 Lorem Quis Bibendum Auctor, Nisi Elit Consequat Ipsum, Nec Sagittis 
                 Sem Nibh Id Elit.
@@ -43,7 +43,7 @@
             </div>
         </div>
         <div class="row py-4">
-            <div class="col-7">
+            <div class="col-lg-7 col-12">
                 <h3>Drop Us a Message</h3>
                 <form class="py-4">
                     <div class="row py-2">
@@ -72,7 +72,7 @@
                 </form>
             </div>
             
-            <div class="col-5">
+            <div class="col-lg-5 col-12">
                 <div class="conatc-info">
                     <h3>CONTACT INFO</h3>
                     <p>Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non 

@@ -100,6 +100,15 @@ button:focus{
         margin: -30px 0px 0px 0px;
     }
 }
+@media screen and (max-width:768px){
+    .hero-details h3{
+        font-size: 65px;
+    }
+    .hero-details h2{
+        font-size: 65px;
+        margin: -30px 0px 0px 0px;
+    }
+}
 .hero-btn{
     margin-top: 20px;
     background-color: transparent;
@@ -335,6 +344,14 @@ button:focus{
     font-family: 'Poppins', sans-serif;
     position: relative;
 }
+@media screen and (max-width:768px){
+    .contact-us h1{
+        font-size: 2rem;
+    }
+    .contact-us h1::after{
+        width: 7px !important;
+    }
+}
 .contact-us h1::after{
     position: absolute;
     width: 20px;
@@ -424,6 +441,11 @@ color: #4a4c70;
 .mission-pic i{
     font-size: 300px;
     color: #EFC940;
+}
+@media screen and (max-width:768px){
+    .mission-pic i{
+        font-size: 270px;
+    }
 }
 .mission-pic {
     background-image: url(../image/aboutbg3.png);

@@ -92,7 +92,7 @@
 
                         <p class="text-lg-right">Balance: <span class="mx-2">
                                 @if (isset(Auth::user()->coin))
-                                {{ Auth::user()->coin }}$ @else 0$
+                                ${{ Auth::user()->coin }} @else $0
                                 @endif
                             </span></p>
 
