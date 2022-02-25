@@ -93,7 +93,7 @@
                         <button type="button" class="btn btn-primary" data-toggle="modal"
                             data-target="#exampleModalLong">
                             Add Donation
-                        </button> --}}
+                        </button>
 
 
                         <p class="text-lg-right">Balance: <span class="mx-2">
@@ -106,6 +106,7 @@
                     </div>
                     <div class="our-spins mt-3">
                         <div class="row">
+                            @if(isset($char) && count($char) > 0))
                             @foreach ($char as $chars)
 
 
@@ -135,8 +136,19 @@
                                 </div>
                             </div>
                             @endforeach
+                            @else
+                            <div class="col-12">
 
+
+
+                            <div class="jumbotron jumbotron-fluid bg-white">
+                                <div class="container">
+                                    <h4 class="text-center">No Charity Available</h4>
+                                </div>
+                              </div>
+                            </div>
                         </div>
+                        @endif
 
 
                     </div>

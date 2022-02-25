@@ -130,8 +130,11 @@ class CharityController extends Controller
 
 
 
+
         $user  = User::where('role', 'charity')->get();
-        return view('history', compact('user'));
+
+        $char = CharityHistory::Where('userID', Auth::user()->id)->get();
+        return view('history', compact('user', 'char'));
     }
 
     public function spins()
