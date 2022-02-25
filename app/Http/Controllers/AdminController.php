@@ -96,7 +96,7 @@ class AdminController extends Controller
     public function sendCharity($id)
     {
 
-        $charity=User::find($id);
+        $charity=User::find($id);dd
          return view('admin.charity.send',compact('charity'));
     }
 
