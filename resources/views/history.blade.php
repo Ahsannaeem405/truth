@@ -106,7 +106,7 @@
                     </div>
                     <div class="our-spins mt-3">
                         <div class="row">
-                            @if(isset($char) && count($char) > 0))
+                            @if(isset($char) && count($char) > 0)
                             @foreach ($char as $chars)
 
 
@@ -226,7 +226,7 @@
         }
     </script>
 
-@if(session()->has('success'))
+@if (Session::has('success'))
     <script>
 
 Swal.fire({

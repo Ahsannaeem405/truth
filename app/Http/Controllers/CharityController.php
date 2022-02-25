@@ -87,10 +87,11 @@ class CharityController extends Controller
 
         $userr->save();
 
-        return view('history', compact('char'))->with('success', 'Donated Sucessfully');
+        // return view('history', compact('char'))->with('success', 'Donated Sucessfully');
 
+        Session::flash('success', 'Donated Sucessfully');
 
-        // return redirect('user/user-history')->with( ['merchant' => $char , 'success' => 'Donated Sucessfully' ]);
+        return redirect('user/user-history')->with( ['char' => $char ]);
 
     }
 

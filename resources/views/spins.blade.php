@@ -185,6 +185,11 @@
 
 
 
+                                    @if(session()->has('error'))
+    <div class="alert alert-danger">
+        {{ session()->get('error') }}
+    </div>
+@endif
 
                                     <label for="">
                                         Select Charity
@@ -198,7 +203,7 @@
                                     <br>
                                     <label for=""> Enter Amount</label>
                                     <input type="number" required name="amount" placeholder="Enter Amount" class="form-control"
-                                        name="" id="">
+                                        >
 
                                   <div class="col-12" style="    margin-top: 17px;text-align: end;">
                                     <input style="width: 100px;" type="submit" class="btn btn-primary" value="Donate">
