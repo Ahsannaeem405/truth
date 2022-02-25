@@ -76,6 +76,7 @@
 </head>
 
 {{-- @dd($donateamount) --}}
+
 <body>
 
     <nav aria-label="breadcrumb">
@@ -126,33 +127,86 @@
                     </div>
                 </div>
                 <div class="col-9">
+
+
+
+
+
                     <div class="our-balance mt-5 w-100 d-flex justify-content-between align-items-center">
+
+
                         <span class="" onclick={showmenu()}><i
                                 class="icofont-navigation-menu d-block d-lg-none"></i></span>
-                                @if(isset($char_name))
-                    <form action="{{url('user/add/percent')}}" method="POST">
-                        @csrf
+                        @if (isset($char_name))
+
+                        <div class="">
+
+
+
+                            <form action="{{ url('user/add/percent') }}" method="POST">
+                                @csrf
 
                                 <label for="">
-                                    <b>Charity Name :</b> {{ $char_name }} &nbsp; &nbsp;&nbsp;  <b>Donation Amount :</b> {{ $donateamount}}
+                                    <b>Charity Name :</b> {{ $char_name }} &nbsp; &nbsp;&nbsp; <b>Donation Amount
+                                        :</b> {{ $donateamount }}
 
                                 </label>
                                 <input type="hidden" value="" name="percent" class="appspin">
-                                <input type="hidden" value="{{$username }}" name="charID">
-                                <input type="hidden" value="{{$donateamount }}" name="amount" >
+                                <input type="hidden" value="{{ $username }}" name="charID">
+                                <input type="hidden" value="{{ $donateamount }}" name="amount">
                                 <input type="submit" style="display: none" name="Sub" class="form_sub" id="">
                             </form>
-                                @endif
+                        </div>
+                        @endif
 
 
                         <p class="text-lg-right">Balance: <span class="mx-2">
                                 @if (isset(Auth::user()->coin))
-                                {{ Auth::user()->coin }}$ @else 0$
+                                    {{ Auth::user()->coin }}$
+                                @else
+                                    0$
                                 @endif
                             </span></p>
                     </div>
-                    <div class="our-spins mt-3" style="height:650px">
+                    <div class="our-spins mt-3" @if (isset($char_name))  style="height:650px"  @else style="    height: 492px;" @endif>
                         <div class="row justify-content-center">
+
+                            @if (!isset($char_name))
+
+                            <div class="col-12">
+
+                                <div class="row text-center mb-2">
+                                    <h3 class="panel-heading">My Account</h3>
+
+                                </div>
+
+                                <form action="{{ url('user/add/donation') }}" method="POST">
+                                    @csrf
+
+
+
+
+                                    <label for="">
+                                        Select Charity
+                                    </label>
+                                    <select name="charity" class="form-control" id="">
+
+                                        @foreach ($user as $users)
+                                            <option value="{{ $users->id }}">{{ $users->username }}</option>
+                                        @endforeach
+                                    </select>
+                                    <br>
+                                    <label for=""> Enter Amount</label>
+                                    <input type="number" name="amount" placeholder="Enter Amount" class="form-control"
+                                        name="" id="">
+
+                                  <div class="col-12" style="    margin-top: 17px;text-align: end;">
+                                    <input style="width: 100px;" type="submit" class="btn btn-primary" value="Donate">
+                                </div>
+                                </form>
+
+                            </div>
+                            @else
                             <div class="col-10">
                                 <div>
                                     <h3 class="text-center">Spinner</h3>
@@ -163,6 +217,7 @@
                                 </div>
                                 <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
                             </div>
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -335,10 +390,19 @@
                     $('.appspin').val(null);
                     $('.appspin').val(data[picked].value);
 
+
+
                     /* Comment the below line for restrict spin to sngle time */
                     container.on("click", spin);
+
+                    setTimeout(
+                        function() {
+                            $('.form_sub').click();
+
+                        }, 1000);
+
                 });
-                // alert(data[picked].value);
+            // alert(data[picked].value);
         }
 
         //make arrow
@@ -403,32 +467,22 @@
     </script>
 
     <script>
+        $(document).ready(function() {
 
-$(document).ready(function(){
+            // setInterval(function() {
 
-    setInterval(function(){
+            //     var appspin = $('.appspin').val();
+            //     if (appspin == '' || appspin == 'undefined' || appspin == undefined || appspin == null) {
+            //         console.log(appspin);
 
- var appspin =  $('.appspin').val();
-
- if(appspin == '' || appspin == 'undefined' || appspin == undefined || appspin == null)
- {
-     console.log(appspin);
-
-}
-else
-{
+            //     } else {
+            //         $('.form_sub').click();
+            //     }
 
 
-$('.form_sub').click();
+            // }, 2000);
 
-    // console.log(12);
-
-}
-
-
-}, 2000);
-
-});
+        });
     </script>
 </body>
 

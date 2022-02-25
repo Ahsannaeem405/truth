@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Charity;
+use App\Models\CharityHistory;
 use App\Models\User;
 use Exception;
 use Illuminate\Http\Request;
@@ -60,33 +61,47 @@ class CharityController extends Controller
 
     public function add_percent(Request $request)
     {
+        // dd($request);
+        $history = new CharityHistory();
+        $history->userID = Auth::user()->id;
+        $history->percent = $request->percent * 10;
+        $history->amount = $request->amount;
+        $history->charityID = $request->charID;
+        $history->save();
 
+        $char = CharityHistory::where('userID', Auth::user()->id)->get();
 
 
         $user = User::find($request->charID);
-
         $amount =   $request->amount;
         $per =   $request->percent * 10;
-        $div =  $per/100;
+        $div =  $per / 100;
         $total_percent =   $div * $amount;
         $user->coin +=  $total_percent;
         $user->save();
 
+
         $userr = User::find(Auth::user()->id);
         $userr->coin -= $amount;
+
+
         $userr->save();
-        return redirect('user/user-history');
+
+        return view('history', compact('char'))->with('success', 'Donated Sucessfully');
+
+
+        // return redirect('user/user-history')->with( ['merchant' => $char , 'success' => 'Donated Sucessfully' ]);
 
     }
 
-    public function add_donation(Request $request){
+    public function add_donation(Request $request)
+    {
 
 
         $user = User::find(Auth::user()->id);
 
         $charityy = User::find($request->charity);
 
-        // dd($request, $user);
         $usercoin =  $user->coin;
         $char_name =  $charityy->username;
 
@@ -95,27 +110,34 @@ class CharityController extends Controller
 
 
 
-        if($usercoin > $donateamount)
-        {
+        if ($usercoin > $donateamount) {
             $char = new Charity();
             $char->userID = Auth::user()->id;
             $char->charityID = $username;
             $char->amount = $donateamount;
             $char->save();
-            return view('spins' , compact('donateamount', 'username', 'char_name'));
-
-        }else
-        {
+            return view('spins', compact('donateamount', 'username', 'char_name'));
+        } else {
             return back()->with('error', 'Your amount is less then your donation amount');
         }
     }
 
 
 
-    public function history(){
+    public function history()
+    {
+
+
+
 
         $user  = User::where('role', 'charity')->get();
         return view('history', compact('user'));
+    }
+
+    public function spins()
+    {
+        $user  = User::where('role', 'charity')->get();
+        return view('spins', compact('user'));
     }
     public function StripePost(Request $request)
     {

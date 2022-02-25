@@ -68,11 +68,10 @@ Route::prefix('user')->middleware(['auth','user'])->group(function () {
 
 
     Route::get('user-history',[CharityController::class,'history']);
+    Route::get('spin',[CharityController::class,'spins']);
 
 
-    Route::get('/spin', function () {
-        return view('spins');
-    });
+
     Route::get('/account', function () {
         return view('account');
     });

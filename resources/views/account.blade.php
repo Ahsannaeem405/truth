@@ -47,7 +47,7 @@
                         <ul class="">
                             <a href="{{ url('user/spin') }}" class="text-white"
                                 style="text-decoration: none; color:white">
-                                <li >
+                                <li>
                                     <i class="icofont-spinner-alt-3 px-2"></i>Spin Now
                                 </li>
                             </a>
@@ -62,7 +62,7 @@
                                 </li>
                             </a>
                             <a href="{{ url('user/user-history') }}" style="text-decoration: none; ">
-                                <li >
+                                <li>
                                     <i class="icofont-history px-2"></i>Markup History
                                 </li>
                             </a>
@@ -83,108 +83,114 @@
                                 class="icofont-navigation-menu d-block d-lg-none"></i></span>
                         <p class="text-lg-right">Balance: <span class="mx-2">
                                 @if (isset(Auth::user()->coin))
-                                {{ Auth::user()->coin }}$ @else 0$
+                                    {{ Auth::user()->coin }}$
+                                @else
+                                    0$
                                 @endif
                             </span></p>
                     </div>
                     <div class="our-spins mt-3">
-                        <form method="POST" action="{{url('user/edit/profile')}}" enctype="multipart/form-data">
+                        <form method="POST" action="{{ url('user/edit/profile') }}" enctype="multipart/form-data">
                             @csrf
-                            @if(session()->has('success'))
-                            <div class="alert alert-success">
-                                {{ session()->get('success') }}
-                            </div>
-                        @endif
+                            @if (session()->has('success'))
+                                <div class="alert alert-success">
+                                    {{ session()->get('success') }}
+                                </div>
+                            @endif
 
-                        @if(session()->has('fail'))
-                        <div class="alert alert-danger">
-                            {{ session()->get('fail') }}
-                        </div>
-                    @endif
-                        <div class="row">
+                            @if (session()->has('fail'))
+                                <div class="alert alert-danger">
+                                    {{ session()->get('fail') }}
+                                </div>
+                            @endif
+                            <div class="row">
 
+                                <div class="col-12 mb-3">
+                                    <div class="profile-edit d-md-flex align-items-center">
+                                        <div class="pic-edit">
 
-
-                            <div class="col-12 mb-3">
-                                <div class="profile-edit d-md-flex align-items-center">
-                                    <div class="pic-edit">
-
-                                        @if(Auth::user()->image != Null)
-                                        <img  src="{{ asset('/uploads/'.Auth::user()->image) }}" name="imag" id="my_image" alt="user-pic" />
-                                        <i class="icofont-ui-add addmore-img upload"
-                                            >
-                                        @else
-                                        <img  src="{{ asset('/image/user-pic.jpg') }}" name="imag" id="my_image" alt="user-pic" />
-                                        <i class="icofont-ui-add addmore-img upload"
-                                            >
-
-                                        @endif
+                                            @if (Auth::user()->image != null)
+                                                <img src="{{ asset('/uploads/' . Auth::user()->image) }}" name="imag"
+                                                    id="my_image" alt="user-pic" />
+                                                <i class="icofont-ui-add addmore-img upload">
+                                                @else
+                                                    <img src="{{ asset('/image/user-pic.jpg') }}" name="imag"
+                                                        id="my_image" alt="user-pic" />
+                                                    <i class="icofont-ui-add addmore-img upload">
+                                            @endif
 
 
                                             <input type="file" hidden id="user-pic" />
-                                        </i>
+                                            </i>
 
 
 
+
+                                        </div>
+
+
+                                        <div class="about-profile-setting">
+                                            <h4 class="m-0">Profile Setting</h4>
+                                            <button type="button" class="upload-profile my-2 upload">Upload</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="img1">
+                                    <input type="file" onchange="readURL(this)" style="display: none" name="picture"
+                                        class="imgg" id="">
+
+                                </div>
+                                <div class="col-md-6 col-12 mt-2">
+                                    <div class="form-group">
+                                        <label>First Name</label>
+                                        <input type="text" value="{{ Auth::user()->f_name }}" name="f_name"
+                                            placeholder="Enter First Name" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-12 mt-2">
+                                    <div class="form-group">
+                                        <label>last Name</label>
+                                        <input type="text" value="{{ Auth::user()->l_name }}" name="l_name"
+                                            placeholder="Enter Last Name" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-12 mt-2">
+                                    <div class="form-group">
+                                        <label>User Name</label>
+                                        <input type="text" value="{{ Auth::user()->username }}" name="username"
+                                            class="form-control" name="user_name" placeholder="Enter User Name">
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-12 mt-2">
+                                    <div class="form-group">
+                                        <label>Email Address</label>
+                                        <input type="email" class="form-control" value="{{ Auth::user()->email }}"
+                                            name="email" placeholder="Enter Email ">
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-12 mt-2">
+                                    <div class="form-group">
+                                        <label> Password</label>
+                                        <input type="passowrd" name="password" class="form-control"
+                                            placeholder="Password">
 
                                     </div>
+                                </div>
+                                <div class="col-md-6 col-12 mt-2">
+                                    <div class="form-group">
+                                        <label>New Password</label>
+                                        <input type="passowrd" name="new_password" class="form-control"
+                                            placeholder="New Password">
 
-
-                                    <div class="about-profile-setting">
-                                        <h4 class="m-0">Profile Setting</h4>
-                                        <button type="button" class="upload-profile my-2 upload">Upload</button>
                                     </div>
                                 </div>
-                            </div>
+                                <div class="col-md-6 col-12 mt-2">
+                                    <input type="submit" class="w-100 form-control submit-account" value="update">
+                                </div>
 
-                            <div class="img1">
-                                <input type="file" onchange="readURL(this)" style="display: none" name="picture" class="imgg" id="">
-
                             </div>
-                            <div class="col-md-6 col-12 mt-2">
-                                <div class="form-group">
-                                    <label>First Name</label>
-                                    <input type="text"  value="{{Auth::user()->f_name}}" name="f_name" placeholder="Enter First Name" class="form-control" >
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-12 mt-2">
-                                <div class="form-group">
-                                    <label>last Name</label>
-                                    <input type="text"  value="{{Auth::user()->l_name}}" name="l_name" placeholder="Enter Last Name" class="form-control" >
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-12 mt-2">
-                                <div class="form-group">
-                                    <label>User Name</label>
-                                    <input type="text"  value="{{Auth::user()->username}}" name="username" class="form-control" name="user_name" placeholder="Enter User Name">
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-12 mt-2">
-                                <div class="form-group">
-                                    <label>Email Address</label>
-                                    <input type="email" class="form-control"  value="{{Auth::user()->email}}" name="email" placeholder="Enter Email " >
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-12 mt-2">
-                                <div class="form-group">
-                                    <label> Password</label>
-                                    <input type="passowrd" name="password" class="form-control" placeholder="Password">
-
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-12 mt-2">
-                                <div class="form-group">
-                                    <label>New Password</label>
-                                    <input type="passowrd" name="new_password" class="form-control" placeholder="New Password">
-
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-12 mt-2">
-                                <input type="submit" class="w-100 form-control submit-account" value="update">
-                            </div>
-
-                        </div>
-                    </form>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -240,8 +246,8 @@
 
 
 
-             reader.readAsDataURL(input.files[0]);
+                reader.readAsDataURL(input.files[0]);
 
             }
-            }
+        }
     </script>
