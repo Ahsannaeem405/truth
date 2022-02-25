@@ -91,7 +91,7 @@
                             </div>
                         </div>
   
-                        <div class="row">
+                        <div class="row form-row">
                             <div class="col-xs-12">
                                 <button class="btn btn-primary btn-lg btn-block" type="submit">Pay Now ($100)</button>
                             </div>

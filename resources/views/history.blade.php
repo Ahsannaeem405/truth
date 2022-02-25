@@ -85,12 +85,12 @@
 
                     </div>
                 </div>
-                <div class="col-9">
+                <div class="col-12 col-lg-9">
                     <div class="our-balance mt-5 w-100 d-flex justify-content-between align-items-center">
 
-                        <span class="" onclick={showmenu()}><i
-                                class="icofont-navigation-menu d-block d-lg-none"></i></span>
-                        {{-- <button type="button" class="btn btn-primary" data-toggle="modal"
+                        <!-- <span class="" onclick={showmenu()}><i
+                                class="icofont-navigation-menu d-block d-lg-none"></i></span> -->
+                        <button type="button" class="btn btn-primary" data-toggle="modal"
                             data-target="#exampleModalLong">
                             Add Donation
                         </button> --}}
@@ -98,9 +98,7 @@
 
                         <p class="text-lg-right">Balance: <span class="mx-2">
                                 @if (isset(Auth::user()->coin))
-                                    {{ Auth::user()->coin }}$
-                                @else
-                                    0$
+                                ${{ Auth::user()->coin }} @else $0
                                 @endif
                             </span></p>
 

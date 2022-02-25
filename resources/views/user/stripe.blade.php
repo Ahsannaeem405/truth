@@ -78,7 +78,15 @@ display: none;
                 </div>
 
                 <div class="col-lg-9 col-12" style="margin-top: 57px;">
-
+                <div class="our-balance mt-5 w-100 d-flex justify-content-end align-items-center">
+                        <!-- <span class="" onclick="showmenu()"><i
+                                class="icofont-navigation-menu d-block d-lg-none"></i></span> -->
+                        <p class="text-lg-right">Balance: <span class="mx-2">
+                                @if (isset(Auth::user()->coin))
+                                ${{ Auth::user()->coin }} @else $0
+                                @endif
+                            </span></p>
+                    </div>
                     <div class="our-spins mt-3">
                         <div class="row">
                             <div class="col-12 col-md-offset-3">
@@ -121,7 +129,7 @@ display: none;
                                             </div>
 
                                             <div class='form-row row'>
-                                                <div class='col-12 form-group card required'>
+                                                <div class='col-12 form-group required'>
                                                     <label class='control-label'>Card Number</label> <input
                                                         autocomplete='off' class='form-control card-num' size='20'
                                                         type='text'>
@@ -156,8 +164,7 @@ display: none;
                                             </div>
 
                                                         <div class=" d-flex justify-content-end">
-                                                            <button class=" col-2 btn btn-danger btn-lg " type="submit">Pay
-                                                                Now </button>
+                                                            <button class=" col-lg-2 col-md-4 col-6 btn btn-danger btn-lg " type="submit">Pay Now </button>
 
 
                                             </div>

@@ -82,7 +82,7 @@
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="{{ url('home2') }}">Home</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Account</li>
+            <li class="breadcrumb-item active" aria-current="page">Span</li>
         </ol>
     </nav>
 
@@ -90,11 +90,11 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <h2 class="text-center">My Account</h2>
+                    <h2 class="text-center">Spinner</h2>
                 </div>
             </div>
             <div class="row">
-                <div class="col-3 d-none d-lg-block">
+                <div class="col-lg-3 col-0 d-none d-lg-block">
                     <div class="user-sidebar">
                         <ul class="">
                             <a href="{{ url('user/spin') }}" class="text-white"

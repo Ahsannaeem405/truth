@@ -29,15 +29,10 @@
     <li class="breadcrumb-item active" aria-current="page">About us</li>
   </ol>
 </nav>
-<div class="aboutus py-5">
+<div class="aboutus py-3">
     <div class="container">
-        <div class="row d-flex align-items-center">
-            <div class="col-6">
-                <div class="aboutus-pic p-4">
-                    <img src="{{ asset('/image/aboutimg1.png')}}" class="img-fluid  p-5"/>
-                </div>
-            </div>
-            <div class="col-6 py-3">
+        <div class="row d-flex align-items-center flex-lg-row-reverse">
+            <div class="col-12 col-lg-6 py-3">
                     <h6> About us</h6>
                     <h2><b>Help is Our</b> Main Goal</h2>
                     <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corrupti 
@@ -53,13 +48,18 @@
                          tempore, voluptates nam dolore eligendi officiis, at, fugit quaerat
                           aspernatur quo explicabo sapiente!</p>
             </div>
+            <div class="col-12 col-lg-6">
+                <div class="aboutus-pic p-4">
+                    <img src="{{ asset('/image/aboutimg1.png')}}" class="img-fluid  p-5"/>
+                </div>
+            </div>
         </div>
         <div class="our-mission">
             
         </div>
         <div class="our-mission py-4">
             <div class="row d-flex align-items-center justify-content-center">
-                <div class="col-6 py-3">
+                <div class="col-12 col-lg-6  py-3">
                         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corrupti 
                             soluta voluptatibus architecto ad perspiciatis impedit aliquam ipsa
                             tempore,</p>
@@ -72,7 +72,7 @@
                             tempore, voluptates nam dolore eligendi officiis, at, fugit quaerat
                             aspernatur quo explicabo sapiente!</p>
                 </div>
-                <div class="col-6">
+                <div class="col-12 col-lg-6 ">
                     <div class="mission-pic p-4 text-center">
                         <i class="icofont-bullseye"></i>
                     </div>
