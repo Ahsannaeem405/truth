@@ -11,10 +11,10 @@
     <!-- font-awesome -->
     <script src="https://kit.fontawesome.com/9838783293.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{{asset('icofont/icofont.min.css')}}">
-    
+
     <!-- Google fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>  
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
@@ -25,12 +25,15 @@
 <body>
 <section class="hero-section">
   <div class="container">
-    <div class="row"> 
+    <div class="row">
       <div class="col-12">
         <div class="hero-details text-center">
           <h2>We help people in need</h2>
           <h3>around the world</h3>
-          <button class="hero-btn">Get Start</button>
+
+          <a @if(Auth::check())  href="#"  @else  href="{{url('signup')}}" @endif>
+          <button class="hero-btn">Lets Get Started</button>
+        </a>
         </div>
       </div>
     </div>
@@ -64,7 +67,7 @@
               <i class="icofont-navigation"></i>
             </div>
             <p class="text-center mt-3">Select Risk</p>
-            
+
         </div>
         <div class="col-6 col-md-3">
           <div class="howitworks-icons mt-4 text-center">
@@ -84,10 +87,12 @@
           We are Awesome Volounteer Team
           </h3>
           <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-             Corporis fugit commodi eaque quo quos nobis natus at pariatur 
+             Corporis fugit commodi eaque quo quos nobis natus at pariatur
              accusamus placeat, inventore sequi, vero ratione veniam velit
               nisi distinctio ex ipsam?</p>
-              <button class="join-usbtn mt-4">Join Us Now!</button>
+              <a @if(Auth::check())  href="#"  @else  href="{{url('signup')}}" @endif>
+                <button class="join-usbtn mt-4">Join Us Now!</button>
+            </a>
         </div>
       </div>
     </div>
@@ -101,7 +106,7 @@
           <div>
           <h6>What we Did</h6>
           <h3>Our Projects</h3>
-          <p>Sharksucker sea toad candiru rocket danio tilefish stingray 
+          <p>Sharksucker sea toad candiru rocket danio tilefish stingray
             deepwater stingray Sacramento splittail, Canthigaster rostrata.
             Midshipman dartfish Modoc sucker, yellowtai</p>
           </div>
@@ -113,7 +118,7 @@
             <div class="project-details">
               <span style="background-color: green">Education</span>
               <h3>Help for Children of the East</h3>
-              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
+              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.
                 Nam mollitia dicta maxime officia doloribus quod illum iusto </p>
             </div>
         </div>
@@ -124,7 +129,7 @@
             <div class="project-details">
               <span  style="background-color: #49C2DF">Water Delivery</span>
               <h3>Help for Children of the East</h3>
-              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
+              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.
                 Nam mollitia dicta maxime officia doloribus quod illum iusto </p>
             </div>
         </div>
@@ -135,7 +140,7 @@
             <div class="project-details">
               <span  style="background-color:#F8AC3A;">Food</span>
               <h3>Help for Children of the East</h3>
-              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
+              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.
                 Nam mollitia dicta maxime officia doloribus quod illum iusto </p>
             </div>
         </div>
@@ -146,12 +151,12 @@
             <div class="project-details">
               <span style="background-color: #F36F8F">Education</span>
               <h3>Help for Children of the East</h3>
-              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
+              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.
                 Nam mollitia dicta maxime officia doloribus quod illum iusto </p>
             </div>
         </div>
       </div>
-      
+
     </div>
   </div>
 </section>

@@ -122,5 +122,13 @@ class AdminController extends Controller
 
     }
 
+    public function status($id){
+
+
+    }
+
+
+
+
 }
 

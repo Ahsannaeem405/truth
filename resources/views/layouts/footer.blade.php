@@ -53,13 +53,11 @@
                     <h3>Useful Links</h3>
                     <ul>
                       <li>
-                        <a href="">Home</a></li>
+                        <a href="{{url('/')}}">Home</a></li>
                         <li>
-                        <a href="">About</a></li>
+                        <a href="{{url('/about')}}">About</a></li>
                         <li>
-                        <a href="">Contact</a></li>
-                        <li>
-                        <a href="">Causes</a></li>
+                        <a href="{{url('/contact')}}">Contact</a></li>
                     </ul>
               </div>
           </div>

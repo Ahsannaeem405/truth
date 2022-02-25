@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Help & Charity</title>
 </head>
 
 <body>
@@ -35,7 +35,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url('contact') }}">Contact us</a>
                     </li>
-                    
+
                     <li class="nav-item d-block d-lg-none">
                         <a class="nav-link" href="{{ url('user/spin') }}">Spin Now</a>
                     </li>
