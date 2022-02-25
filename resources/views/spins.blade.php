@@ -189,7 +189,7 @@
                                     <label for="">
                                         Select Charity
                                     </label>
-                                    <select name="charity" class="form-control" id="">
+                                    <select name="charity" required class="form-control" id="">
 
                                         @foreach ($user as $users)
                                             <option value="{{ $users->id }}">{{ $users->username }}</option>
@@ -197,7 +197,7 @@
                                     </select>
                                     <br>
                                     <label for=""> Enter Amount</label>
-                                    <input type="number" name="amount" placeholder="Enter Amount" class="form-control"
+                                    <input type="number" required name="amount" placeholder="Enter Amount" class="form-control"
                                         name="" id="">
 
                                   <div class="col-12" style="    margin-top: 17px;text-align: end;">

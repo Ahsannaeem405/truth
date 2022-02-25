@@ -85,7 +85,7 @@
                                 @if (isset(Auth::user()->coin))
                                     {{ Auth::user()->coin }}$
                                 @else
-                                    0$
+                                $0
                                 @endif
                             </span></p>
                     </div>

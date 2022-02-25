@@ -30,7 +30,7 @@
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="{{ url('home2') }}">Home</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Account</li>
+            <li class="breadcrumb-item active" aria-current="page">Markup History</li>
         </ol>
     </nav>
 
@@ -90,10 +90,10 @@
 
                         <!-- <span class="" onclick={showmenu()}><i
                                 class="icofont-navigation-menu d-block d-lg-none"></i></span> -->
-                        <button type="button" class="btn btn-primary" data-toggle="modal"
+                        {{-- <button type="button" class="btn btn-primary" data-toggle="modal"
                             data-target="#exampleModalLong">
                             Add Donation
-                        </button>
+                        </button> --}}
 
 
                         <p class="text-lg-right">Balance: <span class="mx-2">
