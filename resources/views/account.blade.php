@@ -114,7 +114,8 @@
                                                     id="my_image" alt="user-pic" />
                                                 <i class="icofont-ui-add addmore-img upload">
                                                 @else
-                                                    <img src="{{ asset('/image/user-pic.jpg') }}" name="imag"
+                                                {{-- <i class="fa fa-user"></i> --}}
+                                                    <img src="{{ asset('/image/avatar.png') }}" name="imag"
                                                         id="my_image" alt="user-pic" />
                                                     <i class="icofont-ui-add addmore-img upload">
                                             @endif

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Charity;
 use App\Models\CharityHistory;
+use App\Models\PriorityStatus;
 use App\Models\User;
 use Exception;
 use Illuminate\Http\Request;
@@ -140,6 +141,18 @@ class CharityController extends Controller
 
     public function spins()
     {
+
+$status = PriorityStatus::find(1);
+
+if($status->status == 'on')
+{
+    $userr  = User::where('status', 'Priority')->where('role', 'charity')->first();
+}
+else{
+    $userr  = User::where('status', '!=', 'Priority')->where('role', 'charity')->orderBy('id', 'DESC')->first();
+
+}
+// @dd($userr);
         $user  = User::where('role', 'charity')->get();
         return view('spins', compact('user'));
     }

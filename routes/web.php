@@ -104,6 +104,8 @@ Route::prefix('user')->middleware(['auth','user'])->group(function () {
 
 Auth::routes();
 
+Route::get('change_stauts',[\App\Http\Controllers\AdminController::class,'change_stauts']);
+
 
 Route::post('/stripe-payment', [CharityController::class, 'StripePost'])->name('stripe.payment');
 

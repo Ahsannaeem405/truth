@@ -22,5 +22,11 @@ class DatabaseSeeder extends Seeder
             ['f_name' => "admin",'email'=>'admin@gmail.com','role'=>'admin','password'=>''.$hash.''],
 
         ]);
+
+        DB::table('priority_statuses')->insert([
+
+            ['status' => "on"],
+
+        ]);
     }
 }

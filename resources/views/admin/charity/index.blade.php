@@ -144,7 +144,13 @@
                                                         <td>{{ $charity->address }}</td>
                                                         <td>{{ floatval($charity->coin) }}</td>
                                                         <td>{{ $charity->created_at }}</td>
-                                                        <td> @if( $charity->status == null) {{'Random'}} @else {{ $charity->status}} @endif</td>
+                                                        <td>
+                                                            @if ($charity->status == null)
+                                                                {{ 'Random' }}
+                                                            @else
+                                                                {{ $charity->status }}
+                                                            @endif
+                                                        </td>
 
                                                         <td>
 
@@ -154,15 +160,17 @@
                                                                 <i style="color: red" class="fa fa-trash"></i></a>
 
 
-                                                            <a href="{{ url('admin/charity/edit/' . $charity->id . '') }}"> <i
-                                                                    style="color: blue" class="fa fa-edit"></i></a>
-                                                            <a href="{{ url('admin/charity/send/' . $charity->id . '') }}"> <i
-                                                                    style="color: green" class="fa fa-money"></i></a>
+                                                            <a
+                                                                href="{{ url('admin/charity/edit/' . $charity->id . '') }}">
+                                                                <i style="color: blue" class="fa fa-edit"></i></a>
+                                                            <a
+                                                                href="{{ url('admin/charity/send/' . $charity->id . '') }}">
+                                                                <i style="color: green" class="fa fa-money"></i></a>
 
 
-<a href="{{url("admin/status/$charity->id")}}">
-                                                                    <i class="fas fa-check"></i>
-                                                                </a>
+                                                            <a href="{{ url("admin/status/$charity->id") }}">
+                                                                <i class="fas fa-check"></i>
+                                                            </a>
                                                         </td>
                                                     </tr>
                                                 @endforeach
@@ -184,15 +192,43 @@
 
     <script>
         $(document).ready(function() {
-            // alert(12);
+            var status = 'on';
+
+            // alert(status);
+            $.ajax({
+                type: "GET",
+                url: "{{ url('change_stauts') }}?id=" + status,
+                success: function(res) {
+
+
+
+                }
+            });
+
+
             $("#roundP").change(function() {
                 if ($(this).prop("checked") == true) {
-                    alert('on');
+                    var status = 'on';
 
                 } else {
-
-                        alert('off');
+                    var status = 'off';
                 }
+
+                // alert(status);
+                $.ajax({
+                    type: "GET",
+                    url: "{{ url('change_stauts') }}?id=" + status,
+                    success: function(res) {
+
+
+
+                    }
+                });
+
+
+
+
+
             });
         });
     </script>

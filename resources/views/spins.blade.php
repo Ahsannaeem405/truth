@@ -176,7 +176,7 @@
                             <div class="col-12">
 
                                 <div class="row text-center mb-2">
-                                    <h3 class="panel-heading">My Account</h3>
+                                    <h3 class="panel-heading">Enter Risk Amount</h3>
 
                                 </div>
 
@@ -206,7 +206,7 @@
                                         >
 
                                   <div class="col-12" style="    margin-top: 17px;text-align: end;">
-                                    <input style="width: 100px;" type="submit" class="btn btn-primary" value="Donate">
+                                    <input style="width: 100px;" type="submit" class="btn btn-primary" value="Next">
                                 </div>
                                 </form>
 
