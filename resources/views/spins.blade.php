@@ -186,8 +186,9 @@
                                     </div>
 
 
-
+@if(isset($user))
                                         <input type="hidden" value="{{ $user->id }}" name="charity" id="charity">
+                                        @endif
                                         <br>
                                         <label for=""> Enter Amount</label>
                                         <input type="number" required name="amount" id="amount" placeholder="Enter Amount"

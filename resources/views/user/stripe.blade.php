@@ -77,7 +77,7 @@ display: none;
                     </div>
                 </div>
 
-                <div class="col-lg-9 col-12" style="margin-top: 57px;">
+                <div class="col-lg-9 col-12" style="margin-top: -36px;">
                 <div class="our-balance mt-5 w-100 d-flex justify-content-end align-items-center">
                         <!-- <span class="" onclick="showmenu()"><i
                                 class="icofont-navigation-menu d-block d-lg-none"></i></span> -->
