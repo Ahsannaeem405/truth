@@ -118,9 +118,13 @@ class CharityController extends Controller
             $char->charityID = $username;
             $char->amount = $donateamount;
             $char->save();
-            return view('spins', compact('donateamount', 'username', 'char_name'));
+            return response()->json(['donateamount'=>$donateamount , 'username'=>$username, 'char_name'=>$char_name] );
+
+            // return view('spins', compact('donateamount', 'username', 'char_name'));
         } else {
-            return back()->with('error', 'Your amount is less then your donation amount');
+            return response()->json(['error'=>'Your amount is less then your donation amount' ] );
+
+            // return back()->with('error', 'Your amount is less then your donation amount');
         }
     }
 
@@ -146,14 +150,13 @@ $status = PriorityStatus::find(1);
 
 if($status->status == 'on')
 {
-    $userr  = User::where('status', 'Priority')->where('role', 'charity')->first();
+    $user  = User::where('status', 'Priority')->where('role', 'charity')->first();
 }
 else{
-    $userr  = User::where('status', '!=', 'Priority')->where('role', 'charity')->orderBy('id', 'DESC')->first();
+    $user  = User::where('status',  null)->where('role', 'charity')->orderBy('id', 'DESC')->first();
 
 }
-// @dd($userr);
-        $user  = User::where('role', 'charity')->get();
+
         return view('spins', compact('user'));
     }
     public function StripePost(Request $request)

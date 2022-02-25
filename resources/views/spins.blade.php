@@ -137,92 +137,81 @@
 
                         <span class="" onclick={showmenu()}><i
                                 class="icofont-navigation-menu d-block d-lg-none"></i></span>
-                        @if (isset($char_name))
-
-                        <div class="">
-
+                        {{-- @if (isset($char_name)) --}}
+                            <div class="spinnn" style="display: none">
 
 
-                            <form action="{{ url('user/add/percent') }}" method="POST">
-                                @csrf
 
-                                <label for="">
-                                    <b>Charity Name :</b> {{ $char_name }} &nbsp; &nbsp;&nbsp; <b>Donation Amount
-                                        :</b> {{ $donateamount }}
+                                <form action="{{ url('user/add/percent') }}" method="POST">
+                                    @csrf
 
-                                </label>
-                                <input type="hidden" value="" name="percent" class="appspin">
-                                <input type="hidden" value="{{ $username }}" name="charID">
-                                <input type="hidden" value="{{ $donateamount }}" name="amount">
-                                <input type="submit" style="display: none" name="Sub" class="form_sub" id="">
-                            </form>
-                        </div>
-                        @endif
+                                    <label for="">
+                                        <b>Charity Name :</b>
+                                         <span class="char_name1"> </span>
+                                         &nbsp; &nbsp;&nbsp;
+
+                                         <b >  Donation Amount
+                                            : <span class="amount1" > </span> </b>
+
+                                    </label>
+                                    <input type="hidden" value="" name="percent" class="appspin char_name">
+                                    <input type="hidden" value="" class="char_id" name="charID">
+                                    <input type="hidden" value="" class="amount" name="amount">
+                                    <input type="submit" style="display: none" name="Sub" class="form_sub" id="">
+                                </form>
+                            </div>
+                        {{-- @endif --}}
 
 
                         <p class="text-lg-right">Balance: <span class="mx-2">
                                 @if (isset(Auth::user()->coin))
-                                ${{ Auth::user()->coin }}
+                                    ${{ Auth::user()->coin }}
                                 @else
-                                $0
+                                    $0
                                 @endif
                             </span></p>
                     </div>
-                    <div class="our-spins mt-3" @if (isset($char_name))  style="height:650px"  @else style="    height: 492px;" @endif>
+                    <div class="our-spins mt-3"
+                        style="height:650px"  >
                         <div class="row justify-content-center">
 
-                            @if (!isset($char_name))
+<div class="errorr">
 
-                            <div class="col-12">
+</div>
+                                <div class="col-12 spinnnD" >
 
-                                <div class="row text-center mb-2">
-                                    <h3 class="panel-heading">Enter Risk Amount</h3>
+                                    <div class="row text-center mb-2">
+                                        <h3 class="panel-heading">Enter Risk Amount</h3>
+
+                                    </div>
+
+
+
+                                        <input type="hidden" value="{{ $user->id }}" name="charity" id="charity">
+                                        <br>
+                                        <label for=""> Enter Amount</label>
+                                        <input type="number" required name="amount" id="amount" placeholder="Enter Amount"
+                                            class="form-control">
+
+                                        <div class="col-12" style="    margin-top: 17px;text-align: end;">
+                                            <input style="width: 100px;" id="next" type="submit" class="btn btn-primary"
+                                                value="Next">
+                                        </div>
+                                    {{-- </form> --}}
 
                                 </div>
 
-                                <form action="{{ url('user/add/donation') }}" method="POST">
-                                    @csrf
-
-
-
-                                    @if(session()->has('error'))
-    <div class="alert alert-danger">
-        {{ session()->get('error') }}
-    </div>
-@endif
-
-                                    <label for="">
-                                        Select Charity
-                                    </label>
-                                    <select name="charity" required class="form-control" id="">
-
-                                        @foreach ($user as $users)
-                                            <option value="{{ $users->id }}">{{ $users->username }}</option>
-                                        @endforeach
-                                    </select>
-                                    <br>
-                                    <label for=""> Enter Amount</label>
-                                    <input type="number" required name="amount" placeholder="Enter Amount" class="form-control"
-                                        >
-
-                                  <div class="col-12" style="    margin-top: 17px;text-align: end;">
-                                    <input style="width: 100px;" type="submit" class="btn btn-primary" value="Next">
+                                <div class="col-10 spinnn" style="display: none">
+                                    <div>
+                                        <h3 class="text-center">Spinner</h3>
+                                    </div>
+                                    <div id="chart"></div>
+                                    <div id="question">
+                                        <h1></h1>
+                                    </div>
+                                    <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
                                 </div>
-                                </form>
 
-                            </div>
-                            @else
-                            <div class="col-10">
-                                <div>
-                                    <h3 class="text-center">Spinner</h3>
-                                </div>
-                                <div id="chart"></div>
-                                <div id="question">
-                                    <h1></h1>
-                                </div>
-                                <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
-                            </div>
-                            @endif
                         </div>
                     </div>
                 </div>
@@ -230,13 +219,14 @@
         </div>
     </div>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    {{-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    </script> --}}
+    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
         integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
-    </script>
+    </script> --}}
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
     </script>
@@ -474,18 +464,52 @@
     <script>
         $(document).ready(function() {
 
-            // setInterval(function() {
+            $('#next').click(function(){
 
-            //     var appspin = $('.appspin').val();
-            //     if (appspin == '' || appspin == 'undefined' || appspin == undefined || appspin == null) {
-            //         console.log(appspin);
-
-            //     } else {
-            //         $('.form_sub').click();
-            //     }
+            var amount =  $('#amount').val();
+            var charity =  $('#charity').val();
 
 
-            // }, 2000);
+
+            $.ajax({
+                    type: "GET",
+                    url: "/formSub",
+                    data: {
+                            'charity': charity,
+                            'amount': amount,
+                        },
+
+
+                    success: function(res) {
+                        if(res.error == 'Your amount is less then your donation amount')
+                        {
+
+                            $('.errorr').empty().append( " <div class='alert alert-danger'>"+res.error+" </div>" );
+
+                        }
+                        else{
+
+
+                            $('.errorr').empty();
+                        $('.amount').empty().val(res.donateamount);
+                        $('.char_id').empty().val(res.username);
+                        $('.char_name1').empty().val(res.char_name);
+                        $('.amount1').text(res.donateamount);
+                        $('.char_name1').text(res.char_name);
+
+
+
+                        $('.spinnn').css('display', 'block');
+                        $('.spinnnD').css('display', 'none');
+                    }
+
+
+                    }
+                });
+
+
+
+            });
 
         });
     </script>

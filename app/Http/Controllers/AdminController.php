@@ -143,6 +143,7 @@ class AdminController extends Controller
         $status = PriorityStatus::find(1);
         $status->status = $request->id;
         $status->save();
+        // dd($request->id);
 
 
     }
