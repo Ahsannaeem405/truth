@@ -83,7 +83,7 @@
                                 class="icofont-navigation-menu d-block d-lg-none"></i></span> -->
                         <p class="text-lg-right">Balance: <span class="mx-2">
                                 @if (isset(Auth::user()->coin))
-                                    {{ Auth::user()->coin }}$
+                                ${{ Auth::user()->coin }}
                                 @else
                                 $0
                                 @endif
@@ -140,6 +140,9 @@
                                         class="imgg" id="">
 
                                 </div>
+                                <div class="row">
+
+
                                 <div class="col-md-6 col-12 mt-2">
                                     <div class="form-group">
                                         <label>First Name</label>
@@ -184,10 +187,11 @@
 
                                     </div>
                                 </div>
-                                <div class="col-md-6 col-12 mt-2">
-                                    <input type="submit" class="w-100 form-control submit-account" value="update">
-                                </div>
 
+                                <div class="col-12 col-12 mt-2 text-center">
+                                    <input  type="submit" class="w-50 form-control text-center submit-account m-auto" value="update">
+                                </div>
+                            </div>
                             </div>
                         </form>
                     </div>
