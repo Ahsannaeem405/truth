@@ -146,16 +146,17 @@ class CharityController extends Controller
     public function spins()
     {
 
-$status = PriorityStatus::find(1);
+            $status = PriorityStatus::find(1);
 
-if($status->status == 'on')
-{
-    $user  = User::where('status', 'Priority')->where('role', 'charity')->first();
-}
-else{
-    $user  = User::where('status',  null)->where('role', 'charity')->orderBy('id', 'DESC')->first();
+            if($status->status == 'on')
+            {
+                $user  = User::where('status', 'Priority')->where('role', 'charity')->first();
+            }
+            else{
+                $user  = User::where('status',  null)->where('role', 'charity')->orderBy('id', 'DESC')->first();
 
-}
+            }
+            // dd($status->status );
 
         return view('spins', compact('user'));
     }
@@ -175,7 +176,7 @@ else{
 
             if ($charge->status == 'succeeded') {
                 $user = User::find(Auth::user()->id);
-                $user->coin = $request->amount;
+                $user->coin += $request->amount;
                 $user->save();
 
                 Session::flash('success', 'Payment has been successfully processed.');
