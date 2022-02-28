@@ -516,6 +516,7 @@ color: #4a4c70;
 .our-spain-card .card-img-top{
     width: 160px;
     height: auto;
+    padding: 20px;
 }
 .card.our-spain-card{
     border: none;

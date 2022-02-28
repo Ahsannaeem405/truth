@@ -108,9 +108,7 @@
                         <div class="row">
                             @if(isset($char) && count($char) > 0)
                             @foreach ($char as $chars)
-
-
-                            <div class="col-4 mb-3">
+                            <div class="col-lg-4 col-md-6 col-12 mb-3">
                                 <div class="card our-spain-card text-center">
                                     <img class="card-img-top mx-auto" src="{{ asset('/image/spinner-card.png') }}"
                                         alt="Card image cap">

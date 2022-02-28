@@ -43,23 +43,70 @@
         }
 
         #chart {
-            position: absolute;
             width: 500px;
             height: 500px;
             top: 25px;
-            left: 50%;
+            left: 45%;
             transform: translate(-50%, 0);
+            position: relative;
         }
-
+        #chart svg{
+            position: absolute;
+            left: 102px;
+            top: 66px;
+        }
+        .spin-img{
+            position: absolute;
+            width:400px;
+            height:auto;
+            z-index: -10;
+            left: 50%;
+            transform: translateX(-42%);
+            top: 75px;
+        }
+        @media screen and (max-width:700px){
+            .spin-img{
+            width:350px;
+            height:350px;
+        }
+        #chart svg{
+            position: absolute;
+            left: 55px;
+            top: 26px;
+        }
+        }
+        /* #chart:after{
+            position: absolute;
+            width: 480px;
+            height: 480px;
+            content: "";
+            background-color: rgba(0,0,0,0.1);
+            top: 20px;
+            left: -10px;
+            z-index: 100;
+            border-radius: 250px;
+            border: 15px solid green;
+        } */
         #question {
             position: absolute;
-            width: 400px;
-            height: 500px;
-            top: 310px;
+            width: 90px;
+            height: 90px;
+            top: 61px;
             left: 50%;
-            transform: translate(-10%, 0);
+            transform: translate(-30%, 0);
+        }
+        @media screen and (max-width:700px){
+            #chart {
+            width: 280px;
+            height: 280px;
+        }
+        
+        #question {
+            top: 35px;
+            left: 53%;
         }
 
+        }
         #question h1 {
             font-size: 50px;
             font-weight: bold;
@@ -126,22 +173,12 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-9">
-
-
-
-
-
+                <div class="col-lg-9 col-12">
                     <div class="our-balance mt-5 w-100 d-flex justify-content-between align-items-center">
-
-
                         <span class="" onclick={showmenu()}><i
                                 class="icofont-navigation-menu d-block d-lg-none"></i></span>
                         {{-- @if (isset($char_name)) --}}
                             <div class="spinnn" style="display: none">
-
-
-
                                 <form action="{{ url('user/add/percent') }}" method="POST">
                                     @csrf
 
@@ -172,7 +209,7 @@
                             </span></p>
                     </div>
                     <div class="our-spins mt-3"
-                        style="height:650px"  >
+                        style="height:700px"  >
                         <div class="row justify-content-center">
 
 <div class="errorr">
@@ -206,9 +243,11 @@
                                     <div>
                                         <h3 class="text-center">Spinner</h3>
                                     </div>
-                                    <div id="chart"></div>
+                                    <div id="chart">
+                                        <img src="{{ asset('/image/spinner-card.png') }}" class="spin-img"/>
+                                    </div>
                                     <div id="question">
-                                        <h1></h1>
+                                        <h1>10</h1>
                                     </div>
                                     <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
                                 </div>
@@ -233,20 +272,40 @@
     </script>
 
     <script>
-        var padding = {
+        
+        if(screen.width > 700){
+            var padding = {
                 top: 20,
                 right: 40,
                 bottom: 0,
                 left: 0
             },
-            w = 500 - padding.left - padding.right,
-            h = 500 - padding.top - padding.bottom,
+            w = 400 - padding.left - padding.right,
+            h = 400 - padding.top - padding.bottom,
             r = Math.min(w, h) / 2,
             rotation = 0,
             oldrotation = 0,
             picked = 100000,
             oldpick = [],
-            color = d3.scale.category20(); //category20c()
+            color = d3.scale.category20();
+        }
+        else {
+            var padding = {
+                top: 20,
+                right: 40,
+                bottom: 0,
+                left: 0
+            },
+            w = 230 - padding.left - padding.right,
+            h = 230 - padding.top - padding.bottom,
+            r = Math.min(w, h) / 2,
+            rotation = 0,
+            oldrotation = 0,
+            picked = 100000,
+            oldpick = [],
+            color = d3.scale.category20();
+        }
+         //category20c()
         //randomNumbers = getRandomNumbers();
         //http://osric.com/bingo-card-generator/?title=HTML+and+CSS+BINGO!&words=padding%2Cfont-family%2Ccolor%2Cfont-weight%2Cfont-size%2Cbackground-color%2Cnesting%2Cbottom%2Csans-serif%2Cperiod%2Cpound+sign%2C%EF%B9%A4body%EF%B9%A5%2C%EF%B9%A4ul%EF%B9%A5%2C%EF%B9%A4h1%EF%B9%A5%2Cmargin%2C%3C++%3E%2C{+}%2C%EF%B9%A4p%EF%B9%A5%2C%EF%B9%A4!DOCTYPE+html%EF%B9%A5%2C%EF%B9%A4head%EF%B9%A5%2Ccolon%2C%EF%B9%A4style%EF%B9%A5%2C.html%2CHTML%2CCSS%2CJavaScript%2Cborder&freespace=true&freespaceValue=Web+Design+Master&freespaceRandom=false&width=5&height=5&number=35#results
         var data = [{
@@ -305,9 +364,17 @@
             .data([data])
             .attr("width", w + padding.left + padding.right)
             .attr("height", h + padding.top + padding.bottom);
-        var container = svg.append("g")
+        if(screen.width > 700){
+            var container = svg.append("g")
             .attr("class", "chartholder")
-            .attr("transform", "translate(" + (w / 2 + padding.left) + "," + (h / 2 + padding.top) + ")");
+            .attr("transform", "translate(" + (w / 2+ padding.left) + "," + (h / 2 + padding.top) + ")");
+        }
+        else {
+            var container = svg.append("g")
+            .attr("class", "chartholder")
+            .attr("transform", "translate(" + (w / 1.8 + padding.left) + "," + (h / 2 + padding.top) + ")");
+        }
+      
         var vis = container
             .append("g");
 
@@ -408,23 +475,40 @@
             .attr("d", "M-" + (r * .15) + ",0L0," + (r * .05) + "L0,-" + (r * .05) + "Z")
         // .style({"fill":"black"});
         //draw spin circle
-        container.append("circle")
+
+        if(screen.width >= 700){
+            console.log("good")
+            container.append("circle")
             .attr("cx", 0)
             .attr("cy", 0)
-            .attr("r", 60)
+            .attr("r", 40)
+            .style({
+                "fill": "white",
+                "cursor": "pointer",
+                "color"  : "red",
+                "box-shadow": "0px 0px 15px rgba(0,0,0,1)",
+            });
+        }
+        else {
+            container.append("circle")
+            .attr("cx", 0)
+            .attr("cy", 0)
+            .attr("r", 30)
             .style({
                 "fill": "white",
                 "cursor": "pointer"
             });
+        }
+        
         //spin text
         container.append("text")
             .attr("x", 0)
-            .attr("y", 15)
+            .attr("y", 10)
             .attr("text-anchor", "middle")
             .text("SPIN")
             .style({
                 "font-weight": "bold",
-                "font-size": "30px"
+                "font-size": "20px"
             });
 
         function rotTween(to) {
@@ -469,9 +553,6 @@
 
             var amount =  $('#amount').val();
             var charity =  $('#charity').val();
-
-
-
             $.ajax({
                     type: "GET",
                     url: "/formSub",
@@ -479,8 +560,6 @@
                             'charity': charity,
                             'amount': amount,
                         },
-
-
                     success: function(res) {
                         if(res.error == 'Your amount is less then your donation amount')
                         {
