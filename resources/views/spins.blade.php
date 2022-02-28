@@ -119,6 +119,129 @@
             transform: translate(0, -50%);
         }
 
+/* Absolute Center Spinner */
+.loading {
+  position: fixed;
+  z-index: 999;
+  height: 2em;
+  width: 2em;
+  overflow: show;
+  margin: auto;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+/* Transparent Overlay */
+.loading:before {
+  content: '';
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+    background: radial-gradient(rgba(20, 20, 20,.8), rgba(0, 0, 0, .8));
+
+  background: -webkit-radial-gradient(rgba(20, 20, 20,.8), rgba(0, 0, 0,.8));
+}
+
+/* :not(:required) hides these rules from IE9 and below */
+.loading:not(:required) {
+  /* hide "loading..." text */
+  font: 0/0 a;
+  color: transparent;
+  text-shadow: none;
+  background-color: transparent;
+  border: 0;
+}
+
+.loading:not(:required):after {
+  content: '';
+  display: block;
+  font-size: 10px;
+  width: 1em;
+  height: 1em;
+  margin-top: -0.5em;
+  -webkit-animation: spinner 150ms infinite linear;
+  -moz-animation: spinner 150ms infinite linear;
+  -ms-animation: spinner 150ms infinite linear;
+  -o-animation: spinner 150ms infinite linear;
+  animation: spinner 150ms infinite linear;
+  border-radius: 0.5em;
+  -webkit-box-shadow: rgba(255,255,255, 0.75) 1.5em 0 0 0, rgba(255,255,255, 0.75) 1.1em 1.1em 0 0, rgba(255,255,255, 0.75) 0 1.5em 0 0, rgba(255,255,255, 0.75) -1.1em 1.1em 0 0, rgba(255,255,255, 0.75) -1.5em 0 0 0, rgba(255,255,255, 0.75) -1.1em -1.1em 0 0, rgba(255,255,255, 0.75) 0 -1.5em 0 0, rgba(255,255,255, 0.75) 1.1em -1.1em 0 0;
+box-shadow: rgba(255,255,255, 0.75) 1.5em 0 0 0, rgba(255,255,255, 0.75) 1.1em 1.1em 0 0, rgba(255,255,255, 0.75) 0 1.5em 0 0, rgba(255,255,255, 0.75) -1.1em 1.1em 0 0, rgba(255,255,255, 0.75) -1.5em 0 0 0, rgba(255,255,255, 0.75) -1.1em -1.1em 0 0, rgba(255,255,255, 0.75) 0 -1.5em 0 0, rgba(255,255,255, 0.75) 1.1em -1.1em 0 0;
+}
+
+/* Animation */
+
+@-webkit-keyframes spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@-moz-keyframes spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@-o-keyframes spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+
     </style>
 </head>
 
@@ -173,30 +296,53 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-lg-9 col-12">
+                <div class="col-9">
+
+
+
+
+                    <div style="display: none" id="loading" class="">Loading&#8230;</div>
+
                     <div class="our-balance mt-5 w-100 d-flex justify-content-between align-items-center">
+
+
+
                         <span class="" onclick={showmenu()}><i
                                 class="icofont-navigation-menu d-block d-lg-none"></i></span>
                         {{-- @if (isset($char_name)) --}}
-                            <div class="spinnn" style="display: none">
-                                <form action="{{ url('user/add/percent') }}" method="POST">
-                                    @csrf
+                        <div class="spinnn" style="display: none">
 
-                                    <label for="">
-                                        <b>Charity Name :</b>
-                                         <span class="char_name1"> </span>
-                                         &nbsp; &nbsp;&nbsp;
 
-                                         <b >  Donation Amount
-                                            : <span class="amount1" > </span> </b>
 
-                                    </label>
-                                    <input type="hidden" value="" name="percent" class="appspin char_name">
-                                    <input type="hidden" value="" class="char_id" name="charID">
-                                    <input type="hidden" value="" class="amount" name="amount">
-                                    <input type="submit" style="display: none" name="Sub" class="form_sub" id="">
-                                </form>
-                            </div>
+                            <form action="{{ url('user/add/percent') }}" method="POST">
+                                @csrf
+
+                                <label for="">
+                                    <b>Charity Name :</b>
+                                    <span class="char_name1"> </span>
+                                    &nbsp; &nbsp;&nbsp;
+
+                                    <b> Donation Amount
+                                        : <span class="amount1"> </span> </b>
+
+                                </label>
+                                <input type="hidden" value="" name="percent" class="appspin char_name">
+                                <input type="hidden" value="" class="char_id" name="charID">
+                                <input type="hidden" value="" class="amount" name="amount">
+
+
+
+                                <input type="submit" style="display: none" name="Sub" class="form_sub" id="">
+                            </form>
+                        </div>
+
+
+
+
+
+
+
+
                         {{-- @endif --}}
 
 
@@ -212,32 +358,31 @@
                         style="height:700px"  >
                         <div class="row justify-content-center">
 
-<div class="errorr">
+                            <div class="errorr">
 
-</div>
-                                <div class="col-12 spinnnD" >
+                            </div>
+                            <div class="col-12 spinnnD">
 
-                                    <div class="row text-center mb-2">
-                                        <h3 class="panel-heading">Enter Risk Amount</h3>
-
-                                    </div>
-
-
-@if(isset($user))
-                                        <input type="hidden" value="{{ $user->id }}" name="charity" id="charity">
-                                        @endif
-                                        <br>
-                                        <label for=""> Enter Amount</label>
-                                        <input type="number" required name="amount" id="amount" placeholder="Enter Amount"
-                                            class="form-control">
-
-                                        <div class="col-12" style="    margin-top: 17px;text-align: end;">
-                                            <input style="width: 100px;" id="next" type="submit" class="btn btn-primary"
-                                                value="Next">
-                                        </div>
-                                    {{-- </form> --}}
+                                <div class="row text-center mb-2">
+                                    <h3 class="panel-heading">Enter Risk Amount</h3>
 
                                 </div>
+
+
+                                @if (isset($user))
+                                    <input type="hidden" value="{{ $user->id }}" name="charity" id="charity">
+                                @endif
+                                <br>
+                                <label for=""> Enter Amount</label>
+                                <input type="number" required name="amount" id="amount" placeholder="Enter Amount"
+                                    class="form-control">
+
+                                <div class="col-12" style="    margin-top: 17px;text-align: end;">
+                                    <input style="width: 100px;" id="next" type="submit" class="btn btn-primary"
+                                        value="Next">
+                                </div>
+
+
 
                                 <div class="col-10 spinnn" style="display: none">
                                     <div>
@@ -251,6 +396,8 @@
                                     </div>
                                     <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
                                 </div>
+                                <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+                            </div>
 
                         </div>
                     </div>
@@ -258,6 +405,8 @@
             </div>
         </div>
     </div>
+
+
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
@@ -457,6 +606,10 @@
 
                     /* Comment the below line for restrict spin to sngle time */
                     container.on("click", spin);
+                            $('#loading').css( 'display', 'block');
+
+                        $('#loading').addClass( 'loading');
+
 
                     setTimeout(
                         function() {
@@ -549,39 +702,43 @@
     <script>
         $(document).ready(function() {
 
-            $('#next').click(function(){
+            $('#next').click(function() {
 
-            var amount =  $('#amount').val();
-            var charity =  $('#charity').val();
-            $.ajax({
+                var amount = $('#amount').val();
+                var charity = $('#charity').val();
+
+
+
+                $.ajax({
                     type: "GET",
-                    url: "/formSub",
+                    url: "{{url('/formSub')}}",
                     data: {
-                            'charity': charity,
-                            'amount': amount,
-                        },
+                        'charity': charity,
+                        'amount': amount,
+                    },
+
+
                     success: function(res) {
-                        if(res.error == 'Your amount is less then your donation amount')
-                        {
+                        if (res.error == 'Your amount is less then your donation amount') {
 
-                            $('.errorr').empty().append( " <div class='alert alert-danger'>"+res.error+" </div>" );
+                            $('.errorr').empty().append(" <div class='alert alert-danger'>" +
+                                res.error + " </div>");
 
-                        }
-                        else{
+                        } else {
 
 
                             $('.errorr').empty();
-                        $('.amount').empty().val(res.donateamount);
-                        $('.char_id').empty().val(res.username);
-                        $('.char_name1').empty().val(res.char_name);
-                        $('.amount1').text(res.donateamount);
-                        $('.char_name1').text(res.char_name);
+                            $('.amount').empty().val(res.donateamount);
+                            $('.char_id').empty().val(res.username);
+                            $('.char_name1').empty().val(res.char_name);
+                            $('.amount1').text(res.donateamount);
+                            $('.char_name1').text(res.char_name);
 
 
 
-                        $('.spinnn').css('display', 'block');
-                        $('.spinnnD').css('display', 'none');
-                    }
+                            $('.spinnn').css('display', 'block');
+                            $('.spinnnD').css('display', 'none');
+                        }
 
 
                     }
@@ -592,6 +749,26 @@
             });
 
         });
+    </script>
+    <script>
+        jQuery(function($){
+  $(document).ajaxSend(function() {
+    $("#overlay").fadeIn(300);　
+  });
+
+  $('#button1').click(function(){
+    $.ajax({
+      type: 'GET',
+      success: function(data){
+        console.log(data);
+      }
+    }).done(function() {
+      setTimeout(function(){
+        $("#overlay").fadeOut(300);
+      },500);
+    });
+  });
+});
     </script>
 </body>
 
