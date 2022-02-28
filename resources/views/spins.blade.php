@@ -618,7 +618,7 @@ box-shadow: rgba(255,255,255, 0.75) 1.5em 0 0 0, rgba(255,255,255, 0.75) 1.1em 1
 
                 $.ajax({
                     type: "GET",
-                    url: "/formSub",
+                    url: "{{url('/formSub')}}",
                     data: {
                         'charity': charity,
                         'amount': amount,
