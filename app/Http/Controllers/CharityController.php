@@ -112,7 +112,7 @@ class CharityController extends Controller
 
 
 
-        if ($usercoin > $donateamount) {
+        if ($usercoin >= $donateamount) {
             $char = new Charity();
             $char->userID = Auth::user()->id;
             $char->charityID = $username;

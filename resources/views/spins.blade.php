@@ -684,7 +684,10 @@ box-shadow: rgba(255,255,255, 0.75) 1.5em 0 0 0, rgba(255,255,255, 0.75) 1.1em 1
             $('#next').click(function() {
 
                 var amount = $('#amount').val();
+
                 var charity = $('#charity').val();
+                if( amount != ''){
+
 
 
 
@@ -722,7 +725,11 @@ box-shadow: rgba(255,255,255, 0.75) 1.5em 0 0 0, rgba(255,255,255, 0.75) 1.1em 1
 
                     }
                 });
-
+            }
+            else
+            {
+                alert('Please Enter Amount');
+            }
 
 
             });
