@@ -58,6 +58,12 @@ Route::prefix('admin')->middleware(['auth','admin'])->group(function () {
 
 
     Route::post('stripe/{id}', [\App\Http\Controllers\AdminController::class,'stripePost'])->name('stripe.post');
+    Route::post('stripe/payment/{id}', [\App\Http\Controllers\AdminController::class,'stripePost1'])->name('stripe.post1');
+
+
+    Route::post('add/credit', [\App\Http\Controllers\AdminController::class,'add_credit']);
+    Route::get('view/detail/{id}', [\App\Http\Controllers\AdminController::class,'view_detail']);
+    // Route::get('charity/payment', [\App\Http\Controllers\AdminController::class,'charity_payment']);
 
 
 });

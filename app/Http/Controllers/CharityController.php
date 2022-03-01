@@ -62,8 +62,7 @@ class CharityController extends Controller
 
     public function add_percent(Request $request)
     {
-        // dd($request);
-        $history = new CharityHistory();
+      $history = new CharityHistory();
         $history->userID = Auth::user()->id;
         $history->percent = $request->percent * 10;
         $history->amount = $request->amount;
@@ -88,7 +87,8 @@ class CharityController extends Controller
 
         $userr->save();
 
-        // return view('history', compact('char'))->with('success', 'Donated Sucessfully');
+        Session::put('amount', $request->amount);
+        Session::put('username',  $user->username);
 
         Session::flash('success', 'Donated Sucessfully');
 

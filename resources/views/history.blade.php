@@ -98,7 +98,9 @@
 
                         <p class="text-lg-right">Balance: <span class="mx-2">
                                 @if (isset(Auth::user()->coin))
-                                ${{ Auth::user()->coin }} @else $0
+                                    ${{ Auth::user()->coin }}
+                                @else
+                                    $0
                                 @endif
                             </span></p>
 
@@ -106,46 +108,49 @@
                     </div>
                     <div class="our-spins mt-3">
                         <div class="row">
-                            @if(isset($char) && count($char) > 0)
-                            @foreach ($char as $chars)
-                            {{-- @dd($chars->User) --}}
-                            <div class="col-lg-4 col-md-6 col-12 mb-3">
-                                <div class="card our-spain-card text-center">
-                                    <img class="card-img-top mx-auto" src="{{ asset('/image/spinner-card.png') }}"
-                                        alt="Card image cap">
-                                    <div class="card-body">
-                                        <ul class="list-group">
-                                            <li
-                                            class="list-group-item d-flex justify-content-between align-items-center">
-                                            Charity:  &nbsp;&nbsp;
-                                            <span class="font-weight-bold text-dark">{{$chars->User->username}}</span>
-                                        </li>
-                                            <li
-                                                class="list-group-item d-flex justify-content-between align-items-center">
-                                                Risk:
-                                                <span class="font-weight-bold text-dark">{{$chars->amount}}$</span>
-                                            </li>
-                                            <li
-                                                class="list-group-item d-flex justify-content-between align-items-center">
-                                                Spin:
-                                                <span class="font-weight-bold text-dark">{{$chars->percent}}%</span>
-                                            </li>
-                                        </ul>
+                            @if (isset($char) && count($char) > 0)
+                                @foreach ($char as $chars)
+                                    {{-- @dd($chars->User) --}}
+                                    <div class="col-lg-4 col-md-6 col-12 mb-3">
+                                        <div class="card our-spain-card text-center">
+                                            <img class="card-img-top mx-auto"
+                                                src="{{ asset('/image/spinner-card.png') }}" alt="Card image cap">
+                                            <div class="card-body">
+                                                <ul class="list-group">
+                                                    <li
+                                                        class="list-group-item d-flex justify-content-between align-items-center">
+                                                        Charity: &nbsp;&nbsp;
+                                                        <span
+                                                            class="font-weight-bold text-dark">{{ $chars->User->username }}</span>
+                                                    </li>
+                                                    <li
+                                                        class="list-group-item d-flex justify-content-between align-items-center">
+                                                        Risk:
+                                                        <span
+                                                            class="font-weight-bold text-dark">{{ $chars->amount }}$</span>
+                                                    </li>
+                                                    <li
+                                                        class="list-group-item d-flex justify-content-between align-items-center">
+                                                        Spin:
+                                                        <span
+                                                            class="font-weight-bold text-dark">{{ $chars->percent }}%</span>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endforeach
+                            @else
+                                <div class="col-12">
+
+
+
+                                    <div class="jumbotron jumbotron-fluid bg-white">
+                                        <div class="container">
+                                            <h4 class="text-center">No Charity Available</h4>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            @endforeach
-                            @else
-                            <div class="col-12">
-
-
-
-                            <div class="jumbotron jumbotron-fluid bg-white">
-                                <div class="container">
-                                    <h4 class="text-center">No Charity Available</h4>
-                                </div>
-                              </div>
-                            </div>
                         </div>
                         @endif
 
@@ -194,9 +199,14 @@
                 </form>
             </div>
         </div>
-    </div>
- --}}
+    </div> --}}
 
+<?php
+$amount = Session::get('amount');
+$username = Session::get('username');
+
+
+?>
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
@@ -225,17 +235,15 @@
         }
     </script>
 
-@if (Session::has('success'))
-    <script>
+    @if (Session::has('success'))
+        <script>
 
-Swal.fire({
-  icon: 'success',
-  title: 'Success!',
-  text: 'Donated Successfully',
-  showConfirmButton: false,
-  timer: 2000
-})
-
-
-    </script>
+            Swal.fire({
+                icon: 'success',
+                title: 'Congratulations!',
+                text: "You successfully added this amount $<?php echo $amount?> to this charity <?php echo $username?>",
+                showConfirmButton: true,
+                // timer: 2000
+            })
+        </script>
     @endif

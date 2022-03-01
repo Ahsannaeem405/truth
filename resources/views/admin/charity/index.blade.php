@@ -129,7 +129,11 @@
                                                     <th>Balance</th>
                                                     <th>Created Date</th>
                                                     <th>Status</th>
+                                                    <th>
+                                                        PayNow
+                                                    </th>
                                                     <th>Action</th>
+
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -151,10 +155,21 @@
                                                                 {{ $charity->status }}
                                                             @endif
                                                         </td>
-
                                                         <td>
 
-                                                            <a class="p-1"
+                                                            <a
+                                                            href="{{ url('admin/charity/send/' . $charity->id . '') }}">
+                                                            <button class="btn btn-primary" value="">
+                                                                PayNow
+
+                                                            </button>
+                                                            {{-- <i style="color: green" class="fa fa-money"></i> --}}
+
+                                                        </a>
+                                                        </td>
+                                                        <td>
+
+                                                            <a class=""
                                                                 onclick="return confirm('Are you sure you want to delete this item?');"
                                                                 href="{{ url('admin/charity/delete/' . $charity->id . '') }}">
                                                                 <i style="color: red" class="fa fa-trash"></i></a>
@@ -163,15 +178,14 @@
                                                             <a
                                                                 href="{{ url('admin/charity/edit/' . $charity->id . '') }}">
                                                                 <i style="color: blue" class="fa fa-edit"></i></a>
-                                                            <a
-                                                                href="{{ url('admin/charity/send/' . $charity->id . '') }}">
-                                                                <i style="color: green" class="fa fa-money"></i></a>
+
 
 
                                                             <a href="{{ url("admin/status/$charity->id") }}">
                                                                 <i class="fas fa-check"></i>
                                                             </a>
                                                         </td>
+
                                                     </tr>
                                                 @endforeach
 

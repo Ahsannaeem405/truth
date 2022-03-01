@@ -31,6 +31,10 @@
                 <li class="@yield('charity')"><a href="{{url('admin/charity')}}"><i class=" fa fa-plus"></i><span
                             class="menu-title" data-i18n="Dashboard">Charity</span></a>
                 </li>
+{{--
+                <li class="@yield('charity_payment')"><a href="{{url('admin/charity/payment')}}"><i class=" fa fa-plus"></i><span
+                    class="menu-title" data-i18n="Dashboard">Charity Payment</span></a>
+        </li> --}}
             @endif
 
             @if(\Illuminate\Support\Facades\Auth::user()->role=='user')

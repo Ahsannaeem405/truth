@@ -14,4 +14,11 @@ class CharityHistory extends Model
     {
         return $this->belongsTo('App\Models\User', 'userID');
     }
+
+    public function Userr()
+    {
+        return $this->belongsTo('App\Models\User', 'charityID');
+    }
+
+
 }

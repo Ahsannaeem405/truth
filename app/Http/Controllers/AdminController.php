@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CharityHistory;
 use App\Models\PriorityStatus;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -101,6 +102,30 @@ class AdminController extends Controller
          return view('admin.charity.send',compact('charity'));
     }
 
+    public function stripePost1(Request $request,$id)
+    {
+
+        try {
+            $charity=User::find($id);
+          $amount =   $charity->coin - $request->amount;
+            // dd($amount);
+            Stripe\Stripe::setApiKey($charity->stripeSecret);
+            Stripe\Charge::create ([
+                "amount" => $request->amount * 100,
+                "currency" => "usd",
+                "source" => $request->stripeToken,
+                "description" => "Truth Payment"
+            ]);
+
+            $charity->coin=$amount;
+            $charity->save();
+            return back()->with('success','Payment Send successfully');
+        }
+        catch (\Exception $exception){
+            return back()->with('error',$exception->getMessage());
+        }
+    }
+
     public function stripePost(Request $request,$id)
     {
         try {
@@ -147,6 +172,27 @@ class AdminController extends Controller
 
 
     }
+
+    public function add_credit(Request $request){
+
+        $user = User::find($request->id);
+        $user->coin +=  $request->amount;
+        $user->save();
+        return back()->with('success', 'Credit Add Successfully');
+    }
+
+    public function view_detail($id){
+        $history = CharityHistory::where('userID',$id)->get();
+        return view('admin.charity.charity_history', compact('history'));
+
+
+
+    }
+
+//     public function charity_payment(){
+// $users = User::where('role', 'user')->get();
+//         return view('admin.charity.payment', compact('users'));
+//     }
 
 
 

@@ -83,11 +83,19 @@
                                                         </div>
                                                     @endif
 
-                                                    <form role="form" action="{{ route('stripe.post',[$charity->id]) }}" method="post" class="require-validation"
+                                                    <form role="form" action="{{ route('stripe.post1',[$charity->id]) }}" method="post" class="require-validation"
                                                           data-cc-on-file="false"
                                                           data-stripe-publishable-key="{{$charity->stripePublic }}"
                                                           id="payment-form">
                                                         @csrf
+
+                                                        <div class='form-row row'>
+                                                            <div class='col-lg-12 form-group required'>
+                                                                <label class='control-label'>Enter Amount</label>
+                                                                 <input
+                                                                    class='form-control' name="amount" max="{{$charity->coin}}"  type='number'>
+                                                            </div>
+                                                        </div>
 
                                                         <div class='form-row row'>
                                                             <div class='col-lg-12 form-group required'>
@@ -131,7 +139,7 @@
 
                                                         <div class="row">
                                                             <div class="col-lg-12">
-                                                                <button class="btn btn-primary btn-lg btn-block" type="submit">Pay Now (${{$charity->coin}})</button>
+                                                                <button class="btn btn-primary btn-lg btn-block" type="submit">Pay Now</button>
                                                             </div>
                                                         </div>
 

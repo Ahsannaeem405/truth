@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('users')
+@section('charity_payment')
     active
 @endsection
 
@@ -16,29 +16,29 @@
             vertical-align: middle;
         }
 
-        .iconss{
+        .iconss {
             font-size: 16px;
-            color:#7367F0;
+            color: #7367F0;
             margin-left: 1px;
         }
+
     </style>
 @endsection
 
 
 @section('heading')
-    User List
+    User Payment
 @endsection
 
 @section('title')
-    User List
+    User Payment
 @endsection
 
 @section('content')
+    <?php
+    $role = Auth::user()->role;
 
-<?php
-$role = Auth::user()->role;
-
-?>
+    ?>
     <main>
         <div class="content-body">
             <section id="column-selectors">
@@ -76,24 +76,12 @@ $role = Auth::user()->role;
                                                         <td>{{ $user->coin }}</td>
                                                         <td>{{ $user->created_at }}</td>
                                                         <td>
-
-                                                            <a onclick="return confirm('Are you sure you want to delete this item?');"
-                                                                href="{{ url('admin/user/delete/' . $user->id . '') }}"
-                                                                class="iconss"> <i style="color: red"
-                                                                    class="fa fa-trash"></i></a>
-
-                                                            <i data-toggle="modal" data-target="#Modal{{$user->id }}"
-                                                                class="fa fa-plus iconss"
-                                                              ></i>
-                                                                <a href="{{url("$role/view/detail/$user->id")}}">
-
-                                                                <i class="fa fa-eye iconss" ></i>
-                                                            </a>
+                                                            <button class="btn btn-primary"> Send Now</button>
 
                                                         </td>
                                                     </tr>
 
-                                                    <div class="modal fade" id="Modal{{$user->id }}" tabindex="-1"
+                                                    <div class="modal fade" id="Modal{{ $user->id }}" tabindex="-1"
                                                         role="dialog" aria-labelledby="exampleModalLabel"
                                                         aria-hidden="true">
                                                         <div class="modal-dialog" role="document">
@@ -106,24 +94,27 @@ $role = Auth::user()->role;
                                                                         <span aria-hidden="true">&times;</span>
                                                                     </button>
                                                                 </div>
-                                                                <form action="{{url("$role/add/credit")}}" method="POST">
+                                                                <form action="{{ url("$role/add/credit") }}" method="POST">
                                                                     @csrf
-                                                                <div class="modal-body">
-                                                                    <label for=""
-                                                                        style="    font-size: 14px; margin-bottom:6px">Enter
-                                                                        Amount</label>
-                                                                        <input type="hidden" name="id" value="{{$user->id}}">
-                                                                    <input type="number" required class="form-control " name="amount" id="">
+                                                                    <div class="modal-body">
+                                                                        <label for=""
+                                                                            style="    font-size: 14px; margin-bottom:6px">Enter
+                                                                            Amount</label>
+                                                                        <input type="hidden" name="id"
+                                                                            value="{{ $user->id }}">
+                                                                        <input type="number" required class="form-control "
+                                                                            name="amount" id="">
 
-                                                                </div>
-                                                                <div class="modal-footer">
-                                                                    <button type="submit" class="btn btn-primary"> Add</button>
+                                                                    </div>
+                                                                    <div class="modal-footer">
+                                                                        <button type="submit" class="btn btn-primary">
+                                                                            Add</button>
 
-                                                                    </button>
+                                                                        </button>
 
-                                                                </div>
+                                                                    </div>
 
-                                                            </form>
+                                                                </form>
                                                             </div>
                                                         </div>
                                                     </div>
