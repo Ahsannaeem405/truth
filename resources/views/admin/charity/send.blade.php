@@ -93,7 +93,7 @@
                                                             <div class='col-lg-12 form-group required'>
                                                                 <label class='control-label'>Enter Amount</label>
                                                                  <input
-                                                                    class='form-control' name="amount" max="{{$charity->coin}}"  type='number'>
+                                                                    class='form-control' required name="amount" max="{{$charity->coin}}"  type='number'>
                                                             </div>
                                                         </div>
 
