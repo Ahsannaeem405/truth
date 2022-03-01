@@ -45,7 +45,7 @@
         #chart {
             width: 500px;
             height: 500px;
-            top: 25px;
+            top: -25px;
             left: 45%;
             transform: translate(-50%, 0);
             position: relative;
@@ -100,7 +100,7 @@
             width: 280px;
             height: 280px;
         }
-        
+
         #question {
             top: 35px;
             left: 53%;
@@ -389,9 +389,8 @@ box-shadow: rgba(255,255,255, 0.75) 1.5em 0 0 0, rgba(255,255,255, 0.75) 1.1em 1
                                 <div id="chart">
                                     <img src="{{ asset('/image/spinner-card.png') }}" class="spin-img"/>
                                 </div>
-                                <div id="question">
-                                    <h1>10</h1>
-                                </div>
+                                {{-- <div id="question">
+                                </div> --}}
                                 <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
                             </div>
 
@@ -519,7 +518,7 @@ box-shadow: rgba(255,255,255, 0.75) 1.5em 0 0 0, rgba(255,255,255, 0.75) 1.1em 1
                 var container = svg.append("g")
             .attr("class", "chartholder")
             .attr("transform", "translate(" + (w / 1.6 + padding.left) + "," + (h / 2 + padding.top) + ")");
- 
+
             }
         var vis = container
             .append("g");
