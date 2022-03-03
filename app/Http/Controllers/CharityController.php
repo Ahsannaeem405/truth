@@ -87,18 +87,23 @@ class CharityController extends Controller
 
         $userr->save();
 
+
+        Session::put('total_percent', $total_percent);
+
         Session::put('amount', $request->amount);
         Session::put('username',  $user->username);
 
         Session::flash('success', 'Donated Sucessfully');
 
-        return redirect('user/user-history')->with( ['char' => $char ]);
+        return redirect('user/user-history')->with( ['char' => $char , 'total_percent' =>$total_percent ]);
 
     }
 
     public function add_donation(Request $request)
     {
 
+
+        // dd($request);
 
         $user = User::find(Auth::user()->id);
 

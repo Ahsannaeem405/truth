@@ -204,6 +204,8 @@
 <?php
 $amount = Session::get('amount');
 $username = Session::get('username');
+$total_percent = Session::get('total_percent');
+
 
 
 ?>
@@ -241,7 +243,7 @@ $username = Session::get('username');
             Swal.fire({
                 icon: 'success',
                 title: 'Congratulations!',
-                text: "You successfully added this amount $<?php echo $amount?> to this charity <?php echo $username?>",
+                text: "You successfully added this amount $<?php echo $total_percent?> to this <?php echo $username?>",
                 showConfirmButton: true,
                 // timer: 2000
             })

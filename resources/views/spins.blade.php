@@ -313,11 +313,11 @@ box-shadow: rgba(255,255,255, 0.75) 1.5em 0 0 0, rgba(255,255,255, 0.75) 1.1em 1
                                 @csrf
 
                                 <label for="">
-                                    <b>Charity Name :</b>
+                                    <b> Name :</b>
                                     <span class="char_name1"> </span>
                                     &nbsp; &nbsp;&nbsp;
 
-                                    <b> Donation Amount
+                                    <b> Risk Amount
                                         : <span class="amount1"> </span> </b>
 
                                 </label>
@@ -453,52 +453,52 @@ box-shadow: rgba(255,255,255, 0.75) 1.5em 0 0 0, rgba(255,255,255, 0.75) 1.1em 1
         //randomNumbers = getRandomNumbers();
         //http://osric.com/bingo-card-generator/?title=HTML+and+CSS+BINGO!&words=padding%2Cfont-family%2Ccolor%2Cfont-weight%2Cfont-size%2Cbackground-color%2Cnesting%2Cbottom%2Csans-serif%2Cperiod%2Cpound+sign%2C%EF%B9%A4body%EF%B9%A5%2C%EF%B9%A4ul%EF%B9%A5%2C%EF%B9%A4h1%EF%B9%A5%2Cmargin%2C%3C++%3E%2C{+}%2C%EF%B9%A4p%EF%B9%A5%2C%EF%B9%A4!DOCTYPE+html%EF%B9%A5%2C%EF%B9%A4head%EF%B9%A5%2Ccolon%2C%EF%B9%A4style%EF%B9%A5%2C.html%2CHTML%2CCSS%2CJavaScript%2Cborder&freespace=true&freespaceValue=Web+Design+Master&freespaceRandom=false&width=5&height=5&number=35#results
         var data = [{
-                "label": "10",
+                "label": "10%",
                 "value": 1,
                 "question": "10"
             }, // padding
             {
-                "label": "20",
+                "label": "20%",
                 "value": 2,
                 "question": "20"
             }, //font-family
             {
-                "label": "30",
+                "label": "30%",
                 "value": 3,
                 "question": "30"
             }, //color
             {
-                "label": "40",
+                "label": "40%",
                 "value": 4,
                 "question": "40"
             }, //font-weight
             {
-                "label": "50",
+                "label": "50%",
                 "value": 5,
                 "question": "50"
             }, //font-size
             {
-                "label": "60",
+                "label": "60%",
                 "value": 6,
                 "question": "60"
             }, //background-color
             {
-                "label": "70",
+                "label": "70%",
                 "value": 7,
                 "question": "70"
             }, //nesting
             {
-                "label": "80",
+                "label": "80%",
                 "value": 8,
                 "question": "80"
             }, //bottom
             {
-                "label": "90",
+                "label": "90%",
                 "value": 9,
                 "question": "90"
             }, //sans-serif
             {
-                "label": "100",
+                "label": "100%",
                 "value": 10,
                 "question": "100"
             }
