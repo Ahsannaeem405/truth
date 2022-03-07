@@ -442,6 +442,10 @@ color: #4a4c70;
     font-size: 300px;
     color: #EFC940;
 }
+.user-sidebar ul li .dropdown-toggle{
+    color: #4a4c70;
+}
+
 @media screen and (max-width:768px){
     .mission-pic i{
         font-size: 270px;
@@ -477,6 +481,7 @@ color: #4a4c70;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     color: #4a4c70;
 }
+
 .user-sidebar ul li:first-child{
     border-radius: 8px 8px 0px 0px;
 }
@@ -486,6 +491,15 @@ color: #4a4c70;
 .user-sidebar ul li:hover{
     background-color: #0996A3;
     color: white;
+}
+.dropdown-menu{
+    background-color: #0996A3;
+}
+.user-sidebar ul li .dropdown-menu a{
+    color: white;
+}
+.user-sidebar ul li .dropdown-menu a:hover{
+    color: #4a4c70;
 }
 .user-sidebar ul li:hover a{
     color: white;

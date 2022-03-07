@@ -13,6 +13,7 @@
                 <li >
                     <a href="{{url('user/user-history')}}"><i class="icofont-history px-2"></i>Markup History</a>
                 </li>
+                
                 <li>
                     <a href="{{url('/logout')}}"><i class="icofont-sign-out px-2"></i>Log Out</a>
                 </li>
@@ -35,6 +36,7 @@
                             <li >
                                <a href="{{url('/user-history')}}"><i class="icofont-history px-2"></i>Markup History</a>
                             </li>
+                            
                             <li>
                                <a href="{{url('/logout')}}"><i class="icofont-sign-out px-2"></i>Log Out</a>
                             </li>
