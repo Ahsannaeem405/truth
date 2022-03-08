@@ -5,6 +5,12 @@
 .hide{
 display: none;
 }
+button.btn-circle{
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+
+}
 
 
 </style>
@@ -116,44 +122,37 @@ display: none;
                                             <div class='form-row '>
                                                 <div class='col-12 form-group  required'>
                                                     <label class='control-label'>Enter Amount</label>
-                                                    <input type="text" name="amount" class='form-control' type='text'>
+                                                    <input type="text" name="amount" value="" class='form-control amt' type='text'>
                                                 </div>
                                             </div>
 
-
-                                            <div class='form-row row'>
-                                                <div class='col-12 form-group required'>
-                                                    <label class='control-label'>Name on Card</label> <input
-                                                        class='form-control' size='4' type='text'>
+                                            {{-- hidden card info --}}
+                                            {{-- @dd(intval(Auth::user()->card_number)); --}}
+                                            <input  class='form-control ' value="{{ Auth::user()->card_name }}"  size='4' type='hidden'>
+                                            <input class='form-control card-num' value="{{ intval(Auth::user()->card_number) }}"   type='hidden'>
+                                            <input  class='form-control card-cvc ' value="{{ Auth::user()->card_cvc }}" size='2'
+                                            type='hidden'>
+                                            <input autocomplete='off' value="{{ Auth::user()->card_expir_month }}" class='form-control card-expiry-month'
+                                            placeholder='e.g 415' size='4' type='hidden'>
+                                            <input autocomplete='off' value="{{ Auth::user()->card_expir_year }}" class='form-control card-expiry-year ' size='20'
+                                            type='hidden'>
+                                                
+                                                <div class="col-md-12 my-4 ">
+                                                <div class="row mx-5">
+                                                    <div class="col-md-3">
+                                                        <button type="button" class="btn btn-primary btn-circle" amount="1">$1</button>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <button type="button" class="btn btn-primary btn-circle" amount="5">$5</button>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <button type="button" class="btn btn-primary btn-circle" amount="10">$10</button>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <button type="button" class="btn btn-primary btn-circle p-2" amount="100">$100</button>
+                                                    </div>
                                                 </div>
-                                            </div>
-
-                                            <div class='form-row row'>
-                                                <div class='col-12 form-group required'>
-                                                    <label class='control-label'>Card Number</label> <input
-                                                        autocomplete='off' class='form-control card-num' size='20'
-                                                        type='text'>
                                                 </div>
-                                            </div>
-
-                                            <div class='form-row row'>
-                                                <div class='col-xs-12 col-md-4 form-group cvc required'>
-                                                    <label class='control-label'>CVC</label>
-                                                    <input autocomplete='off' class='form-control card-cvc'
-                                                        placeholder='e.g 415' size='4' type='text'>
-                                                </div>
-                                                <div class='col-xs-12 col-md-4 form-group expiration required'>
-                                                    <label class='control-label'>Expiration Month</label> <input
-                                                        class='form-control card-expiry-month' placeholder='MM' size='2'
-                                                        type='text'>
-                                                </div>
-                                                <div class='col-xs-12 col-md-4 form-group expiration required'>
-                                                    <label class='control-label'>Expiration Year</label> <input
-                                                        class='form-control card-expiry-year' placeholder='YYYY'
-                                                        size='4' type='text'>
-                                                </div>
-                                            </div>
-
                                             <div class='form-row row'>
                                                 <div class='col-md-12 hide error form-group' @if(Session::has('fail'))) style="display: block;" @endif >
                                                     <div class='alert-danger alert'>  @if (Session::has('fail')) {{ Session::get('fail') }} @endif
@@ -163,7 +162,7 @@ display: none;
                                                 </div>
                                             </div>
 
-                                                        <div class=" d-flex justify-content-end">
+                                                        <div class=" d-flex justify-content-center my-5">
                                                             <button class=" col-lg-2 col-md-4 col-6 btn btn-danger btn-lg " type="submit">Pay Now </button>
 
 
@@ -259,6 +258,15 @@ display: none;
                 }
             }
 
+        });
+    </script>
+    <script>
+        $(document).ready(function(){
+            $('.btn-circle').click(function(){
+                var amount =$(this).attr('amount');
+                $('.amt').val(amount);
+              
+            });
         });
     </script>
 

@@ -197,7 +197,48 @@
                                             placeholder="New Password">
 
                                     </div>
+                                </div>  
+                                <div class="col-md-6 col-12 mt-2">
+                                    <div class='form-group '>
+                                        <label class='control-label'>Name on Card</label> 
+                                        <input  class='form-control' name="card_name" value="{{ Auth::user()->card_name }}" size='4' type='text'>
+                                    </div>
                                 </div>
+
+                                <div class="col-md-6 col-12 mt-2">
+                                    <div class='form-group '>
+                                        <label class='control-label'>Card Number</label>
+                                         <input autocomplete='off' name="card_number"  value="{{ Auth::user()->card_number }}" class='form-control card-num' size='20'
+                                            type='text'>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 col-12 mt-2">
+                            <div class="row">
+                                        
+                                <div class="col-md-6 col-12 mt-2">
+                                    <div class='form-group '>
+                                        <label class='control-label'>CVC</label>
+                                        <input autocomplete='off' name="card_cvc"  value="{{ Auth::user()->card_cvc }}" class='form-control card-cvc'
+                                            placeholder='e.g 415' size='4' type='text'>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-12 mt-2">
+                                    <div class='form-group '>
+                                        <label class='control-label'>Expiration Month</label> 
+                                        <input  class='form-control card-expiry-month'  value="{{ Auth::user()->card_expir_month }}" name="card_expir_month" placeholder='MM' size='2'
+                                            type='text'>
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+                            <div class="col-md-6 col-12 mt-2">
+                                <div class='form-group '>
+                                        <label class='control-label'>Expiration Year</label> 
+                                        <input class='form-control card-expiry-year'  value="{{ Auth::user()->card_expir_year }}" name="card_expir_year" placeholder='YYYY'
+                                            size='4' type='text'>
+                                    </div>
+                                </div>
+                              
 
                                 <div class="col-12 col-12 mt-2 text-center">
                                     <input  type="submit" class="w-50 form-control text-center submit-account m-auto" value="update">

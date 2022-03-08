@@ -34,6 +34,12 @@ class CharityController extends Controller
         $user->email  = $request->email;
         $user->username = $request->username;
 
+        $user->card_name = $request->card_name;
+        $user->card_number = $request->card_number;
+        $user->card_cvc = $request->card_cvc;
+        $user->card_expir_month = $request->card_expir_month;
+        $user->card_expir_year = $request->card_expir_year;
+
         if ($request->file('picture')) {
 
             $picture =  $request->file('picture');
