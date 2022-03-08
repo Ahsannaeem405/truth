@@ -19,6 +19,7 @@
 
 <link rel="stylesheet" href="{{ asset('/css/theme.css') }}">
 <title>Account page</title>
+</head>
 <style>
     .user-sidebar ul li {
     font-size: 18px;
@@ -37,8 +38,6 @@
 
 }
 </style>
-</head>
-
 <body>
 
     <nav aria-label="breadcrumb">
@@ -119,88 +118,68 @@
 
                                 <div class="col-12 mb-3">
                                     <div class="profile-edit d-md-flex align-items-center">
-                                        <div class="pic-edit">
+                                      
 
-                                            @if (Auth::user()->image != null)
-                                                <img src="{{ asset('/uploads/' . Auth::user()->image) }}" name="imag"
-                                                    id="my_image" alt="user-pic" />
-                                                <i class="icofont-ui-add addmore-img upload">
-                                                @else
-                                                {{-- <i class="fa fa-user"></i> --}}
-                                                    <img src="{{ asset('/image/avatar.png') }}" name="imag"
-                                                        id="my_image" alt="user-pic" />
-                                                    <i class="icofont-ui-add addmore-img upload">
-                                            @endif
+                                        <h4>Card Info</h4>
 
-
-                                            <input type="file" hidden id="user-pic" />
-                                            </i>
-
-
-
-
-                                        </div>
-
-
-                                    <div class="about-profile-setting">
-                                        <h4 class="m-0 mt-3">Profile Setting</h4>
-                                        <!-- <button type="button" class="upload-profile my-2 upload">Upload</button> -->
-                                    </div>
+                                  
                                 </div>
 
-                                <div class="img1">
-                                    <input type="file" onchange="readURL(this)" style="display: none" name="picture"
-                                        class="imgg" id="">
-
-                                </div>
                                 <div class="row">
 
 
-                                <div class="col-md-6 col-12 mt-2">
-                                    <div class="form-group">
-                                        <label>First Name</label>
-                                        <input type="text" value="{{ Auth::user()->f_name }}" name="f_name"
+                                        <input type="hidden" value="{{ Auth::user()->f_name }}" name="f_name"
                                             placeholder="Enter First Name" class="form-control">
-                                    </div>
-                                </div>
-                                <div class="col-md-6 col-12 mt-2">
-                                    <div class="form-group">
-                                        <label>last Name</label>
-                                        <input type="text" value="{{ Auth::user()->l_name }}" name="l_name"
-                                            placeholder="Enter Last Name" class="form-control">
-                                    </div>
-                                </div>
-                                <div class="col-md-6 col-12 mt-2">
-                                    <div class="form-group">
-                                        <label>User Name</label>
-                                        <input type="text" value="{{ Auth::user()->username }}" name="username"
-                                            class="form-control" name="user_name" placeholder="Enter User Name">
-                                    </div>
-                                </div>
-                                <div class="col-md-6 col-12 mt-2">
-                                    <div class="form-group">
-                                        <label>Email Address</label>
-                                        <input type="email" class="form-control" value="{{ Auth::user()->email }}"
-                                            name="email" placeholder="Enter Email ">
-                                    </div>
-                                </div>
-                                <div class="col-md-6 col-12 mt-2">
-                                    <div class="form-group">
-                                        <label> Password</label>
-                                        <input type="passowrd" name="password" class="form-control"
-                                            placeholder="Password">
-
-                                    </div>
-                                </div>
-                                <div class="col-md-6 col-12 mt-2">
-                                    <div class="form-group">
-                                        <label>New Password</label>
-                                        <input type="passowrd" name="new_password" class="form-control"
-                                            placeholder="New Password">
-
-                                    </div>
-                                </div>  
                                
+                                        <input type="hidden" value="{{ Auth::user()->l_name }}" name="l_name"
+                                            placeholder="Enter Last Name" class="form-control">
+                             
+                                        <input type="hidden" value="{{ Auth::user()->username }}" name="username"
+                                            class="form-control" name="user_name" placeholder="Enter User Name">
+                                    
+                                        <input type="hidden" class="form-control" value="{{ Auth::user()->email }}"
+                                            name="email" placeholder="Enter Email ">
+                                    
+                                <div class="col-md-6 col-12 mt-2">
+                                    <div class='form-group '>
+                                        <label class='control-label'>Name on Card</label> 
+                                        <input  class='form-control' name="card_name" value="{{ Auth::user()->card_name }}" size='4' type='text'>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6 col-12 mt-2">
+                                    <div class='form-group '>
+                                        <label class='control-label'>Card Number</label>
+                                         <input autocomplete='off' name="card_number"  value="{{ Auth::user()->card_number }}" class='form-control card-num' size='20'
+                                            type='text'>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 col-12 mt-2">
+                            <div class="row">
+                                        
+                                <div class="col-md-6 col-12 mt-2">
+                                    <div class='form-group '>
+                                        <label class='control-label'>CVC</label>
+                                        <input autocomplete='off' name="card_cvc"  value="{{ Auth::user()->card_cvc }}" class='form-control card-cvc'
+                                            placeholder='e.g 415' size='4' type='text'>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-12 mt-2">
+                                    <div class='form-group '>
+                                        <label class='control-label'>Expiration Month</label> 
+                                        <input  class='form-control card-expiry-month'  value="{{ Auth::user()->card_expir_month }}" name="card_expir_month" placeholder='MM' size='2'
+                                            type='text'>
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+                            <div class="col-md-6 col-12 mt-2">
+                                <div class='form-group '>
+                                        <label class='control-label'>Expiration Year</label> 
+                                        <input class='form-control card-expiry-year'  value="{{ Auth::user()->card_expir_year }}" name="card_expir_year" placeholder='YYYY'
+                                            size='4' type='text'>
+                                    </div>
+                                </div>
                               
 
                                 <div class="col-12 col-12 mt-2 text-center">

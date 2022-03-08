@@ -83,8 +83,11 @@ Route::prefix('user')->middleware(['auth','user'])->group(function () {
     Route::get('/account', function () {
         return view('account');
     });
+    Route::get('add/credit_info', function () {
+        return view('credit_info');
+    });
 
-
+    
 
     Route::get('/user-account', function () {
         return view('account');

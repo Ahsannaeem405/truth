@@ -24,7 +24,24 @@
 
 <title>Markup History</title>
 </head>
+<style>
+    .user-sidebar ul li {
+    font-size: 18px;
+    padding: 15px 2px !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    color: #4a4c70;
+    height: 60px;
 
+}
+.dropdown-menu{
+    position: absolute;
+    transform: translate3d(25px, 58px, 0px);
+    top: -2px !important;
+    left: -2px !important;
+    width: -webkit-fill-available !important;
+
+}
+</style>
 <body>
 
     <nav aria-label="breadcrumb">
@@ -61,24 +78,17 @@
                                     <i class="icofont-spinner-alt-3 px-2"></i>Spin Now
                                 </li>
                             </a>
-                            <a href="{{ url('user/user-account') }}" style="text-decoration: none; ">
-                                <li>
-                                    <i class="icofont-ui-user px-2"></i>My account
-                                </li>
-                            </a>
-                            <a href="{{ url('user/add/credit') }}" style="text-decoration: none;">
-                                <li>
-                                    <i class="icofont-credit-card px-2"></i>Add Credit
-                                </li>
-                            </a>
-                            <a href="{{ url('user/user-history') }}" style="text-decoration: none; ">
-                                <li class="active text-white">
-                                    <i class="icofont-history px-2"></i>Markup History
-                                </li>
-                            </a>
-                            <a href="{{ url('/logout') }}" style="text-decoration: none; ">
-                                <li>
-                                    <i class="icofont-sign-out px-2"></i>Log Out
+                             
+                            <a href="" style="text-decoration: none; ">
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Settings</a>
+                                    <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="{{ url('user/user-account') }}">My account</a>
+                                    <a class="dropdown-item" href="{{ url('user/add/credit_info') }}">Credit Info</a>
+                                    <a class="dropdown-item" href="{{ url('user/add/credit') }}">Add Credit</a>
+                                    <a class="dropdown-item" href="{{ url('user/user-history') }}">Markup History</a>
+                                    <a class="dropdown-item" href="{{ url('/logout') }}">Log Out</a>
+                                    </div>
                                 </li>
                             </a>
                         </ul>

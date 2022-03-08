@@ -14,6 +14,24 @@ button.btn-circle{
 
 
 </style>
+<style>
+    .user-sidebar ul li {
+    font-size: 18px;
+    padding: 15px 2px !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    color: #4a4c70;
+    height: 60px;
+
+}
+.dropdown-menu{
+    position: absolute;
+    transform: translate3d(25px, 58px, 0px);
+    top: -2px !important;
+    left: -2px !important;
+    width: -webkit-fill-available !important;
+
+}
+</style>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -59,24 +77,17 @@ button.btn-circle{
                                     <i class="icofont-spinner-alt-3 px-2"></i>Spin Now
                                 </li>
                             </a>
-                            <a href="{{ url('user/user-account') }}" style="text-decoration: none; ">
-                                <li>
-                                    <i class="icofont-ui-user px-2"></i>My account
-                                </li>
-                            </a>
-                            <a href="{{ url('user/add/credit') }}" style="text-decoration: none;">
-                                <li class="active text-white">
-                                    <i class="icofont-credit-card px-2"></i>Add Credit
-                                </li>
-                            </a>
-                            <a href="{{ url('user/user-history') }}" style="text-decoration: none; ">
-                                <li class="">
-                                    <i class="icofont-history px-2"></i>Markup History
-                                </li>
-                            </a>
-                            <a href="{{ url('/logout') }}" style="text-decoration: none; ">
-                                <li>
-                                    <i class="icofont-sign-out px-2"></i>Log Out
+                             
+                            <a href="" style="text-decoration: none; ">
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Settings</a>
+                                    <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="{{ url('user/user-account') }}">My account</a>
+                                    <a class="dropdown-item" href="{{ url('user/add/credit_info') }}">Credit Info</a>
+                                    <a class="dropdown-item" href="{{ url('user/add/credit') }}">Add Credit</a>
+                                    <a class="dropdown-item" href="{{ url('user/user-history') }}">Markup History</a>
+                                    <a class="dropdown-item" href="{{ url('/logout') }}">Log Out</a>
+                                    </div>
                                 </li>
                             </a>
                         </ul>
@@ -137,18 +148,18 @@ button.btn-circle{
                                             <input autocomplete='off' value="{{ Auth::user()->card_expir_year }}" class='form-control card-expiry-year ' size='20'
                                             type='hidden'>
                                                 
-                                                <div class="col-md-12 my-4 ">
-                                                <div class="row mx-5">
-                                                    <div class="col-md-3">
+                                                <div class="col-md-12 col-sm-12 my-4 ">
+                                                <div class="row mx-lg-5 mx-sm-5">
+                                                    <div class="col-md-3 col-6 pt-1">
                                                         <button type="button" class="btn btn-primary btn-circle" amount="1">$1</button>
                                                     </div>
-                                                    <div class="col-md-3">
+                                                    <div class="col-md-3 col-6 pt-1">
                                                         <button type="button" class="btn btn-primary btn-circle" amount="5">$5</button>
                                                     </div>
-                                                    <div class="col-md-3">
+                                                    <div class="col-md-3 col-6 pt-1">
                                                         <button type="button" class="btn btn-primary btn-circle" amount="10">$10</button>
                                                     </div>
-                                                    <div class="col-md-3">
+                                                    <div class="col-md-3 col-6 pt-1">
                                                         <button type="button" class="btn btn-primary btn-circle p-2" amount="100">$100</button>
                                                     </div>
                                                 </div>

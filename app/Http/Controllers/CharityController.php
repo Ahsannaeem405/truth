@@ -109,7 +109,6 @@ class CharityController extends Controller
     {
 
 
-        // dd($request);
 
         $user = User::find(Auth::user()->id);
 
@@ -167,7 +166,6 @@ class CharityController extends Controller
                 $user  = User::where('status',  null)->where('role', 'charity')->orderBy('id', 'DESC')->first();
 
             }
-            // dd($status->status );
 
         return view('spins', compact('user'));
     }
