@@ -40,7 +40,7 @@ class RegisterController extends Controller
 
         }
         else{
-            return 'user/dashboard';
+            return 'user/spin';
         }
 
         // if (auth()->user()->role== 'user') {
