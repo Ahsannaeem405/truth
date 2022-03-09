@@ -112,6 +112,10 @@
             <a href="{{ url('auth/google') }}" class="w-100 py-2 my-3">
                 <img src="https://developers.google.com/identity/images/btn_google_signin_dark_normal_web.png" >
             </a>
+
+            <a class="ml-1 btn btn-primary" href="{{ url('auth/facebook') }}" style="margin-top: 0px !important;background: blue;color: #ffffff;padding: 5px;border-radius:7px;" id="btn-fblogin">
+                <i class="fa fa-facebook-square" aria-hidden="true"></i> Login with Facebook
+            </a>
            
             <a href="{{ url('auth/google') }}"><button type="submit" class="googleBtn w-100 py-2 my-3"> <i class="ri-google-fill"></i> Goggle</button></a>
 

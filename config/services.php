@@ -37,5 +37,10 @@ return [
         'client_secret' => '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',
         'redirect' => 'http://truthbti.herokuapp.com/public/auth/google/callback',
     ],
+    'facebook' => [
+        'client_id' => '373582707681139',
+        'client_secret' => '1eec94fc5281a976c54c0b4bdc1be10a',
+        'redirect' => 'http://truthbti.herokuapp.com/public/auth/facebook/callback',
+    ],
 
 ];

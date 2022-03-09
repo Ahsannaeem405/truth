@@ -4,6 +4,7 @@ use App\Http\Controllers\CharityController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\GoogleController;
+use App\Http\Controllers\FacebookController;
 
 /*
 |--------------------------------------------------------------------------
@@ -71,6 +72,10 @@ Route::prefix('admin')->middleware(['auth','admin'])->group(function () {
 
 Route::get('auth/google', [GoogleController::class, 'redirectToGoogle']);
 Route::get('auth/google/callback', [GoogleController::class, 'handleGoogleCallback']);
+
+Route::get('auth/facebook', [FacebookController::class, 'redirectToFacebook']);
+Route::get('auth/facebook/callback', [FacebookController::class, 'handleFacebookCallback']);
+
 Route::prefix('user')->middleware(['auth','user'])->group(function () {
 
     Route::view('/index','user.index');
