@@ -25,12 +25,12 @@ class GoogleController extends Controller
     {
         try {
          
-          
             $user =  Socialite::driver('google')->stateless()->user();
-           
-            $finduser = User::where('google_id', $user->id)->first();
-       
+            
+            $finduser = User::where('google_id', $user->id)->orwhere('email', $user->email)->first();
+             
             if($finduser){
+       
        
                 Auth::login($finduser);
       
@@ -38,11 +38,12 @@ class GoogleController extends Controller
        
             }else{
                 $newUser = User::create([
-                    'name' => $user->name,
+                    'f_name' => $user->name,
+                    'username' => $user->name,
                     'email' => $user->email,
                     'google_id'=> $user->id,
                     'password' => encrypt('123456dummy'),
-                    'name' => 'user',
+                    'role' => 'user',
                 ]);
       
                 Auth::login($newUser);
@@ -51,6 +52,7 @@ class GoogleController extends Controller
             }
       
         } catch (Exception $e) {
+          
             return redirect('login');
         }
     }

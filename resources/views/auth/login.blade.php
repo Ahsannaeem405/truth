@@ -109,9 +109,10 @@
                 </div>
                
             </form>
-            {{-- <a href="{{ url('auth/google') }}" class="w-100 py-2 my-3">
+            <a href="{{ url('auth/google') }}" class="w-100 py-2 my-3">
                 <img src="https://developers.google.com/identity/images/btn_google_signin_dark_normal_web.png" >
-            </a> --}}
+            </a>
+           
             <a href="{{ url('auth/google') }}"><button type="submit" class="googleBtn w-100 py-2 my-3"> <i class="ri-google-fill"></i> Goggle</button></a>
 
            <a href=""> <button type="submit" class="facebookBtn w-100 py-2 my-3"> <i class="ri-facebook-fill"></i> Facebook</button></a>
