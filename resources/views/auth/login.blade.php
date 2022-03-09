@@ -100,10 +100,7 @@
                     <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
                 </div>
 
-                <div class="form-check my-2">
-                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                    <label class="form-check-label" for="exampleCheck1">Keep me login</label>
-                </div>
+               
                 <div class="text-center">
                     <button type="submit" class="btn btn-primary w-100 py-2 my-3">Login</button>
                 </div>

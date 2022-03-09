@@ -74,7 +74,7 @@
                                     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Settings</a>
                                     <div class="dropdown-menu">
                                     <a class="dropdown-item" href="{{ url('user/user-account') }}">My account</a>
-                                    <a class="dropdown-item" href="{{ url('user/add/credit_info') }}">Credit Info</a>
+                                    <a class="dropdown-item" href="{{ url('user/add/credit_info') }}">Card Info</a>
                                     <a class="dropdown-item" href="{{ url('user/add/credit') }}">Add Credit</a>
                                     <a class="dropdown-item" href="{{ url('user/user-history') }}">Markup History</a>
                                     <a class="dropdown-item" href="{{ url('/logout') }}">Log Out</a>
@@ -194,7 +194,7 @@
         </div>
     </div>
 
-
+<br>
 
 
 

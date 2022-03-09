@@ -76,8 +76,20 @@ $role = Auth::user()->role;
                                                         <td>{{ $user->coin }}</td>
                                                         <td>{{ $user->created_at }}</td>
                                                         <td>
-
-                                                            <a onclick="return confirm('Are you sure you want to delete this item?');"
+                                                            <ul>
+                                                                <a href="" style="text-decoration: none; ">
+                                                                    <li class="nav-item dropdown">
+                                                                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Action</a>
+                                                                        <div class="dropdown-menu">
+                                                                        <a class="dropdown-item"  data-toggle="modal" data-target="#Modal{{$user->id }}"> <i style="color: blue" class="fa fa-edit"></i> Edit</a>
+                                                                        <a class="dropdown-item"  onclick="return confirm('Are you sure you want to delete this item?');"
+                                                                        href="{{ url('admin/user/delete/' . $user->id . '') }}"> <i style="color: red" class="fa fa-trash"></i> Delete</a>
+                                                                        <a class="dropdown-item" href="{{url("$role/view/detail/$user->id")}}" >   <i style="color: green" class="fa fa-eye iconss"></i> View</a>
+             
+                                                                        </div>
+                                                                    </li>
+                                                            </ul>
+                                                            {{-- <a onclick="return confirm('Are you sure you want to delete this item?');"
                                                                 href="{{ url('admin/user/delete/' . $user->id . '') }}"
                                                                 class="iconss"> <i style="color: red"
                                                                     class="fa fa-trash"></i></a>
@@ -88,7 +100,7 @@ $role = Auth::user()->role;
                                                                 <a href="{{url("$role/view/detail/$user->id")}}">
 
                                                                 <i class="fa fa-eye iconss" ></i>
-                                                            </a>
+                                                            </a> --}}
 
                                                         </td>
                                                     </tr>

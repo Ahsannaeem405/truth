@@ -40,7 +40,7 @@ return [
     'facebook' => [
         'client_id' => '373582707681139',
         'client_secret' => '1eec94fc5281a976c54c0b4bdc1be10a',
-        'redirect' => 'http://truthbti.herokuapp.com/public/auth/facebook/callback',
+        'redirect' => 'https://truthbti.herokuapp.com/public/auth/facebook/callback',
     ],
 
 ];

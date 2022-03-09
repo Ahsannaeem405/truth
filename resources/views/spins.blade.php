@@ -117,6 +117,7 @@
             top: 50%;
             -webkit-transform: translate(0, -50%);
             transform: translate(0, -50%);
+            
         }
 /* Absolute Center Spinner */
 .loading {
@@ -256,6 +257,15 @@ box-shadow: rgba(255,255,255, 0.75) 1.5em 0 0 0, rgba(255,255,255, 0.75) 1.1em 1
     width: -webkit-fill-available !important;
 
 }
+
+
+.user-sidebar {
+    margin-top: 110px;
+    box-shadow: 0px 0px 15px rgb(0 0 0 / 50%);
+    border-radius: 8px;
+    height: 275px !important;
+}
+
     </style>
 </head>
 
@@ -294,7 +304,7 @@ box-shadow: rgba(255,255,255, 0.75) 1.5em 0 0 0, rgba(255,255,255, 0.75) 1.1em 1
                                     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Settings</a>
                                     <div class="dropdown-menu">
                                     <a class="dropdown-item" href="{{ url('user/user-account') }}">My account</a>
-                                    <a class="dropdown-item" href="{{ url('user/add/credit_info') }}">Credit Info</a>    
+                                    <a class="dropdown-item" href="{{ url('user/add/credit_info') }}">Card Info</a>    
                                     <a class="dropdown-item" href="{{ url('user/add/credit') }}">Add Credit</a>
                                     <a class="dropdown-item" href="{{ url('user/user-history') }}">Markup History</a>
                                     <a class="dropdown-item" href="{{ url('/logout') }}">Log Out</a>
@@ -359,7 +369,7 @@ box-shadow: rgba(255,255,255, 0.75) 1.5em 0 0 0, rgba(255,255,255, 0.75) 1.1em 1
                                 @endif
                             </span></p>
                     </div>
-                    <div class="our-spins mt-3" style="height:700px">
+                    <div class="our-spins mt-3">
                         <div class="row justify-content-center">
 
                             <div class="errorr">

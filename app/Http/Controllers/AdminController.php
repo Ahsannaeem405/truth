@@ -158,27 +158,23 @@ class AdminController extends Controller
 
     public function status($id)
     {
-
-
-        $userr = User::where('status', 'Priority')->first();
-        if ($userr != null) {
-            $userr->status = null;
-            $userr->save();
-        }
+      
+        
         $user = User::find($id);
+        // dd($user);
         $user->status = 'Priority';
         $user->save();
+
         return back()->with('success', 'Priority Added Sucessfully');
     }
     public function change_stauts(Request $request)
     {
 
-
         $status = PriorityStatus::find(1);
         $status->status = $request->id;
         $status->save();
         // dd($request->id);
-
+        return back()->with('success', 'Priority Added Sucessfully');
 
     }
 

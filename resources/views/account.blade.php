@@ -36,6 +36,10 @@
     width: -webkit-fill-available !important;
 
 }
+
+.our-spins {
+    padding: 19px 25px 16px !important;
+}
 </style>
 </head>
 
@@ -75,7 +79,7 @@
                                     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Settings</a>
                                     <div class="dropdown-menu">
                                     <a class="dropdown-item" href="{{ url('user/user-account') }}">My account</a>
-                                    <a class="dropdown-item" href="{{ url('user/add/credit_info') }}">Credit Info</a>
+                                    <a class="dropdown-item" href="{{ url('user/add/credit_info') }}">Card Info</a>
                                     <a class="dropdown-item" href="{{ url('user/add/credit') }}">Add Credit</a>
                                     <a class="dropdown-item" href="{{ url('user/user-history') }}">Markup History</a>
                                     <a class="dropdown-item" href="{{ url('/logout') }}">Log Out</a>
@@ -217,7 +221,7 @@
 
 
 
-
+<br>
 
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"

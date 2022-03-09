@@ -31,6 +31,10 @@ button.btn-circle{
     width: -webkit-fill-available !important;
 
 }
+.user-sidebar {
+
+    height: 461px !important;
+}
 </style>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
@@ -83,7 +87,7 @@ button.btn-circle{
                                     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Settings</a>
                                     <div class="dropdown-menu">
                                     <a class="dropdown-item" href="{{ url('user/user-account') }}">My account</a>
-                                    <a class="dropdown-item" href="{{ url('user/add/credit_info') }}">Credit Info</a>
+                                    <a class="dropdown-item" href="{{ url('user/add/credit_info') }}">Card Info</a>
                                     <a class="dropdown-item" href="{{ url('user/add/credit') }}">Add Credit</a>
                                     <a class="dropdown-item" href="{{ url('user/user-history') }}">Markup History</a>
                                     <a class="dropdown-item" href="{{ url('/logout') }}">Log Out</a>
@@ -110,7 +114,7 @@ button.btn-circle{
                                 <div class="panel panel-default">
                                     <div class="panel-heading">
                                         <div class="row text-center">
-                                            <h3 class="panel-heading">Payment Details</h3>
+                                            <h3 class="panel-heading">Add Credit</h3>
                                         </div>
                                     </div>
                                     <div class="panel-body">
@@ -174,7 +178,7 @@ button.btn-circle{
                                             </div>
 
                                                         <div class=" d-flex justify-content-center my-5">
-                                                            <button class=" col-lg-2 col-md-4 col-6 btn btn-danger btn-lg " type="submit">Pay Now </button>
+                                                            <button class=" col-lg-4 col-md-6 col-6 btn btn-danger btn-lg " type="submit">Add Credit </button>
 
 
                                             </div>

@@ -41,6 +41,12 @@
     width: -webkit-fill-available !important;
 
 }
+.user-sidebar {
+    margin-top: 110px;
+    box-shadow: 0px 0px 15px rgb(0 0 0 / 50%);
+    border-radius: 8px;
+    height: 264px !important;
+}
 </style>
 <body>
 
@@ -84,7 +90,7 @@
                                     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Settings</a>
                                     <div class="dropdown-menu">
                                     <a class="dropdown-item" href="{{ url('user/user-account') }}">My account</a>
-                                    <a class="dropdown-item" href="{{ url('user/add/credit_info') }}">Credit Info</a>
+                                    <a class="dropdown-item" href="{{ url('user/add/credit_info') }}">Card Info</a>
                                     <a class="dropdown-item" href="{{ url('user/add/credit') }}">Add Credit</a>
                                     <a class="dropdown-item" href="{{ url('user/user-history') }}">Markup History</a>
                                     <a class="dropdown-item" href="{{ url('/logout') }}">Log Out</a>
@@ -137,7 +143,7 @@
                                                         class="list-group-item d-flex justify-content-between align-items-center">
                                                         Risk:
                                                         <span
-                                                            class="font-weight-bold text-dark">{{ $chars->amount }}$</span>
+                                                            class="font-weight-bold text-dark">${{ $chars->amount }}</span>
                                                     </li>
                                                     <li
                                                         class="list-group-item d-flex justify-content-between align-items-center">
