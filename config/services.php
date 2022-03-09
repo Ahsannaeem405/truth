@@ -32,5 +32,10 @@ return [
     'stripe' => [
         'secret' => env('STRIPE_SECRET'),
     ],
+    'google' => [
+        'client_id' => '495871250616-dm9lpekbgiq1uf4fvg6rqdvecje0g5pd.apps.googleusercontent.com',
+        'client_secret' => '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',
+        'redirect' => 'http://truthbti.herokuapp.com/public/auth/google/callback',
+    ],
 
 ];

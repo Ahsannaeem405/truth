@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap CSS-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
     <title>Document</title>
     <style>
         *{
@@ -55,6 +55,20 @@
         .brand-logo h1{
             font-size: 62px
         }
+        .googleBtn{
+            background: #CD201F;
+            border: none;
+            outline: none;
+            border-radius: 5px;
+            color:#fff;
+        }
+        .facebookBtn{
+            background: #1877F2;
+            border: none;
+            outline: none;
+            border-radius: 5px;
+            color:#fff;
+        }
     </style>
 
 </head>
@@ -93,7 +107,14 @@
                 <div class="text-center">
                     <button type="submit" class="btn btn-primary w-100 py-2 my-3">Login</button>
                 </div>
+               
             </form>
+            {{-- <a href="{{ url('auth/google') }}" class="w-100 py-2 my-3">
+                <img src="https://developers.google.com/identity/images/btn_google_signin_dark_normal_web.png" >
+            </a> --}}
+            <a href="{{ url('auth/google') }}"><button type="submit" class="googleBtn w-100 py-2 my-3"> <i class="ri-google-fill"></i> Goggle</button></a>
+
+           <a href=""> <button type="submit" class="facebookBtn w-100 py-2 my-3"> <i class="ri-facebook-fill"></i> Facebook</button></a>
         </div>
     </div>
 </main>
