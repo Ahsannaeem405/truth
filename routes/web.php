@@ -82,6 +82,10 @@ Route::prefix('user')->middleware(['auth','user'])->group(function () {
 
 
 
+    Route::get('/privacy',[CharityController::class,'privacy']);
+    Route::get('/terms',[CharityController::class,'terms']);
+    Route::get('/delete',[CharityController::class,'delete']);
+
     Route::get('user-history',[CharityController::class,'history']);
     Route::get('spin',[CharityController::class,'spins']);
 
