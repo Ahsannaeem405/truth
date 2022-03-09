@@ -193,12 +193,12 @@
               </div>
             <div class="row mt-3">
                 <div class="col-md-6">
-                    <a href="{{ url('auth/google') }}">  <button class="loginBtn loginBtn--facebook w-100">
+                    <a href="{{ url('auth/facebook') }}">  <button class="loginBtn loginBtn--facebook w-100">
                 Login with Facebook
               </button></a>
             </div>
             <div class="col-md-6">
-                <a href="{{ url('auth/facebook') }}">  <button class="loginBtn loginBtn--google w-100">
+                <a href="{{ url('auth/google') }}">  <button class="loginBtn loginBtn--google w-100">
                 Login with Google
               </button></a>
             </div>

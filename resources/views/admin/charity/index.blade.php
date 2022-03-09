@@ -213,7 +213,7 @@
                                                                         <a class="dropdown-item"  onclick="return confirm('Are you sure you want to delete this item?');"
                                                                         href="{{ url('admin/charity/delete/' . $char->id . '') }}"> <i style="color: red" class="fa fa-trash"></i> Delete</a>
                                                                         @if ($char->status == null)
-                                                                        <a class="dropdown-item"  href="{{ url("admin/status/$char->id") }}">   <i style="color: green" class="fas fa-check"></i> Approve</a>
+                                                                        <a class="dropdown-item"  href="{{ url("admin/status/$char->id") }}">   <i style="color: green" class="fas fa-check"></i> Priorities</a>
                                                                             @endif
                                                                         </div>
                                                                     </li>

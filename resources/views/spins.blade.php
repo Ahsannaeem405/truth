@@ -306,7 +306,7 @@ box-shadow: rgba(255,255,255, 0.75) 1.5em 0 0 0, rgba(255,255,255, 0.75) 1.1em 1
                                     <a class="dropdown-item" href="{{ url('user/user-account') }}">My account</a>
                                     <a class="dropdown-item" href="{{ url('user/add/credit_info') }}">Card Info</a>    
                                     <a class="dropdown-item" href="{{ url('user/add/credit') }}">Add Credit</a>
-                                    <a class="dropdown-item" href="{{ url('user/user-history') }}">Markup History</a>
+                                    <a class="dropdown-item" href="{{ url('user/user-history') }}">Game History</a>
                                     <a class="dropdown-item" href="{{ url('/logout') }}">Log Out</a>
                                     </div>
                                 </li>
@@ -729,7 +729,7 @@ box-shadow: rgba(255,255,255, 0.75) 1.5em 0 0 0, rgba(255,255,255, 0.75) 1.1em 1
 
                     success: function(res) {
 
-                        alert(res.username);
+                       // alert(res.username);
                         if (res.error == 'Your amount is less then your donation amount') {
 
                             $('.errorr').empty().append(" <div class='alert alert-danger'>" +

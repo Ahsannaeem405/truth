@@ -76,7 +76,7 @@
                                     <a class="dropdown-item" href="{{ url('user/user-account') }}">My account</a>
                                     <a class="dropdown-item" href="{{ url('user/add/credit_info') }}">Card Info</a>
                                     <a class="dropdown-item" href="{{ url('user/add/credit') }}">Add Credit</a>
-                                    <a class="dropdown-item" href="{{ url('user/user-history') }}">Markup History</a>
+                                    <a class="dropdown-item" href="{{ url('user/user-history') }}">Game History</a>
                                     <a class="dropdown-item" href="{{ url('/logout') }}">Log Out</a>
                                     </div>
                                 </li>
