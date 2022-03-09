@@ -137,6 +137,20 @@
 .loginBtn--google:focus {
   background: #E74B37;
 }
+
+.content {
+  margin: 10px auto;
+  width: 200px;
+}
+
+.or {
+  text-align: center;
+  font-size: 20px;
+  background-image:linear-gradient(#fff,#fff),linear-gradient(#fff,#fff);
+  background-size:40% 1px;
+  background-position:center left,center right;
+  background-repeat:no-repeat;
+}
     </style>
 
 </head>
@@ -174,6 +188,9 @@
                 </div>
                
             </form>
+            <div class="content my-2">
+                <p class="or">or</p>
+              </div>
             <div class="row mt-3">
                 <div class="col-md-6">
                     <a href="{{ url('auth/google') }}">  <button class="loginBtn loginBtn--facebook w-100">
