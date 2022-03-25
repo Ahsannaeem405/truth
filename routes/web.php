@@ -22,13 +22,16 @@ use App\Http\Controllers\FacebookController;
 
 
 Route::get('/', function () {
-    return view('home');
+    return view('spinnow');
 });
 Route::get('/contact', function () {
     return view('contact');
 });
 Route::get('/about', function () {
     return view('about');
+});
+Route::get('/spinsnow', function () {
+    return view('spinnow');
 });
 
 Route::get('login', function () {

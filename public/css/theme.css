@@ -497,6 +497,7 @@ color: #4a4c70;
 }
 .user-sidebar ul li .dropdown-menu a{
     color: white;
+    
 }
 .user-sidebar ul li .dropdown-menu a:hover{
     color: #4a4c70;
@@ -601,6 +602,19 @@ padding: 0px 20px;
 .our-spins .submit-account{
     background-color: #0996A3;
     color: white;
+}
+.spinnn{
+    height: 600px;
+}
+@media screen and (max-width:768px){
+    .spinnn{
+        height: 580px;
+    }
+}
+@media screen and (max-width:425px){
+    .spinnn{
+        height: 450px;
+    }
 }
 
 /* mobile side bar */
