@@ -197,17 +197,12 @@
     </div>
 
 <br>
-<script src="https://applepay.cdn-apple.com/jsapi/v1/apple-pay-sdk.js"></script>
-<style>
-    apple-pay-button {
-      --apple-pay-button-width: 150px;
-      --apple-pay-button-height: 30px;
-      --apple-pay-button-border-radius: 3px;
-      --apple-pay-button-padding: 0px 0px;
-      --apple-pay-button-box-sizing: border-box;
-    }
-    </style>
-    <apple-pay-button buttonstyle="black" type="plain" locale="en"></apple-pay-button>
+
+<div id="payment-request-button">
+    <!-- A Stripe Element will be inserted here. -->
+  
+  </div>
+
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
