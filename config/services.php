@@ -42,5 +42,9 @@ return [
         'client_secret' => '1eec94fc5281a976c54c0b4bdc1be10a',
         'redirect' => 'https://truthbti.herokuapp.com/public/auth/facebook/callback',
     ],
+    "apple" => [
+        "client_id" => "<your_client_id>",
+        "client_secret" => "<your_client_secret>",
+    ],
 
 ];
