@@ -14,7 +14,7 @@
         "laravel/tinker": "^2.5",
         "laravel/ui": "^3.4",
         "socialiteproviders/apple": "^4.1",
-        "stripe/stripe-php": "^7.114"
+        "stripe/stripe-php": "^7.118"
     },
     "require-dev": {
         "facade/ignition": "^2.5",
