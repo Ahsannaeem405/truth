@@ -188,6 +188,8 @@
                             </div>
                             </div>
                         </form>
+
+
                     </div>
                 </div>
             </div>
@@ -196,7 +198,10 @@
 
 <br>
 
-
+<div id="payment-request-button">
+    <!-- A Stripe Element will be inserted here. -->
+  
+  </div>
 
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
@@ -208,7 +213,38 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
     </script>
+<script src="https://js.stripe.com/v3/"></script>
 
+<script>
+var stripe = Stripe('pk_test_51Kh9uAFBFsCMdULhjZvuXtEvn03Dc8oBpZS9VEZf3ZEym3JBm6F8owLE8nzc4o1p7tT2FSqyYjyrpPKgBmU3f4lC00yFeVGFJa', {
+  apiVersion: "2020-08-27",
+});
+
+var paymentRequest = stripe.paymentRequest({
+  country: 'US',
+  currency: 'usd',
+  total: {
+    label: 'Demo total',
+    amount: 1099,
+  },
+  requestPayerName: true,
+  requestPayerEmail: true,
+});
+
+    var elements = stripe.elements();
+var prButton = elements.create('paymentRequestButton', {
+  paymentRequest: paymentRequest,
+});
+
+// Check the availability of the Payment Request API first.
+paymentRequest.canMakePayment().then(function(result) {
+  if (result) {
+    prButton.mount('#payment-request-button');
+  } else {
+    document.getElementById('payment-request-button').style.display = 'none';
+  }
+});
+</script>
     <script>
         function showmenu() {
             var menu = document.getElementById("mobile-sidebar").style;

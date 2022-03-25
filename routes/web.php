@@ -77,6 +77,7 @@ Route::get('auth/facebook', [FacebookController::class, 'redirectToFacebook']);
 Route::get('auth/facebook/callback', [FacebookController::class, 'handleFacebookCallback']);
 
 Route::prefix('user')->middleware(['auth','user'])->group(function () {
+    
 
     Route::view('/index','user.index');
 
@@ -128,16 +129,16 @@ Route::get('change_stauts',[\App\Http\Controllers\AdminController::class,'change
 Route::get('formSub',[\App\Http\Controllers\CharityController::class,'add_donation']);
 
 
-Route::post('/stripe-payment', [CharityController::class, 'StripePost'])->name('stripe.payment');
+Route::post('/stripe-payment',[CharityController::class, 'StripePost'])->name('stripe.payment');
 
-Route::get('/spinnerscreen',      [HomeController::class, 'spinnerScreen'])->name('spinnerScreen');
-Route::get('/stripescreen',       [HomeController::class, 'stripeScreen'])->name('stripeScreen');
-Route::post('/paymentstore',      [HomeController::class, 'stripePayment'])->name('stripePayment');
-Route::get('/charityscreen',      [HomeController::class,'chairtyScreen'])->name('chairtyscreen');
-Route::get('/add/charity',        [HomeController::class,'addChairtyScreen'])->name('addchairtyscreen');
-Route::post('/store/charity',     [HomeController::class,'storeChairty'])->name('storeChairty');
+Route::get('/spinnerscreen',[HomeController::class, 'spinnerScreen'])->name('spinnerScreen');
+Route::get('/stripescreen',[HomeController::class, 'stripeScreen'])->name('stripeScreen');
+Route::post('/paymentstore',[HomeController::class, 'stripePayment'])->name('stripePayment');
+Route::get('/charityscreen',[HomeController::class,'chairtyScreen'])->name('chairtyscreen');
+Route::get('/add/charity',[HomeController::class,'addChairtyScreen'])->name('addchairtyscreen');
+Route::post('/store/charity',[HomeController::class,'storeChairty'])->name('storeChairty');
 
-Route::get('/home',               [HomeController::class, 'index'])->name('home');
+Route::get('/home',[HomeController::class, 'index'])->name('home');
 
 Route::get('/logout', function () {
 \Illuminate\Support\Facades\Auth::logout();
