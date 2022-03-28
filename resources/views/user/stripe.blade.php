@@ -229,12 +229,14 @@ button.btn-circle{
 var stripe = Stripe('pk_test_51Kh9uAFBFsCMdULhjZvuXtEvn03Dc8oBpZS9VEZf3ZEym3JBm6F8owLE8nzc4o1p7tT2FSqyYjyrpPKgBmU3f4lC00yFeVGFJa', {
   apiVersion: "2020-08-27",
 });
+
 var paymentRequest = stripe.paymentRequest({
+
   country: 'US',
   currency: 'usd',
   total: {
     label: 'Demo total',
-    amount: 1099,
+    amount: document.getElementsByClassName('amt').value,
   },
   requestPayerName: true,
   requestPayerEmail: true,
@@ -287,46 +289,6 @@ paymentRequest.on('paymentmethod', function(ev) {
     }
   });
 });
-var paymentRequest = stripe.paymentRequest({
-  country: 'US',
-  currency: 'usd',
-  total: {
-    label: 'Demo total',
-    amount: 1099,
-  },
-
-  requestShipping: true,
-  // `shippingOptions` is optional at this point:
-  shippingOptions: [
-    // The first shipping option in this list appears as the default
-    // option in the browser payment interface.
-    {
-      id: 'free-shipping',
-      label: 'Free shipping',
-      detail: 'Arrives in 5 to 7 days',
-      amount: 0,
-    },
-  ],
-});
-paymentRequest.on('shippingaddresschange', function(ev) {
-  if (ev.shippingAddress.country !== 'US') {
-    ev.updateWith({status: 'invalid_shipping_address'});
-  } else {
-    // Perform server-side request to fetch shipping options
-    fetch('/calculateShipping', {
-      data: JSON.stringify({
-        shippingAddress: ev.shippingAddress
-      })
-    }).then(function(response) {
-      return response.json();
-    }).then(function(result) {
-      ev.updateWith({
-        status: 'success',
-        shippingOptions: result.supportedShippingOptions,
-      });
-    });
-  }
-});
 elements.create('paymentRequestButton', {
   paymentRequest: paymentRequest,
   style: {
@@ -345,10 +307,11 @@ elements.create('paymentRequestButton', {
   },
 });
 
-var stripe = Stripe('pk_test_51Kh9uAFBFsCMdULhjZvuXtEvn03Dc8oBpZS9VEZf3ZEym3JBm6F8owLE8nzc4o1p7tT2FSqyYjyrpPKgBmU3f4lC00yFeVGFJa', {
-  apiVersion: "2020-08-27",
-  stripeAccount: 'CONNECTED_STRIPE_ACCOUNT_ID',
-});
+
+// var stripe = Stripe('pk_test_51Kh9uAFBFsCMdULhjZvuXtEvn03Dc8oBpZS9VEZf3ZEym3JBm6F8owLE8nzc4o1p7tT2FSqyYjyrpPKgBmU3f4lC00yFeVGFJa', {
+//   apiVersion: "2020-08-27",
+//   stripeAccount: 'CONNECTED_STRIPE_ACCOUNT_ID',
+// });
 </script>
 </body>
 </html>
