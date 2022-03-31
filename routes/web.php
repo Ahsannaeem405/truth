@@ -41,6 +41,9 @@ Route::get('signup', function () {
     return view('auth.register');
 });
 
+Route::get('apple', function () {
+    return view('apple');
+});
 
 
 
