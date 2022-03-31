@@ -25,9 +25,7 @@
     <link rel="stylesheet" href="{{ asset('/css/theme.css') }}">
     <title>Account page</title>
     <style>
-        .form-control #amount{
-            padding: 0px 0px 0px 25px;
-        }
+        
         .input-risk{
             position: relative;
         }

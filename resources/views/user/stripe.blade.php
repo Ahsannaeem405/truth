@@ -13,6 +13,29 @@ button.btn-circle{
 
 </style>
 <style>
+    .my-payment-method{
+        border: 1px solid #404040;
+        padding:10px;
+    }
+    .my-payment-method img{
+        width: 35px;
+    }
+    .my-payment-method .input-group-prepend{
+        flex: 1;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .input-risk{
+            position: relative;
+        }
+        .input-risk span{
+            position: absolute;
+        left: 10px;
+        top: 50%;
+        font-size: 20px;
+        transform: translateY(-50%);
+        }
     .user-sidebar ul li {
     font-size: 18px;
     padding: 15px 2px !important;
@@ -35,7 +58,7 @@ button.btn-circle{
 }
 .add-credit{
     box-shadow: 0px 10px 15px rgba(0,0,0,0.5);
-    padding: 10px;
+    padding: 15px;
     border-radius: 8px;
 }
 </style>
@@ -61,7 +84,7 @@ button.btn-circle{
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <h2 class="text-center">Stripe Payment</h2>
+                    <h2 class="text-center">Payment</h2>
                 </div>
             </div>
             <div class="row justify-content-center">
@@ -84,7 +107,7 @@ button.btn-circle{
                                             <h3 class="panel-heading">Add Credit</h3>
                                         </div>
                                     </div>
-                                    <div class="panel-body">
+                                    <div class="panel-body mt-3">
                                         @if (Session::has('success'))
                                             <div class="alert alert-success text-center">
                                                 <a href="#" class="close" data-dismiss="alert"
@@ -101,7 +124,7 @@ button.btn-circle{
                                                 <div class='col-12 form-group  required'>
                                                     <label class='control-label'>Enter Amount</label>
                                                         <div class="input-risk">
-                                                        <input name="amount" value="" class='form-control amt' type='number'>
+                                                        <input name="amount" value="" class='form-control amt pl-4' type='number'>
                                                         <span>$</span>
                                                 </div>
                                                 </div>
@@ -138,9 +161,33 @@ button.btn-circle{
                                                 <div class='col-md-12 hide error form-group' @if(Session::has('fail'))) style="display: block;" @endif >
                                                     <div class='alert-danger alert'>  @if (Session::has('fail')) {{ Session::get('fail') }} @endif
                                                     </div>
-
-
                                                 </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-6 ">
+                                                    <div class="input-group mt-3 d-flex align-items-center my-payment-method">
+                                                        <input type="radio" class="" name="payment" 
+                                                            aria-label="Amount (to the nearest dollar)">
+                                                        <div class="input-group-prepend px-4">
+                                                            <p class="mb-0">Apple payment method</p>
+                                                            <i class="fa fa-apple" aria-hidden="true"></i>
+                                                        </div>
+                                                        
+                                                    </div>
+                                                </div>
+                                                <div class="col-6 ">
+                                                    <div class="input-group mt-3 d-flex align-items-center  my-payment-method">
+                                                        <input type="radio" class="" name="payment" checked
+                                                            aria-label="Amount (to the nearest dollar)">
+                                                        <div class="input-group-prepend px-4">
+                                                            <p class="mb-0">Credit Card payment method</p>
+                                                            <i class="fa fa-credit-card" aria-hidden="true"></i>
+
+                                                        </div>
+                                                        
+                                                    </div>
+                                                </div>
+
                                             </div>
 
                                                         <div class=" d-flex justify-content-center my-5">
