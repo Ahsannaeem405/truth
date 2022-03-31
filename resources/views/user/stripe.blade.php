@@ -183,6 +183,7 @@ button.btn-circle{
                                                             <p class="mb-0">Credit Card payment method</p>
                                                             <i class="fa fa-credit-card" aria-hidden="true"></i>
 
+                                                            
                                                         </div>
                                                         
                                                     </div>
