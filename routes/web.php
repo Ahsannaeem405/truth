@@ -19,11 +19,11 @@ use App\Http\Controllers\FacebookController;
 
 
 
+Route::get('/',[CharityController::class,'spinnow']);
 
-
-Route::get('/', function () {
-    return view('spinnow');
-});
+// Route::get('/', function () {
+//     return view('spinnow');
+// });
 Route::get('/contact', function () {
     return view('contact');
 });

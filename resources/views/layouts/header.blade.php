@@ -5,6 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Help & Charity</title>
+    <script src="https://kit.fontawesome.com/9838783293.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{{ asset('icofont/icofont.min.css') }}">
+  
+
 </head>
 
 <body>
@@ -29,47 +33,55 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url('user/spin') }}">Home</a>
                     </li>
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <a class="nav-link" href="{{ url('about') }}">About Us</a>
-                    </li>
+                    </li> -->
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url('contact') }}">Contact us</a>
                     </li>
 
-                    <li class="nav-item d-block d-lg-none">
+                    <!-- <li class="nav-item d-block ">
                         <a class="nav-link" href="{{ url('user/spin') }}">Spin Now</a>
-                    </li>
-                    <li class="nav-item d-block d-lg-none">
+                    </li> -->
+                    <!-- <li class="nav-item d-block">
                         <a class="nav-link" href="{{ url('user/user-account') }}">My account</a>
-                    </li>
-                    <li class="nav-item d-block d-lg-none">
+                    </li> -->
+                    <li class="nav-item d-block">
                         <a class="nav-link"  href="{{ url('user/add/credit') }}">Add Credit</a>
                     </li>
-                    <li class="nav-item d-block d-lg-none">
+                    <li class="nav-item d-block">
                         <a class="nav-link" href="{{ url('user/user-history') }}">Markup History</a>
                     </li>
-                    <li class="nav-item d-block d-lg-none">
+                    <!-- <li class="nav-item d-block">
                         <a href="{{ url("user/dashboard") }}"><button type="button" class="btn btn-play">Play
                                 Now</button></a>
-                    </li>
+                    </li> -->
 
                 </ul>
-                <ul class="navbar-nav ml-auto second-nav-bar">
+                <div class="dropdown pro-dropdown">
+                    <div class="pro-icon" style="" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fa fa-user-o" aria-hidden="true"></i>
+                    </div>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="nav-link" href="{{ url('user/add/credit_info') }}">Card Info</a>
+                        <a class="nav-link" href="{{ url('user/user-account') }}">My account</a>
+                        <a class="nav-link" href="{{ url('logout') }}"><i class="icofont-logout"></i> Logout</a>
+                    </div>
+                </div>
+                <ul class="navbar-nav ml-auto second-nav-bar d-none">
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ url('logout') }}">
-                        <i class="icofont-logout"></i>  Logout
-                        </a>
+                        
                     </li>
                 </ul>
             @endauth
             @guest
-                <ul class="navbar-nav first-nav-bar mx-auto">
+                <ul class="navbar-nav first-nav-bar ml-auto">
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url('/') }}">Home</a>
                     </li>
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <a class="nav-link" href="{{ url('about') }}">About Us</a>
-                    </li>
+                    </li> -->
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url('contact') }}">Contact us</a>
                     </li>

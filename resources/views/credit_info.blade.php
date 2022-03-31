@@ -37,18 +37,13 @@
     width: -webkit-fill-available !important;
 
 }
+.card-info-div{
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+    border-radius: 8px;
+    padding:15px;
+}
 </style>
 <body>
-
-    <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="{{ url('login-home') }}">Home</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Account</li>
-        </ol>
-    </nav>
-
-
-
     <div class="my-account py-4">
         <div class="container">
             <div class="row">
@@ -56,39 +51,8 @@
                     <h2 class="text-center">My Account</h2>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-3 d-none d-lg-block">
-                    <div class="user-sidebar">
-
-
-                        <ul class="">
-                            <a href="{{ url('user/spin') }}" class="text-white"
-                                style="text-decoration: none; color:white">
-                                <li>
-                                    <i class="icofont-spinner-alt-3 px-2"></i>Spin Now
-                                </li>
-                            </a>
-                           
-                            <a href="" style="text-decoration: none; ">
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Settings</a>
-                                    <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="{{ url('user/user-account') }}">My account</a>
-                                    <a class="dropdown-item" href="{{ url('user/add/credit_info') }}">Card Info</a>
-                                    <a class="dropdown-item" href="{{ url('user/add/credit') }}">Add Credit</a>
-                                    <a class="dropdown-item" href="{{ url('user/user-history') }}">Game History</a>
-                                    <a class="dropdown-item" href="{{ url('/logout') }}">Log Out</a>
-                                    </div>
-                                </li>
-                            </a>
-                         
-                        </ul>
-
-
-
-                    </div>
-                </div>
-                <div class="col-lg-9 col-12">
+            <div class="row justify-content-center">
+                <div class="col-xl-8 col-lg-10 col-12">
                     <div class="our-balance mt-5 w-100 d-flex justify-content-end align-items-center">
                         <!-- <span class="" onclick="showmenu()"><i
                                 class="icofont-navigation-menu d-block d-lg-none"></i></span> -->
@@ -114,20 +78,14 @@
                                     {{ session()->get('fail') }}
                                 </div>
                             @endif
-                            <div class="row">
+                            <div class="row card-info-div" >
 
                                 <div class="col-12 mb-3">
                                     <div class="profile-edit d-md-flex align-items-center">
-                                      
+                                        <h4>Card Info</h4>    
+                                    </div>
 
-                                        <h4>Card Info</h4>
-
-                                  
-                                </div>
-
-                                <div class="row">
-
-
+                                <div class="row mt-3">
                                         <input type="hidden" value="{{ Auth::user()->f_name }}" name="f_name"
                                             placeholder="Enter First Name" class="form-control">
                                
@@ -182,8 +140,8 @@
                                 </div>
                               
 
-                                <div class="col-12 col-12 mt-2 text-center">
-                                    <input  type="submit" class="w-50 form-control text-center submit-account m-auto" value="update">
+                                <div class="col-12 mt-2">
+                                    <input  type="submit" class="w-50 form-control submit-account m-auto" value="Update">
                                 </div>
                             </div>
                             </div>
@@ -276,9 +234,6 @@ paymentRequest.canMakePayment().then(function(result) {
                         .width(68)
                         .height(69);
                 };
-
-
-
                 reader.readAsDataURL(input.files[0]);
 
             }

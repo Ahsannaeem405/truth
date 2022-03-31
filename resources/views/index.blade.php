@@ -1,6 +1,5 @@
 @extends('layouts.main')
 
-
 @section('dashboard')
 active
 @endsection

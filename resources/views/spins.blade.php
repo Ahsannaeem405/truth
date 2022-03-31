@@ -25,6 +25,20 @@
     <link rel="stylesheet" href="{{ asset('/css/theme.css') }}">
     <title>Account page</title>
     <style>
+        .form-control #amount{
+            padding: 0px 0px 0px 25px;
+        }
+        .input-risk{
+            position: relative;
+        }
+        .input-risk span{
+            position: absolute;
+        left: 10px;
+        top: 50%;
+        font-size: 20px;
+        transform: translateY(-50%);
+        }
+        }
        ul {
             list-style: none;
         }
@@ -271,141 +285,49 @@ box-shadow: rgba(255,255,255, 0.75) 1.5em 0 0 0, rgba(255,255,255, 0.75) 1.1em 1
 
 {{-- @dd($donateamount) --}}
 
-<body>
-
-    <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="{{ url('home2') }}">Home</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Span</li>
-        </ol>
-    </nav>
-
+<body>  ``   
     <div class="my-account py-4">
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <h2 class="text-center">Spinner</h2>
+                <h2 class="text-center spin-head">Spin <span>Now</span> </h2>
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-3 col-0 d-none d-lg-block">
-                    <div class="user-sidebar">
-                        <ul class="">
-                            <a href="{{ url('user/spin') }}" class="text-white"
-                                style="text-decoration: none; color:white">
-                                <li class="active text-white">
-                                    <i class="icofont-spinner-alt-3 px-2"></i>Spin Now
-                                </li>
-                            </a>
-                      
-                          
-                            <a href="" style="text-decoration: none; ">
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Settings</a>
-                                    <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="{{ url('user/user-account') }}">My account</a>
-                                    <a class="dropdown-item" href="{{ url('user/add/credit_info') }}">Card Info</a>    
-                                    <a class="dropdown-item" href="{{ url('user/add/credit') }}">Add Credit</a>
-                                    <a class="dropdown-item" href="{{ url('user/user-history') }}">Game History</a>
-                                    <a class="dropdown-item" href="{{ url('/logout') }}">Log Out</a>
-                                    </div>
-                                </li>
-                            </a>
-                        
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-12 col-lg-9">
+                <div class="col-12">
                     <div style="display: none" id="loading" class="">Loading&#8230;</div>
-
-                    <div class="our-balance mt-5 w-100 d-flex justify-content-between align-items-center">
-
-
-
+                    <div class="our-balance w-100 d-flex justify-content-between align-items-center">
                         <span class="" onclick={showmenu()}><i
                                 class="icofont-navigation-menu d-block d-lg-none"></i></span>
                         {{-- @if (isset($char_name)) --}}
                         <div class="spinnn" style="display: none">
-
-
-
                             <form action="{{ url('user/add/percent') }}" method="POST">
                                 @csrf
-
                                 <label for="">
                                     <b> Name :</b>
                                     <span class="char_name1"> </span>
                                     &nbsp; &nbsp;&nbsp;
-
                                     <b> Risk Amount
                                         : <span class="amount1"> </span> </b>
-
                                 </label>
                                 <input type="hidden" value="" name="percent" class="appspin char_name">
                                 <input type="hidden" value="" class="char_id" name="charID">
                                 <input type="hidden" value="" class="amount" name="amount">
-
-
-
                                 <input type="submit" style="display: none" name="Sub" class="form_sub" id="">
                             </form>
                         </div>
-
-
-
-
-
-
-
-
                         {{-- @endif --}}
 
 
-                        <p class="text-lg-right">Balance: <span class="mx-2">
-                                @if (isset(Auth::user()->coin))
-                                    ${{ Auth::user()->coin }}
-                                @else
-                                    $0
-                                @endif
+                        <p class="text-lg-right">Balance: <span class="mx-2 " >
+                                @if (isset(Auth::user()->coin)) $<span id="user-balance">{{ Auth::user()->coin }}</span> @else $<span id="user-balance">0<span>  @endif
                             </span></p>
                     </div>
-                    <div class="our-spins mt-3">
+                    <div class="our-spins">
                         <div class="row justify-content-center">
-
                             <div class="errorr">
-
                             </div>
-                            <div class="col-12 spinnnD">
-
-                                <div class="row text-center mb-2">
-                                    <h3 class="panel-heading">Enter Risk Amount</h3>
-
-                                </div>
-
-                                
-                                @if (isset($user))
-                                    <input type="hidden" value="{{ $user->id }}" name="charity" id="charity">
-                                @endif
-                                <br>
-                                <label for=""> Enter Amount</label>
-                                <input type="number" required name="amount" id="amount" placeholder="Enter Amount"
-                                    class="form-control">
-
-                                <div class="col-12" style="    margin-top: 17px;text-align: end;">
-                                    <input style="width: 100px;" id="next" type="submit" class="btn btn-primary"
-                                        value="Next">
-                                </div>
-
-
-
-                                {{-- </form> --}}
-
-                            </div>
-
-                            <div class="col-10 spinnn" style="display: none">
-                                <div>
-                                    <h3 class="text-center">Spinner</h3>
-                                </div>
+                            <div class="col-10 spinnn">
                                 <div id="chart">
                                     <img src="{{ asset('/image/spinner-card.png') }}" class="spin-img"/>
                                 </div>
@@ -421,6 +343,42 @@ box-shadow: rgba(255,255,255, 0.75) 1.5em 0 0 0, rgba(255,255,255, 0.75) 1.1em 1
         </div>
     </div>
 
+    <!-- add risk model start -->
+            <div class="modal fade add-risk" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+               
+                <div class="modal-dialog" role="document">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <div class="modal-content">
+                        <div class="modal-body">
+                        <div class="col-12 spinnnD">
+                            <div class="row text-center mb-2">
+                                <h3 class="panel-heading">Enter Risk Amount</h3>
+                            </div>
+                            @if (isset($user))
+                                <input type="hidden" value="{{ $user->id }}" name="charity" id="charity">
+                            @endif
+                            <br>
+                            <label for=""> Enter Amount</label>
+                            <div class="input-risk">
+                                <input type="number" required name="amount" id="amount" placeholder="Enter Amount"value="0"
+                                class="form-control pl-4">
+                                <span>$</span>
+                            </div>
+                            
+                            <div class="col-12" style="    margin-top: 17px;text-align: end;">
+                                <input style="width: 100px;" id="next" type="submit" class="btn btn-primary"
+                                    value="Next" >
+                            </div>
+                            {{-- </form> --}}
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    <!-- add risk model end -->
 
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -432,9 +390,9 @@ box-shadow: rgba(255,255,255, 0.75) 1.5em 0 0 0, rgba(255,255,255, 0.75) 1.1em 1
     </script>
     {{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-    {{-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
-    </script> --}}
+    </script> 
     {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
         integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
     </script> --}}
@@ -629,16 +587,18 @@ box-shadow: rgba(255,255,255, 0.75) 1.5em 0 0 0, rgba(255,255,255, 0.75) 1.1em 1
 
                     /* Comment the below line for restrict spin to sngle time */
                     container.on("click", spin);
-                            $('#loading').css( 'display', 'block');
 
-                        $('#loading').addClass( 'loading');
+                    var amount = parseInt($('#amount').val());
+                    var balance =   parseInt($("#user-balance").text());
+                            if(amount<=balance && amount != 0 ){
+                                $('#loading').css( 'display', 'block');
+                                $('#loading').addClass( 'loading');
+                                setTimeout(
+                            function() {
+                                $('.form_sub').click();
 
-
-                    setTimeout(
-                        function() {
-                            $('.form_sub').click();
-
-                        }, 1000);
+                            }, 300);
+                                }
 
                 });
             // alert(data[picked].value);
@@ -669,20 +629,42 @@ box-shadow: rgba(255,255,255, 0.75) 1.5em 0 0 0, rgba(255,255,255, 0.75) 1.1em 1
                 "font-weight": "bold",
                 "font-size": "22px"
             });
-
+        
+            
         function rotTween(to) {
-            var i = d3.interpolate(oldrotation % 360, rotation);
-            return function(t) {
-                return "rotate(" + i(t) + ")";
-            };
-        }
+           
+            var amount = parseInt($('#amount').val());
+             var balance =  parseInt($("#user-balance").text());
 
+                console.log("balance", balance);
+                console.log("amount", amount);
+                if(balance!=0){
+                    if( amount != 0 && balance >= amount){
+                        var i = d3.interpolate(oldrotation % 360, rotation);
+                    return function(t) {
+                        return "rotate(" + i(t) + ")";
+                        };  
+                    }
+                    else if(amount == 0){
+                        $(".add-risk").modal("show");
+                    }
+                    else{
+                        swal("Your Risk Amount is greater then your avilable balance", "", "error");
+                        $(".add-risk").modal("show");
+                    }
+                   
+                }
+                else{
+                    swal("Enuogh Balance", "", "error");
+                }
+               
+        }
         function getRandomNumbers() {
             var array = new Uint16Array(1000);
             var scale = d3.scale.linear().range([360, 1440]).domain([0, 100000]);
             if (window.hasOwnProperty("crypto") && typeof window.crypto.getRandomValues === "function") {
                 window.crypto.getRandomValues(array);
-                console.log("works");
+                
             } else {
                 //no support for crypto, get crappy random numbers
                 for (var i = 0; i < 1000; i++) {
@@ -711,13 +693,10 @@ box-shadow: rgba(255,255,255, 0.75) 1.5em 0 0 0, rgba(255,255,255, 0.75) 1.1em 1
             $('#next').click(function() {
 
                 var amount = $('#amount').val();
-
+                
                 var charity = $('#charity').val();
                 if( amount != ''){
-
-
-
-
+                    $(".add-risk").modal("hide");
                 $.ajax({
                     type: "GET",
                     url: "{{url('/formSub')}}",
@@ -728,27 +707,21 @@ box-shadow: rgba(255,255,255, 0.75) 1.5em 0 0 0, rgba(255,255,255, 0.75) 1.1em 1
 
 
                     success: function(res) {
-
                        // alert(res.username);
                         if (res.error == 'Your amount is less then your donation amount') {
-
-                            $('.errorr').empty().append(" <div class='alert alert-danger'>" +
-                                res.error + " </div>");
+                            swal("Your Risk Amount is greater then your avilable balance", "", "error");
 
                         } else {
-
-
                             $('.errorr').empty();
                             $('.amount').empty().val(res.donateamount);
                             $('.char_id').empty().val(res.username);
                             $('.char_name1').empty().val(res.char_name);
                             $('.amount1').text(res.donateamount);
                             $('.char_name1').text(res.char_name);
+                            // $('.spinnn').css('display', 'block');
+                            // $('.spinnnD').css('display', 'none');
 
-
-
-                            $('.spinnn').css('display', 'block');
-                            $('.spinnnD').css('display', 'none');
+                          //  $('.form_sub').click();
                         }
 
 
@@ -785,6 +758,8 @@ box-shadow: rgba(255,255,255, 0.75) 1.5em 0 0 0, rgba(255,255,255, 0.75) 1.1em 1
   });
 });
     </script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
 </body>
 
 </html>

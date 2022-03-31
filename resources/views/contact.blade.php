@@ -23,13 +23,6 @@
 </head>
 <body>
 
-<nav aria-label="breadcrumb">
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="{{url('')}}">Home</a></li>
-    <li class="breadcrumb-item active" aria-current="page">Contact us</li>
-  </ol>
-</nav>
-
 <div class="contact-us">
     <div class="container py-5">
         <div class="row">

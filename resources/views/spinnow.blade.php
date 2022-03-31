@@ -12,9 +12,7 @@
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <!-- font-awesome -->
-    <script src="https://kit.fontawesome.com/9838783293.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="{{ asset('icofont/icofont.min.css') }}">
-
+    
     <!-- Google fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -302,7 +300,6 @@ box-shadow: rgba(255,255,255, 0.75) 1.5em 0 0 0, rgba(255,255,255, 0.75) 1.1em 1
             border-radius: 8px;
             background: rgb(0,0,0);
             background: linear-gradient(4deg, rgba(0,0,0,0.8995973389355743) 0%, rgba(0,133,155,1) 100%);
-
         }
         .login-section label{
             color: white;
@@ -358,17 +355,18 @@ box-shadow: rgba(255,255,255, 0.75) 1.5em 0 0 0, rgba(255,255,255, 0.75) 1.1em 1
   box-sizing: border-box;
   position: relative;
   /* width: 13em;  - apply for fixed size */
+  padding:6px;
   margin: 0.2em;
-  padding: 0 15px 0 46px;
   border: none;
-  text-align: left;
-  line-height: 34px;
   white-space: nowrap;
-  border-radius: 0.2em;
+  border-radius: 0.3em;
   font-size: 16px;
   color: #FFF;
 }
-.loginBtn:before {
+.loginBtn i{
+    font-size:24px;
+}
+/* .loginBtn:before {
   content: "";
   box-sizing: border-box;
   position: absolute;
@@ -376,7 +374,8 @@ box-shadow: rgba(255,255,255, 0.75) 1.5em 0 0 0, rgba(255,255,255, 0.75) 1.1em 1
   left: 0;
   width: 34px;
   height: 100%;
-}
+  border-radius: 0.3em 0px 0px 0.3em;
+} */
 .loginBtn:focus {
   outline: none;
 }
@@ -387,8 +386,7 @@ box-shadow: rgba(255,255,255, 0.75) 1.5em 0 0 0, rgba(255,255,255, 0.75) 1.1em 1
 
 /* Facebook */
 .loginBtn--facebook {
-  background-color: #4C69BA;
-  background-image: linear-gradient(#4C69BA, #3B55A0);
+  background-color: #3B5999;
   cursor: pointer;
 
   /*font-family: "Helvetica neue", Helvetica Neue, Helvetica, Arial, sans-serif;*/
@@ -396,7 +394,7 @@ box-shadow: rgba(255,255,255, 0.75) 1.5em 0 0 0, rgba(255,255,255, 0.75) 1.1em 1
 }
 .loginBtn--facebook:before {
   border-right: #364e92 1px solid;
-  background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/14082/icon_facebook.png') 6px 6px no-repeat;
+  background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/14082/icon_facebook.png') 5px 11px no-repeat, linear-gradient(to bottom, rgba(41, 62, 107, 1) 0%,rgba(41, 62, 107, 1) 100%);
 }
 .loginBtn--facebook:hover,
 .loginBtn--facebook:focus {
@@ -440,111 +438,21 @@ box-shadow: rgba(255,255,255, 0.75) 1.5em 0 0 0, rgba(255,255,255, 0.75) 1.1em 1
 
 <body>
 
-    <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="{{ url('home2') }}">Home</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Span</li>
-        </ol>
-    </nav>
-
     <div class="my-account py-4">
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <h2 class="text-center">Spinner</h2>
+                    <h2 class="text-center spin-head">Spin <span>Now</span> </h2>
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-3 col-0 d-none d-lg-block">
-                    <div class="user-sidebar">
-                        <ul class="">
-                            <a href="" class="text-white" data-toggle="modal" data-target="#exampleModal"
-                                style="text-decoration: none; color:white">
-                                <li class="active text-white">
-                                    <i class="icofont-spinner-alt-3 px-2"></i>Spin Now
-                                </li>
-                            </a>
-                      
-                          
-                            <a href="" style="text-decoration: none; ">
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="" role="button"  data-toggle="modal" data-target="#exampleModal">Settings</a>
-                                    <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="{{ url('user/user-account') }}">My account</a>
-                                    <a class="dropdown-item" href="{{ url('user/add/credit_info') }}">Card Info</a>    
-                                    <a class="dropdown-item" href="{{ url('user/add/credit') }}">Add Credit</a>
-                                    <a class="dropdown-item" href="{{ url('user/user-history') }}">Game History</a>
-                                    <a class="dropdown-item" href="{{ url('/logout') }}">Log Out</a>
-                                    </div>
-                                </li>
-                            </a>
-                        
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-12 col-lg-9">
+                <div class="col-12">
                     <div style="display: none" id="loading" class="">Loading&#8230;</div>
-
-                    <div class="our-balance mt-5 w-100 d-flex justify-content-between align-items-center">
-                        <span class="" onclick={showmenu()}><i
-                                class="icofont-navigation-menu d-block d-lg-none"></i></span>
-                        {{-- @if (isset($char_name)) --}}
-                        <div class="spinnn" style="display: none">
-
-
-
-                            <form action="{{ url('user/add/percent') }}" method="POST">
-                                @csrf
-
-                                <label for="">
-                                    <b> Name :</b>
-                                    <span class="char_name1"> </span>
-                                    &nbsp; &nbsp;&nbsp;
-
-                                    <b> Risk Amount
-                                        : <span class="amount1"> </span> </b>
-
-                                </label>
-                                <input type="hidden" value="" name="percent" class="appspin char_name">
-                                <input type="hidden" value="" class="char_id" name="charID">
-                                <input type="hidden" value="" class="amount" name="amount">
-
-
-
-                                <input type="submit" style="display: none" name="Sub" class="form_sub" id="">
-                            </form>
-                        </div>
-
-
-
-
-
-
-
-
-                        {{-- @endif --}}
-
-
-                        <p class="text-lg-right">Balance: <span class="mx-2">
-                                @if (isset(Auth::user()->coin))
-                                    ${{ Auth::user()->coin }}
-                                @else
-                                    $0
-                                @endif
-                            </span></p>
-                    </div>
-                    <div class="our-spins mt-3">
+                    <div class="our-spins">
                         <div class="row justify-content-center">
-
                             <div class="errorr">
-
                             </div>
-                           
-
                             <div class="col-10 spinnn" style="">
-                                <div>
-                                    <h3 class="text-center">Spinner</h3>
-                                </div>
                                 <a href=""  data-toggle="modal" data-target="#exampleModal">
                                     <div id="chart">
                                         <img src="{{ asset('/image/spinner-card.png') }}" class="spin-img"/>
@@ -611,12 +519,12 @@ box-shadow: rgba(255,255,255, 0.75) 1.5em 0 0 0, rgba(255,255,255, 0.75) 1.1em 1
             <div class="row mt-3">
                 <div class="col-md-6">
                     <a href="{{ url('auth/facebook') }}">  <button class="loginBtn loginBtn--facebook w-100">
-                Login with Facebook
+                    <i class="fa fa-facebook" aria-hidden="true"></i>
               </button></a>
             </div>
             <div class="col-md-6">
                 <a href="{{ url('auth/google') }}">  <button class="loginBtn loginBtn--google w-100">
-                Login with Google
+                <i class="fa fa-google" aria-hidden="true"></i>
               </button></a>
             </div>
             </div>

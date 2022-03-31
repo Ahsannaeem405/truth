@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/9838783293.js" crossorigin="anonymous"></script>
     <!-- Bootstrap CSS-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
@@ -76,17 +77,18 @@
   box-sizing: border-box;
   position: relative;
   /* width: 13em;  - apply for fixed size */
+  padding:6px;
   margin: 0.2em;
-  padding: 0 15px 0 46px;
   border: none;
-  text-align: left;
-  line-height: 34px;
   white-space: nowrap;
-  border-radius: 0.2em;
+  border-radius: 0.3em;
   font-size: 16px;
   color: #FFF;
 }
-.loginBtn:before {
+.loginBtn i{
+    font-size:24px;
+}
+/* .loginBtn:before {
   content: "";
   box-sizing: border-box;
   position: absolute;
@@ -94,7 +96,7 @@
   left: 0;
   width: 34px;
   height: 100%;
-}
+} */
 .loginBtn:focus {
   outline: none;
 }
@@ -194,12 +196,12 @@
             <div class="row mt-3">
                 <div class="col-md-6">
                     <a href="{{ url('auth/facebook') }}">  <button class="loginBtn loginBtn--facebook w-100">
-                Login with Facebook
+                    <i class="fa fa-facebook" aria-hidden="true"></i>
               </button></a>
             </div>
             <div class="col-md-6">
                 <a href="{{ url('auth/google') }}">  <button class="loginBtn loginBtn--google w-100">
-                Login with Google
+                <i class="fa fa-google" aria-hidden="true"></i>
               </button></a>
             </div>
             </div>

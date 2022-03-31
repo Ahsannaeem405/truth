@@ -51,7 +51,7 @@
 <!--End: Navbar-->
 
 <!-- BEGIN: Sidebar-->
-@include('layouts.sidebar')
+ @include('layouts.sidebar')
 <!-- END: Sidebar-->
 
 

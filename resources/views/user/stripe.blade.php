@@ -9,9 +9,7 @@ button.btn-circle{
     border-radius: 50%;
     width: 60px;
     height: 60px;
-
 }
-
 
 </style>
 <style>
@@ -35,6 +33,11 @@ button.btn-circle{
 
     height: 461px !important;
 }
+.add-credit{
+    box-shadow: 0px 10px 15px rgba(0,0,0,0.5);
+    padding: 10px;
+    border-radius: 8px;
+}
 </style>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
@@ -54,16 +57,6 @@ button.btn-circle{
 
     <title>Stripe page</title>
 
-
-    <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="{{ url('login-home') }}">Home</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Add Credit</li>
-        </ol>
-    </nav>
-
-
-
     <div class="my-account py-4">
         <div class="container">
             <div class="row">
@@ -71,34 +64,8 @@ button.btn-circle{
                     <h2 class="text-center">Stripe Payment</h2>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-3 d-none d-lg-block">
-                    <div class="user-sidebar" style="margin-top: 71px;">
-                        <ul class="">
-                            <a href="{{ url('user/spin') }}" class="text-white"
-                                style="text-decoration: none; color:white">
-                                <li>
-                                    <i class="icofont-spinner-alt-3 px-2"></i>Spin Now
-                                </li>
-                            </a>
-                             
-                            <a href="" style="text-decoration: none; ">
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Settings</a>
-                                    <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="{{ url('user/user-account') }}">My account</a>
-                                    <a class="dropdown-item" href="{{ url('user/add/credit_info') }}">Card Info</a>
-                                    <a class="dropdown-item" href="{{ url('user/add/credit') }}">Add Credit</a>
-                                    <a class="dropdown-item" href="{{ url('user/user-history') }}">Game History</a>
-                                    <a class="dropdown-item" href="{{ url('/logout') }}">Log Out</a>
-                                    </div>
-                                </li>
-                            </a>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="col-lg-9 col-12" style="margin-top: -36px;">
+            <div class="row justify-content-center">
+                <div class=" col-xl-8 col-lg-10 col-12" style="margin-top: -36px;">
                 <div class="our-balance mt-5 w-100 d-flex justify-content-end align-items-center">
                         <!-- <span class="" onclick="showmenu()"><i
                                 class="icofont-navigation-menu d-block d-lg-none"></i></span> -->
@@ -109,7 +76,7 @@ button.btn-circle{
                             </span></p>
                     </div>
                     <div class="our-spins mt-3">
-                        <div class="row">
+                        <div class="row add-credit">
                             <div class="col-12 col-md-offset-3">
                                 <div class="panel panel-default">
                                     <div class="panel-heading">
@@ -118,7 +85,6 @@ button.btn-circle{
                                         </div>
                                     </div>
                                     <div class="panel-body">
-
                                         @if (Session::has('success'))
                                             <div class="alert alert-success text-center">
                                                 <a href="#" class="close" data-dismiss="alert"
@@ -126,9 +92,6 @@ button.btn-circle{
                                                 <p>{{ Session::get('success') }}</p>
                                             </div>
                                         @endif
-
-
-
                                         <form role="form" action="{{ route('stripe.payment') }}" method="post"
                                             class="validation" data-cc-on-file="false"
                                             data-stripe-publishable-key="{{ env('STRIPE_KEY') }}" id="payment-form">
@@ -137,7 +100,10 @@ button.btn-circle{
                                             <div class='form-row '>
                                                 <div class='col-12 form-group  required'>
                                                     <label class='control-label'>Enter Amount</label>
-                                                    <input type="text" name="amount" value="" class='form-control amt' type='text'>
+                                                        <div class="input-risk">
+                                                        <input name="amount" value="" class='form-control amt' type='number'>
+                                                        <span>$</span>
+                                                </div>
                                                 </div>
                                             </div>
 

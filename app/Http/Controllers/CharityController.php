@@ -17,6 +17,19 @@ class CharityController extends Controller
 {
 
 
+    public function spinnow(Request $request)
+    {
+
+if(Auth::check())
+{
+return redirect('/user/spin');
+}
+else{
+    return view('spinnow');
+}
+       
+    }
+
     public function index(Request $request)
     {
 
@@ -68,6 +81,7 @@ class CharityController extends Controller
 
     public function add_percent(Request $request)
     {
+       // dd( $request->input());
       $history = new CharityHistory();
         $history->userID = Auth::user()->id;
         $history->percent = $request->percent * 10;
@@ -83,6 +97,7 @@ class CharityController extends Controller
         $per =   $request->percent * 10;
         $div =  $per / 100;
         $total_percent =   $div * $amount;
+       // dd($user);
         $user->coin +=  $total_percent;
         $user->save();
 

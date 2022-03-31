@@ -50,14 +50,6 @@
 </style>
 <body>
 
-    <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="{{ url('home2') }}">Home</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Markup History</li>
-        </ol>
-    </nav>
-
-
     <div class="my-account py-4">
         <div class="container">
             <div class="row">
@@ -74,34 +66,8 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-3 d-none d-lg-block">
-                    <div class="user-sidebar">
-
-                        <ul class="">
-                            <a href="{{ url('user/spin') }}" class="text-white"
-                                style="text-decoration: none; color:white">
-                                <li>
-                                    <i class="icofont-spinner-alt-3 px-2"></i>Spin Now
-                                </li>
-                            </a>
-                             
-                            <a href="" style="text-decoration: none; ">
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Settings</a>
-                                    <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="{{ url('user/user-account') }}">My account</a>
-                                    <a class="dropdown-item" href="{{ url('user/add/credit_info') }}">Card Info</a>
-                                    <a class="dropdown-item" href="{{ url('user/add/credit') }}">Add Credit</a>
-                                    <a class="dropdown-item" href="{{ url('user/user-history') }}">Game History</a>
-                                    <a class="dropdown-item" href="{{ url('/logout') }}">Log Out</a>
-                                    </div>
-                                </li>
-                            </a>
-                        </ul>
-
-                    </div>
-                </div>
-                <div class="col-12 col-lg-9">
+               
+                <div class="col-12">
                     <div class="our-balance mt-5 w-100 d-flex justify-content-between align-items-center">
 
                         <!-- <span class="" onclick={showmenu()}><i

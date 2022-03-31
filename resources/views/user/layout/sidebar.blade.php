@@ -2,7 +2,7 @@
  <ul class="">
 
     <li>
-        <a href="{{ url('user/spin') }}"><i class="icofont-spinner-alt-3 px-2"></i>Spin Now</a>
+        <a href="{{ url('user/spin') }}"><i class="icofont-spinner-alt-3 px-2"></i>Spin Nowd</a>
     </li>
     <li class="">
         <a href="{{ url('user/user-account') }}"><i class="icofont-ui-user px-2"></i>My account</a>
