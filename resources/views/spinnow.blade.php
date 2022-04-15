@@ -1,6 +1,6 @@
 @include('layouts.header')
 @extends('layouts.mobilesidebar')
-@extends('layouts.footer')
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -484,13 +484,13 @@ box-shadow: rgba(255,255,255, 0.75) 1.5em 0 0 0, rgba(255,255,255, 0.75) 1.1em 1
       <div class="">
         <div class="login-section p-4">
             <div class="brand-logo mx-auto py-4">
-                <h1  class="text-center">Logo</h1>
+                <h1  class="text-center text-white">Login</h1>
                 <!-- <img src="https://image.scoopwhoop.com/w360/s3.scoopwhoop.com/anj/logos/300977194.jpg.webp" alt="logo" class="img-fluid"/> -->
             </div>
 
             <form method="post" action="{{route('login')}}">
                 @csrf
-                <div class="form-group my-2">
+                <!-- <div class="form-group my-2">
                     <label for="exampleInputEmail1">Email address</label>
                     <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
 
@@ -510,12 +510,12 @@ box-shadow: rgba(255,255,255, 0.75) 1.5em 0 0 0, rgba(255,255,255, 0.75) 1.1em 1
                
                 <div class="text-center">
                     <button type="submit" class="btn btn-primary w-100 py-2 my-3">Login</button>
-                </div>
+                </div> -->
                
-            </form>
+            <!-- </form>
             <div class="content my-2">
                 <p class="or">or</p>
-              </div>
+              </div> -->
             <div class="row mt-3">
                 <div class="col-md-6">
                     <a href="{{ url('auth/facebook') }}">  <button class="loginBtn loginBtn--facebook w-100">

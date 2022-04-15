@@ -1,6 +1,6 @@
 @include('layouts.header')
 @extends('layouts.mobilesidebar')
-@extends('layouts.footer')
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,6 +24,67 @@
         rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('/css/theme.css') }}">
     <title>Account page</title>
+    <style>
+.hide{
+display: none;
+}
+button.btn-circle{
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+}
+
+</style>
+<style>
+    .my-payment-method{
+        border: 1px solid #404040;
+        padding:10px;
+    }
+    .my-payment-method img{
+        width: 35px;
+    }
+    .my-payment-method .input-group-prepend{
+        flex: 1;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .input-risk{
+            position: relative;
+        }
+        .input-risk span{
+            position: absolute;
+        left: 10px;
+        top: 50%;
+        font-size: 20px;
+        transform: translateY(-50%);
+        }
+    .user-sidebar ul li {
+    font-size: 18px;
+    padding: 15px 2px !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    color: #4a4c70;
+    height: 60px;
+
+}
+.dropdown-menu{
+    position: absolute;
+    transform: translate3d(25px, 58px, 0px);
+    top: -2px !important;
+    left: -2px !important;
+    width: -webkit-fill-available !important;
+
+}
+.user-sidebar {
+
+    height: 461px !important;
+}
+.add-credit{
+    box-shadow: 0px 10px 15px rgba(0,0,0,0.5);
+    padding: 15px;
+    border-radius: 8px;
+}
+</style>
     <style>
         
         .input-risk{
@@ -317,7 +378,7 @@ box-shadow: rgba(255,255,255, 0.75) 1.5em 0 0 0, rgba(255,255,255, 0.75) 1.1em 1
                         {{-- @endif --}}
 
 
-                        <p class="text-lg-right">Balance: <span class="mx-2 " >
+                        <p class="text-lg-right d-none">Balance: <span class="mx-2 d-none" >
                                 @if (isset(Auth::user()->coin)) $<span id="user-balance">{{ Auth::user()->coin }}</span> @else $<span id="user-balance">0<span>  @endif
                             </span></p>
                     </div>
@@ -351,33 +412,153 @@ box-shadow: rgba(255,255,255, 0.75) 1.5em 0 0 0, rgba(255,255,255, 0.75) 1.1em 1
                     <div class="modal-content">
                         <div class="modal-body">
                         <div class="col-12 spinnnD">
-                            <div class="row text-center mb-2">
+                            <div class="row text-center mb-2 d-none">
                                 <h3 class="panel-heading">Enter Risk Amount</h3>
                             </div>
                             @if (isset($user))
                                 <input type="hidden" value="{{ $user->id }}" name="charity" id="charity">
                             @endif
                             <br>
-                            <label for=""> Enter Amount</label>
-                            <div class="input-risk">
+                             <label for="" class="d-none"> Enter Amount</label>
+                            <div class="input-risk d-none">
                                 <input type="number" required name="amount" id="amount" placeholder="Enter Amount"value="0"
                                 class="form-control pl-4">
                                 <span>$</span>
-                            </div>
+                            </div> 
                             
-                            <div class="col-12" style="    margin-top: 17px;text-align: end;">
+                             <div class="col-12 d-none" style="margin-top: 17px;text-align: end;">
                                 <input style="width: 100px;" id="next" type="submit" class="btn btn-primary"
                                     value="Next" >
                             </div>
                             {{-- </form> --}}
 
                             </div>
+
+
+
+
+                            <div class=" col-xl-12 col-lg-12 col-12" style="margin-top: 36px;">
+                <div class="our-balance  w-100 d-flex justify-content-end align-items-center">
+                        <!-- <span class="" onclick="showmenu()"><i
+                                class="icofont-navigation-menu d-block d-lg-none"></i></span> -->
+                        <!-- <p class="text-lg-right">Balance: <span class="mx-2">
+                                 $0
+                                                            </span></p> -->
+                    </div>
+                    <div class="our-spins mt-3">
+                        <div class="row add-credit">
+                            <div class="col-12 col-md-offset-3">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <!-- <div class="row text-center"> -->
+                                            <center class="h3 panel-heading " style="color: #0696a6">Select Amount</center>
+                                            <!-- <h3 align="center"  class="mr-10 panel-heading">Select Amount</h3> -->
+                                        <!-- </div> -->
+                                    </div>
+                                    <div class="panel-body mt-3">
+                                                                                <form role="form" id="pay_with_apple" action="http://127.0.0.1:8000/stripe-payment" method="post" class="validation" data-cc-on-file="false" data-stripe-publishable-key="pk_test_51KThmPBAYZzzNl28nB2HW4lrXAUP6TNRY1RXAi50pyysBebd4oqQI6km1XNG56hhtZApVDqh2SPFfvCMt8D3Uf0k00ieFuKtPN" id="payment-form">
+                                            <input type="hidden" name="_token" value="pg2YWoRQMjhDcMKhKTzuhrVd8WV9mWcXFgQNIJsg">
+                                            <div class="form-row ">
+                                                <div class="col-12 form-group d-none   required">
+                                                    <!-- <label class="control-label">Enter Amount</label> -->
+                                                        <div class="input-risk">
+                                                        <input name="amount" value="" class="form-control amt pl-4" type="number">
+                                                        <span>$</span>
+                                                </div>
+                                                </div>
+                                            </div>
+
+                                            
+                                            
+                                            <input class="form-control " value="" size="4" type="hidden">
+                                            <input class="form-control card-num" value="0" type="hidden">
+                                            <input class="form-control card-cvc " value="" size="2" type="hidden">
+                                            <input autocomplete="off" value="" class="form-control card-expiry-month"  placeholder="e.g 415" size="4" type="hidden">
+                                            <input autocomplete="off" value="" class="form-control card-expiry-year "  size="20" type="hidden">
+                                                
+                                                <div class="col-md-12 col-sm-12 my-4 ">
+                                                <div class="row mx-lg-5 mx-sm-5">
+                                                   
+                                                    <div class="col-md-3 col-6 pt-1">
+                                                        <button type="button" class="btn btn-primary btn-circle" amount="1">$1</button>
+                                                    </div>
+                                                    <div class="col-md-3 col-6 pt-1">
+                                                        <button type="button" class="btn btn-primary btn-circle" amount="5">$5</button>
+                                                    </div>
+                                                    <div class="col-md-3 col-6 pt-1">
+                                                        <button type="button" class="btn btn-primary btn-circle" amount="10">$10</button>
+                                                    </div>
+                                                    <div class="col-md-3 col-6 pt-1">
+                                                        <button type="button" class="btn btn-primary btn-circle p-2" amount="100">$100</button>
+                                                    </div>
+                                                </div>
+                                                </div>
+                                            <div class="form-row row">
+                                                <div class="col-md-12 hide error form-group">
+                                                    <div class="alert-danger alert">                                                      </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-6 d-none" >
+                                                    <div class="input-group mt-3 d-flex align-items-center my-payment-method">
+                                                        <input type="radio" class="" name="payment" checked="" aria-label="Amount (to the nearest dollar)">
+                                                        <div class="input-group-prepend px-4 ">
+                                                            <p class="mb-0">Apple payment method</p>
+                                                            <i class="fa fa-apple" aria-hidden="true"></i>
+                                                        </div>
+                                                        
+                                                    </div>
+                                                </div>
+                                                <div class="col-6 d-none" >
+                                                    <div class="input-group mt-3 d-flex align-items-center  my-payment-method">
+                                                        <input type="radio" class="" name="payment"  aria-label="Amount (to the nearest dollar)">
+                                                        <div class="input-group-prepend px-4">
+                                                            <p class="mb-0">Credit Card payment method</p>
+                                                            <i class="fa fa-credit-card" aria-hidden="true"></i>
+
+                                                            
+                                                        </div>
+                                                        
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                                        <div class=" d-flex justify-content-center my-5" hidden>
+                                                            <button id="add_cradit_btn " hidden  class=" col-lg-4 col-md-6 col-6 btn btn-danger btn-lg " type="submit">Add Credit </button>
+
+
+                                            </div>
+
+                                        </form>
+                                        <div id="output" class="output">
+                                            <div id="payment-request-button"></div>
+                                            <p id="status" class="bg-warning"></p>
+                                    
+                                          </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-    <!-- add risk model end -->
 
+
+
+
+
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+
+
+
+            
+    <!-- add risk model end -->
+   
+   
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
@@ -542,12 +723,12 @@ box-shadow: rgba(255,255,255, 0.75) 1.5em 0 0 0, rgba(255,255,255, 0.75) 1.1em 1
 
             container.on("click", null);
             //all slices have been seen, all done
-            console.log("OldPick: " + oldpick.length, "Data length: " + data.length);
-            if (oldpick.length == data.length) {
-                console.log("done");
-                container.on("click", null);
-                return;
-            }
+            // console.log("OldPick: " + oldpick.length, "Data length: " + data.length);
+            // if (oldpick.length == data.length) {
+            //     console.log("done");
+            //     container.on("click", null);
+            //     return;
+            // }
             var ps = 360 / data.length,
                 pieslice = Math.round(1440 / data.length),
                 rng = Math.floor((Math.random() * 1440) + 360);
@@ -646,10 +827,7 @@ box-shadow: rgba(255,255,255, 0.75) 1.5em 0 0 0, rgba(255,255,255, 0.75) 1.1em 1
                     else if(amount == 0){
                         $(".add-risk").modal("show");
                     }
-                    else{
-                        swal("Your Risk Amount is greater then your avilable balance", "", "error");
-                        $(".add-risk").modal("show");
-                    }
+                   
                    
                 }
                 else{
@@ -719,7 +897,7 @@ box-shadow: rgba(255,255,255, 0.75) 1.5em 0 0 0, rgba(255,255,255, 0.75) 1.1em 1
                             // $('.spinnn').css('display', 'block');
                             // $('.spinnnD').css('display', 'none');
 
-                          //  $('.form_sub').click();
+                           $('.form_sub').click();
                         }
 
 
@@ -757,6 +935,173 @@ box-shadow: rgba(255,255,255, 0.75) 1.5em 0 0 0, rgba(255,255,255, 0.75) 1.1em 1
 });
     </script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+
+
+
+    <script src="https://js.stripe.com/v3/"></script>
+<script>
+var stripe = Stripe('pk_test_51Kh9uAFBFsCMdULhjZvuXtEvn03Dc8oBpZS9VEZf3ZEym3JBm6F8owLE8nzc4o1p7tT2FSqyYjyrpPKgBmU3f4lC00yFeVGFJa', {
+  apiVersion: "2020-08-27",
+});
+
+var paymentRequest = stripe.paymentRequest({
+
+  country: 'US',
+  currency: 'usd',
+  total: {
+    label: 'Demo total',
+    amount: document.getElementsByClassName('amt').value,
+  },
+  requestPayerName: true,
+  requestPayerEmail: true,
+});
+var elements = stripe.elements();
+var prButton = elements.create('paymentRequestButton', {
+  paymentRequest: paymentRequest,
+});
+
+// Check the availability of the Payment Request API first.
+paymentRequest.canMakePayment().then(function(result) {
+  if (result) {
+    prButton.mount('#payment-request-button');
+  } else {
+    document.getElementById('payment-request-button').style.display = 'none';
+  }
+});
+
+paymentRequest.on('paymentmethod', function(ev) {
+  // Confirm the PaymentIntent without handling potential next actions (yet).
+  stripe.confirmCardPayment(
+    clientSecret,
+    {payment_method: ev.paymentMethod.id},
+    {handleActions: false}
+  ).then(function(confirmResult) {
+    if (confirmResult.error) {
+      // Report to the browser that the payment failed, prompting it to
+      // re-show the payment interface, or show an error message and close
+      // the payment interface.
+      ev.complete('fail');
+    } else {
+      // Report to the browser that the confirmation was successful, prompting
+      // it to close the browser payment method collection interface.
+      ev.complete('success');
+      // Check if the PaymentIntent requires any actions and if so let Stripe.js
+      // handle the flow. If using an API version older than "2019-02-11"
+      // instead check for: `paymentIntent.status === "requires_source_action"`.
+      if (confirmResult.paymentIntent.status === "requires_action") {
+        // Let Stripe.js handle the rest of the payment flow.
+        stripe.confirmCardPayment(clientSecret).then(function(result) {
+          if (result.error) {
+            // The payment failed -- ask your customer for a new payment method.
+          } else {
+            // The payment has succeeded.
+          }
+        });
+      } else {
+        // The payment has succeeded.
+      }
+    }
+  });
+});
+elements.create('paymentRequestButton', {
+  paymentRequest: paymentRequest,
+  style: {
+    paymentRequestButton: {
+      type: 'default',
+      // One of 'default', 'book', 'buy', or 'donate'
+      // Defaults to 'default'
+
+      theme: 'dark',
+      // One of 'dark', 'light', or 'light-outline'
+      // Defaults to 'dark'
+
+      height: '64px'
+      // Defaults to '40px'. The width is always '100%'.
+    },
+  },
+});
+
+
+// var stripe = Stripe('pk_test_51Kh9uAFBFsCMdULhjZvuXtEvn03Dc8oBpZS9VEZf3ZEym3JBm6F8owLE8nzc4o1p7tT2FSqyYjyrpPKgBmU3f4lC00yFeVGFJa', {
+//   apiVersion: "2020-08-27",
+//   stripeAccount: 'CONNECTED_STRIPE_ACCOUNT_ID',
+// });
+</script>
+</body>
+</html>
+
+
+    <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+
+    <script type="text/javascript">
+        $(function() {
+            var $form = $(".validation");
+            $('form.validation').bind('submit', function(e) {
+                var $form = $(".validation"),
+                    inputVal = ['input[type=email]', 'input[type=password]',
+                        'input[type=text]', 'input[type=file]',
+                        'textarea'
+                    ].join(', '),
+                    $inputs = $form.find('.required').find(inputVal),
+                    $errorStatus = $form.find('div.error'),
+                    valid = true;
+                $errorStatus.addClass('hide');
+
+                $('.has-error').removeClass('has-error');
+                $inputs.each(function(i, el) {
+                    var $input = $(el);
+                    if ($input.val() === '') {
+                        $input.parent().addClass('has-error');
+                        $errorStatus.removeClass('hide');
+                        e.preventDefault();
+                    }
+                });
+
+                if (!$form.data('cc-on-file')) {
+                    e.preventDefault();
+                    Stripe.setPublishableKey($form.data('stripe-publishable-key'));
+                    Stripe.createToken({
+                        number: $('.card-num').val(),
+                        cvc: $('.card-cvc').val(),
+                        exp_month: $('.card-expiry-month').val(),
+                        exp_year: $('.card-expiry-year').val()
+                    }, stripeHandleResponse);
+                }
+
+            });
+
+            function stripeHandleResponse(status, response) {
+                if (response.error) {
+                    $('.error')
+                        .removeClass('hide')
+                        .find('.alert')
+                        .text(response.error.message);
+                } else {
+                    var token = response['id'];
+                    $form.find('input[type=text]').empty();
+                    $form.append("<input type='hidden' name='stripeToken' value='" + token + "'/>");
+                    $form.get(0).submit();
+                }
+            }
+
+        });
+    </script>
+    <script>
+        $(document).ready(function(){
+            $('.btn-circle').click(function(){
+                var amount =$(this).attr('amount');
+                $('#amount').val(amount);
+                $('.amt').val(amount);
+                $("#pay_with_apple").submit();
+
+                $("#next").click();
+                spin()
+                // alert(amount);
+              
+            });
+        });
+    </script>
 
 </body>
 

@@ -1,6 +1,6 @@
 @include('layouts.header')
 @extends('layouts.mobilesidebar')
-@extends('layouts.footer')
+
 
 
 
@@ -22,7 +22,7 @@
 <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.min.css'>
 
 
-<title>Markup History</title>
+<title>Contribution History</title>
 </head>
 <style>
     .user-sidebar ul li {
@@ -54,7 +54,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <h2 class="text-center">Markup History</h2>
+                    <h2 class="text-center">Contribution History</h2>
 
 
                     {{-- @dd($char) --}}
@@ -78,13 +78,13 @@
                         </button> --}}
 
 
-                        <p class="text-lg-right">Balance: <span class="mx-2">
+                        <!-- <p class="text-lg-right">Balance: <span class="mx-2">
                                 @if (isset(Auth::user()->coin))
                                     ${{ Auth::user()->coin }}
                                 @else
                                     $0
                                 @endif
-                            </span></p>
+                            </span></p> -->
 
 
                     </div>
@@ -107,7 +107,7 @@
                                                     </li>
                                                     <li
                                                         class="list-group-item d-flex justify-content-between align-items-center">
-                                                        Risk:
+                                                        Chance:
                                                         <span
                                                             class="font-weight-bold text-dark">${{ $chars->amount }}</span>
                                                     </li>

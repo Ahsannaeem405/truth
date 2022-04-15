@@ -1,6 +1,6 @@
 @include('layouts.header')
 @extends('layouts.mobilesidebar')
-@extends('layouts.footer')
+
 <style>
 .hide{
 display: none;
@@ -115,7 +115,7 @@ button.btn-circle{
                                                 <p>{{ Session::get('success') }}</p>
                                             </div>
                                         @endif
-                                        <form role="form" action="{{ route('stripe.payment') }}" method="post"
+                                        <form role="form" id="payment_by_apple" action="{{ route('stripe.payment') }}" method="post"
                                             class="validation" data-cc-on-file="false"
                                             data-stripe-publishable-key="{{ env('STRIPE_KEY') }}" id="payment-form">
                                             @csrf
@@ -144,16 +144,16 @@ button.btn-circle{
                                                 <div class="col-md-12 col-sm-12 my-4 ">
                                                 <div class="row mx-lg-5 mx-sm-5">
                                                     <div class="col-md-3 col-6 pt-1">
-                                                        <button type="button" class="btn btn-primary btn-circle" amount="1">$1</button>
+                                                        <button id="btn_one" type="button" class="btn btn-primary btn-circle" amount="1">$1</button>
                                                     </div>
                                                     <div class="col-md-3 col-6 pt-1">
-                                                        <button type="button" class="btn btn-primary btn-circle" amount="5">$5</button>
+                                                        <button id="btn2" type="button" class="btn btn-primary btn-circle" amount="5">$5</button>
                                                     </div>
                                                     <div class="col-md-3 col-6 pt-1">
-                                                        <button type="button" class="btn btn-primary btn-circle" amount="10">$10</button>
+                                                        <button id="btn3" type="button" class="btn btn-primary btn-circle" amount="10">$10</button>
                                                     </div>
                                                     <div class="col-md-3 col-6 pt-1">
-                                                        <button type="button" class="btn btn-primary btn-circle p-2" amount="100">$100</button>
+                                                        <button id="btn4" type="button" class="btn btn-primary btn-circle p-2" amount="100">$100</button>
                                                     </div>
                                                 </div>
                                                 </div>
@@ -240,6 +240,9 @@ button.btn-circle{
 
 <script src="https://js.stripe.com/v3/"></script>
 <script>
+
+
+
 var stripe = Stripe('pk_test_51Kh9uAFBFsCMdULhjZvuXtEvn03Dc8oBpZS9VEZf3ZEym3JBm6F8owLE8nzc4o1p7tT2FSqyYjyrpPKgBmU3f4lC00yFeVGFJa', {
   apiVersion: "2020-08-27",
 });
@@ -334,6 +337,12 @@ elements.create('paymentRequestButton', {
     <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
 
     <script type="text/javascript">
+
+
+   
+
+
+
         $(function() {
             var $form = $(".validation");
             $('form.validation').bind('submit', function(e) {
@@ -388,9 +397,11 @@ elements.create('paymentRequestButton', {
     </script>
     <script>
         $(document).ready(function(){
+            
             $('.btn-circle').click(function(){
                 var amount =$(this).attr('amount');
                 $('.amt').val(amount);
+                
               
             });
         });
