@@ -165,8 +165,8 @@
                 <!-- <img src="https://image.scoopwhoop.com/w360/s3.scoopwhoop.com/anj/logos/300977194.jpg.webp" alt="logo" class="img-fluid"/> -->
             </div>
 
-            <form method="post" action="{{route('login')}}">
-                @csrf
+            <!-- <form method="post" action="{{route('login')}}">
+                @csrf -->
                 <!-- <div class="form-group my-2">
                     <label for="exampleInputEmail1">Email address</label>
                     <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
