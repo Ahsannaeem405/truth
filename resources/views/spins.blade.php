@@ -558,7 +558,10 @@ box-shadow: rgba(255,255,255, 0.75) 1.5em 0 0 0, rgba(255,255,255, 0.75) 1.1em 1
             
     <!-- add risk model end -->
    
-   
+    <div id="payment-request-button">
+    <!-- A Stripe Element will be inserted here. -->
+  
+  </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
